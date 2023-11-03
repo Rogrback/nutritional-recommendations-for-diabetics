@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548420428191",
+    "project_id": "authnutritionaldiabetesapp",
+    "storage_bucket": "authnutritionaldiabetesapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548420428191:android:2a4f2f8eac26707b241daa",
+        "android_client_info": {
+          "package_name": "com.example.tesis_project_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSrsSonBelfsty8Piwlw6LqQSLj9EJnj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
