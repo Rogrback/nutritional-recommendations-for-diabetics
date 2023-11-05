@@ -99,13 +99,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(color: Colors.grey[700], fontSize: 18),
                 ),
                 const SizedBox(height: 25),
-                MyTextField(
+                TextFieldLogin(
                   controller: emailController,
                   hintText: 'Correo',
                   obscureText: false,
                 ),
                 const SizedBox(height: 10),
-                MyTextField(
+                TextFieldLogin(
                   controller: passwordController,
                   hintText: 'Contraseña',
                   obscureText: true,
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 25),
-                MyButton(
+                ButtonLogin(
                   text: 'Inicia sesión',
                   onTap: signUserIn,
                 ),
@@ -184,8 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     )
                   ],
-                )
-          
+                )          
               ],
             ),
           ),

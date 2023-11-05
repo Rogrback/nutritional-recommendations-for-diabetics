@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TextFieldLogin extends StatelessWidget {
+class TextFieldProfile extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
 
-  const TextFieldLogin({
+  const TextFieldProfile({
     super.key,
     required this.controller,
     required this.hintText,
@@ -14,9 +14,7 @@ class TextFieldLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: TextField(
+    return TextField(
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -31,7 +29,6 @@ class TextFieldLogin extends StatelessWidget {
           hintText: hintText,
           hintStyle: TextStyle(color: Colors.grey[500])
         ),
-      ),
     );
   }
 }

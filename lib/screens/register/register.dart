@@ -82,25 +82,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: TextStyle(color: Colors.grey[700], fontSize: 18),
                 ),
                 const SizedBox(height: 25),
-                MyTextField(
+                TextFieldLogin(
                   controller: emailController,
                   hintText: 'Correo',
                   obscureText: false,
                 ),
                 const SizedBox(height: 10),
-                MyTextField(
+                TextFieldLogin(
                   controller: passwordController,
                   hintText: 'Contraseña',
                   obscureText: true,
                 ),
                 const SizedBox(height: 10),
-                MyTextField(
+                TextFieldLogin(
                   controller: confirmPasswordController,
                   hintText: 'Confirmar Contraseña',
                   obscureText: true,
                 ),
                 const SizedBox(height: 10),
-                MyButton(
+                ButtonLogin(
                   text: 'Registrate',
                   onTap: signUserUp,
                 ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TextFieldLogin extends StatelessWidget {
+class TextFieldGlucose extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
 
-  const TextFieldLogin({
+  const TextFieldGlucose({
     super.key,
     required this.controller,
     required this.hintText,

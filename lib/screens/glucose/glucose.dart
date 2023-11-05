@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/login/mytextfield.dart';
+import 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
+import 'package:tesis_project_v1/widgets/glucose/textfieldGlucose.dart';
 
 class glucoseScreen extends StatefulWidget {
   const glucoseScreen({super.key});
@@ -9,6 +10,13 @@ class glucoseScreen extends StatefulWidget {
 }
 
 class _glucoseScreenState extends State<glucoseScreen> {
+
+  final dateController = TextEditingController();
+  final momentController = TextEditingController();
+  final glucoseController = TextEditingController();
+
+  void saveGlucose(){}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,20 +24,83 @@ class _glucoseScreenState extends State<glucoseScreen> {
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
         child: SafeArea(
-          child: Row(
-            children: [
-              Text(
-                'Fecha',
-                style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: 25,
+          child: Center(
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Fecha: ',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: TextFieldGlucose(
+                          controller: dateController,
+                          hintText: 'Fecha',
+                          obscureText: false,
+                        ),
+                      ),                  
+                    ],
+                  ),
                 ),
-              ),
-              // MyTextField(
-              //   controller: ,
-              //   hi
-              // ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Momento de medición: ',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: TextFieldGlucose(
+                          controller: momentController,
+                          hintText: 'Momento de medición',
+                          obscureText: false,
+                        ),
+                      ),                  
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Glucosa: ',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: TextFieldGlucose(
+                          controller: glucoseController,
+                          hintText: 'Glucosa',
+                          obscureText: false,
+                        ),
+                      ),                  
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ButtonGlucose(
+                  text: 'Guardar',
+                  onTap: saveGlucose
+                ),
+              ],              
+            ),
           ),
         ),
       ),
