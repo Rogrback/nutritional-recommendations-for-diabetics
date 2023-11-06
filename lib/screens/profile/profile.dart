@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/login/mytextfield.dart';
 import 'package:tesis_project_v1/widgets/profile/buttonProfile.dart';
+import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/textfieldProfile.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -97,7 +97,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: TextFieldProfile(
+                        child: DateTextFieldProfile(
                           controller: birthdateController,
                           hintText: 'Fecha de Nacimiento',
                           obscureText: false,

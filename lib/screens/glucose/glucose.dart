@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
+import 'package:tesis_project_v1/widgets/glucose/dateTextFieldGlucose.dart';
 import 'package:tesis_project_v1/widgets/glucose/textfieldGlucose.dart';
+import 'package:intl/intl.dart';
+import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
 
 class glucoseScreen extends StatefulWidget {
   const glucoseScreen({super.key});
@@ -16,6 +19,12 @@ class _glucoseScreenState extends State<glucoseScreen> {
   final glucoseController = TextEditingController();
 
   void saveGlucose(){}
+
+  @override
+  void initState() {
+    super.initState();
+    dateController.text = "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +50,12 @@ class _glucoseScreenState extends State<glucoseScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: TextFieldGlucose(
+                        child: DateTextFieldGlucose(
                           controller: dateController,
-                          hintText: 'Fecha',
-                          obscureText: false,
+                          hintText: 'Ingresa fecha',
+                          obscureText: false
                         ),
-                      ),                  
+                      ),                                 
                     ],
                   ),
                 ),

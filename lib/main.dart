@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
       title: 'Nutritional diabetes app',
       debugShowCheckedModeBanner: false,
       // ignore: prefer_const_constructors
-      // home:  ProfileScreen(),
+      home:  ProfileScreen(),
       // home:  AuthScreen(),
       // home: LoginScreen(),
-      home: glucoseScreen(),
+      // home: glucoseScreen(),
     );
   }
 }
