@@ -23,6 +23,7 @@ class _DateTextFieldProfileState extends State<DateTextFieldProfile> {
     return TextField(
         controller: widget.controller,
         obscureText: widget.obscureText,
+        readOnly: true,
         decoration: InputDecoration(
           icon: const Icon(Icons.calendar_today),
           enabledBorder: const OutlineInputBorder(

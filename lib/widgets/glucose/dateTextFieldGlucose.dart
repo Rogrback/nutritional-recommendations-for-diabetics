@@ -25,6 +25,7 @@ class _DateTextFieldGlucoseState extends State<DateTextFieldGlucose> {
       child: TextField(
         controller: widget.controller,
         obscureText: widget.obscureText,
+        readOnly: true,
         decoration: InputDecoration(
           icon: const Icon(Icons.calendar_today),
           enabledBorder: const OutlineInputBorder(
