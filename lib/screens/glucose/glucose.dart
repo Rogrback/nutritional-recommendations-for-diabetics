@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
 import 'package:tesis_project_v1/widgets/glucose/dateTextFieldGlucose.dart';
+import 'package:tesis_project_v1/widgets/glucose/dropDownGlucose.dart';
 import 'package:tesis_project_v1/widgets/glucose/textfieldGlucose.dart';
 import 'package:intl/intl.dart';
 import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
@@ -37,6 +38,13 @@ class _glucoseScreenState extends State<glucoseScreen> {
             child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Text(
+                  'G L U C O S A',
+                  style: TextStyle(
+                    fontSize: 36 
+                  ),
+                ),
+                const SizedBox(height: 16),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
@@ -59,11 +67,11 @@ class _glucoseScreenState extends State<glucoseScreen> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
-                      const Expanded(
+                       Expanded(
                         flex: 2,
                         child: Text(
                           'Momento de medición: ',
@@ -72,11 +80,12 @@ class _glucoseScreenState extends State<glucoseScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: TextFieldGlucose(
-                          controller: momentController,
-                          hintText: 'Momento de medición',
-                          obscureText: false,
-                        ),
+                        // child: TextFieldGlucose(
+                        //   controller: momentController,
+                        //   hintText: 'Momento de medición',
+                        //   obscureText: false,
+                        // ),
+                        child: DropDownGlucose(),
                       ),                  
                     ],
                   ),

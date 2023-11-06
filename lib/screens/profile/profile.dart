@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/profile/buttonProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
+import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/textfieldProfile.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -119,11 +120,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: TextFieldProfile(
-                          controller: typediabetesController,
-                          hintText: 'Tipo de Diabetes',
-                          obscureText: false,
-                        ),
+                        // child: TextFieldProfile(
+                        //   controller: typediabetesController,
+                        //   hintText: 'Tipo de Diabetes',
+                        //   obscureText: false,
+                        // ),
+                        child: const DropDownProfile(),
                       ),                  
                     ],
                   ),
@@ -193,12 +195,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),                  
                     ],
                   ),
-                ),   
+                ),     
                 const SizedBox(height: 40),      
                 ButtonProfile(
                   text: 'Guardar',
                   onTap: saveProfile,
-                ),                   
+                ),     
               ],
             ),
           ),

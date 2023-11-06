@@ -21,15 +21,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       // routerConfig: appRouter,
       title: 'Nutritional diabetes app',
       debugShowCheckedModeBanner: false,
       // ignore: prefer_const_constructors
-      // home:  ProfileScreen(),
+      home:  ProfileScreen(),
+      // home: glucoseScreen(),
       // home:  AuthScreen(),
       // home: LoginScreen(),
-      home: glucoseScreen(),
     );
   }
 }
