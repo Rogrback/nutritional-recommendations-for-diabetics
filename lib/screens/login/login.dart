@@ -33,16 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      // if (e.code == 'user-not-found') {
-      // showErrorMessage('usuario incorrecto');
-      //   print('--------------------------------usuario');
-      //   print(e);
-      // }
-      // else if (e.code == 'wrong-password') {
-      // showErrorMessage('contraseña incorrecto');
-      //   print('--------------------------------contraseña');
-      //   print(e);
-      // }
       if(e.code == 'INVALID_LOGIN_CREDENTIALS') {
         showDialog(
           context: context,

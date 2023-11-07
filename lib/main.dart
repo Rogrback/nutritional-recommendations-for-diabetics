@@ -25,10 +25,9 @@ class MyApp extends StatelessWidget {
       // routerConfig: appRouter,
       title: 'Nutritional diabetes app',
       debugShowCheckedModeBanner: false,
-      // ignore: prefer_const_constructors
-      home:  ProfileScreen(),
+      // home:  ProfileScreen(),
       // home: glucoseScreen(),
-      // home:  AuthScreen(),
+      home:  AuthScreen(),
       // home: LoginScreen(),
     );
   }

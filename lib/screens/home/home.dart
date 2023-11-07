@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tesis_project_v1/screens/screens.dart';
 import 'package:tesis_project_v1/widgets/login/square_tile.dart';
 
 
@@ -16,23 +17,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Perfil',
-      style: optionStyle,
-    ),
-    Text(
-      'Glucosa',
-      style: optionStyle,
-    ),
-    Text(
-      'Alimentos recomendados',
-      style: optionStyle,
-    ),
-    Text(
-      'Ejercicios recomendados',
-      style: optionStyle,
-    ),
+    ProfileScreen(),
+    MainGlucoseScreen(),
+    RecommendedFoodsScreen(),
+    recommendedExercisesScreen()
   ];
+
   final user = FirebaseAuth.instance.currentUser!;
 
   void signUserOut() {
@@ -64,13 +54,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
           child: Text('Menú Principal'),
         )
       ),
-      // appBar: AppBar(title: const Text('titulo')),
       
       body: Center(
-        // child: Text(
-        //   "LOGEADO COMO: ${user.email!}",
-        //   style: const TextStyle(fontSize: 25),
-        // ),
         child: _widgetOptions[_selectedIndex],
       ),
       drawer: NavigationDrawer(
@@ -132,34 +117,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             ),
           ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        // shape: const CircularNotchedRectangle(),
-        // child: Container(height: 50.0),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.water_drop),
-            label: 'Registro',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart),
-            label: 'Estadísticas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month),
-            label: 'Calendario',
-          ),
-        ],
-        // currentIndex: _selectedIndex,
-        // selectedItemColor: Colors.red[800],
-        // onTap: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        elevation: 2.2,
-        child: const Icon(Icons.add),
-      ),
-      // floatingActionButtonLocation: 
-      //   FloatingActionButtonLocation.centerDocked,
     );
   }
 }

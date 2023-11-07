@@ -3,17 +3,15 @@ import 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
 import 'package:tesis_project_v1/widgets/glucose/dateTextFieldGlucose.dart';
 import 'package:tesis_project_v1/widgets/glucose/dropDownGlucose.dart';
 import 'package:tesis_project_v1/widgets/glucose/textfieldGlucose.dart';
-import 'package:intl/intl.dart';
-import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
 
-class glucoseScreen extends StatefulWidget {
-  const glucoseScreen({super.key});
+class GlucoseScreen extends StatefulWidget {
+  const GlucoseScreen({super.key});
 
   @override
-  State<glucoseScreen> createState() => _glucoseScreenState();
+  State<GlucoseScreen> createState() => _GlucoseScreenState();
 }
 
-class _glucoseScreenState extends State<glucoseScreen> {
+class _GlucoseScreenState extends State<GlucoseScreen> {
 
   final dateController = TextEditingController();
   final momentController = TextEditingController();
@@ -80,11 +78,6 @@ class _glucoseScreenState extends State<glucoseScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: TextFieldGlucose(
-                        //   controller: momentController,
-                        //   hintText: 'Momento de medición',
-                        //   obscureText: false,
-                        // ),
                         child: DropDownGlucose(),
                       ),                  
                     ],

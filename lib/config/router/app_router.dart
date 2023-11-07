@@ -15,7 +15,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/glucose',
-      builder: (context, state) => glucoseScreen(),
+      builder: (context, state) => GlucoseScreen(),
     ),
     // GoRoute(
     //   path: '/login',
