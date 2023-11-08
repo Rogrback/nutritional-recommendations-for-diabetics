@@ -75,7 +75,9 @@ class _ButtonNumericProfileState extends State<ButtonNumericProfile> {
           const SizedBox(height: 10),
           TextField(
               // controller: controller,
+              readOnly: true,
               decoration: InputDecoration(
+                suffixText: 'mg/dL',
                 enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
                 ),
