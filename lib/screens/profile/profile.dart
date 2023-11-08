@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tesis_project_v1/widgets/profile/buttonNumericProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/buttonProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
@@ -107,11 +108,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         flex: 2,
                         child: Text(
                           'Tipo de Diabetes: ',
@@ -120,12 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: TextFieldProfile(
-                        //   controller: typediabetesController,
-                        //   hintText: 'Tipo de Diabetes',
-                        //   obscureText: false,
-                        // ),
-                        child: const DropDownProfile(),
+                        child: DropDownProfile(),
                       ),                  
                     ],
                   ),
@@ -143,10 +139,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: TextFieldProfile(
-                          controller: weightController,
-                          hintText: 'Peso',
-                          obscureText: false,
+                        // child: TextFieldProfile(
+                        //   controller: weightController,
+                        //   hintText: 'Peso',
+                        //   obscureText: false,
+                        // ),
+                        child: ButtonNumericProfile(
+                          // controller: numberController,
+                          // hintText: 'Numero',
                         ),
                       ),                  
                     ],
