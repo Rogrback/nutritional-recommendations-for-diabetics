@@ -12,7 +12,7 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: const SafeArea(
         child: Center(
           child: Text('Lista de Registros de Glucosa')
         ),

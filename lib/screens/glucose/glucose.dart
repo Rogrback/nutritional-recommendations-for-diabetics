@@ -100,6 +100,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                           controller: glucoseController,
                           hintText: 'Glucosa',
                           obscureText: false,
+                          keyboardType: TextInputType.number,
                         ),
                       ),                  
                     ],

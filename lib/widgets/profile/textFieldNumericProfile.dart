@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-class ButtonNumericProfile extends StatefulWidget {
+class TextFieldNumericProfile extends StatefulWidget {
 
   // final controller;
-  // final String hintText;
 
-  const ButtonNumericProfile({
+  const TextFieldNumericProfile({
     super.key,
     // required this.controller,
     // required this.hintText,
   });
 
   @override
-  State<ButtonNumericProfile> createState() => _ButtonNumericProfileState();
+  State<TextFieldNumericProfile> createState() => _TextFieldNumericProfileState();
 }
 
-class _ButtonNumericProfileState extends State<ButtonNumericProfile> {
+class _TextFieldNumericProfileState extends State<TextFieldNumericProfile> {
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +66,7 @@ class _ButtonNumericProfileState extends State<ButtonNumericProfile> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        // title: const Text('Title'),
         content: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,          
           children: [
           const SizedBox(height: 10),
@@ -86,7 +83,6 @@ class _ButtonNumericProfileState extends State<ButtonNumericProfile> {
                 ),
                 fillColor: Colors.grey.shade200,
                 filled: true,
-                // hintText: hintText,
                 hintStyle: TextStyle(color: Colors.grey[500])
               ),
           ), 

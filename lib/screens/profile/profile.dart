@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/profile/buttonNumericProfile.dart';
+// import 'package:tesis_project_v1/widgets/profile/textFieldNumericProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/buttonProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
-import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
+import 'package:tesis_project_v1/widgets/profile/ddropDownProfile.dart';
+// import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/textfieldProfile.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -21,6 +22,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final weightController = TextEditingController();
   final sizeController = TextEditingController();
   final imcController = TextEditingController();
+
+  final List types = ['Tipo 1', 'Tipo 2', 'Gestacional', 'No sabe'];
+  final String firsItem = '';
 
   void saveProfile() {
 
@@ -57,7 +61,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: nameController,
-                          hintText: 'Nombre',
                           obscureText: false,
                         ),
                       ),                  
@@ -79,7 +82,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: fullnameController,
-                          hintText: 'Apellido',
                           obscureText: false,
                         ),
                       ),                  
@@ -101,7 +103,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: DateTextFieldProfile(
                           controller: birthdateController,
-                          hintText: 'Fecha de Nacimiento',
                           obscureText: false,
                         ),
                       ),                  
@@ -121,7 +122,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: DropDownProfile(),
+                        child: DdropDownProfile(),
+                        // child: DropDownProfile(
+                        //   listItems: types,
+                        //   selectedValue: firsItem,
+                        //   text: const Text('Hola')
+                        // ),
                       ),                  
                     ],
                   ),
@@ -139,14 +145,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: TextFieldProfile(
-                        //   controller: weightController,
-                        //   hintText: 'Peso',
-                        //   obscureText: false,
-                        // ),
-                        child: ButtonNumericProfile(
-                          // controller: numberController,
-                          // hintText: 'Numero',
+                        // child: TextFieldNumericProfile(),
+                        child: TextFieldProfile(
+                          controller: sizeController,
+                          obscureText: false,
+                          suffixText: 'kg',
+                          keyboardType: TextInputType.number,
                         ),
                       ),                  
                     ],
@@ -165,10 +169,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
+                        // child: TextFieldNumericProfile(),
                         child: TextFieldProfile(
                           controller: sizeController,
-                          hintText: 'Talla',
                           obscureText: false,
+                          suffixText: 'cm',
+                          keyboardType: TextInputType.number,
                         ),
                       ),                  
                     ],
@@ -189,7 +195,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: imcController,
-                          hintText: 'Indice de Masa Corporal',
                           obscureText: false,
                         ),
                       ),                  

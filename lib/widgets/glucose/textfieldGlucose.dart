@@ -4,12 +4,14 @@ class TextFieldGlucose extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
+  final TextInputType? keyboardType;
 
   const TextFieldGlucose({
     super.key,
     required this.controller,
     required this.hintText,
     required this.obscureText,
+    this.keyboardType
   });
 
   @override
@@ -19,6 +21,7 @@ class TextFieldGlucose extends StatelessWidget {
       child: TextField(
         controller: controller,
         obscureText: obscureText,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
