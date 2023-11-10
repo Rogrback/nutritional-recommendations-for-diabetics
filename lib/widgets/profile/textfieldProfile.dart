@@ -12,7 +12,8 @@ class TextFieldProfile extends StatelessWidget {
     required this.controller,
     this.hintText,
     required this.obscureText,
-    this.suffix
+    this.suffix,
+    this.keyboardType
   });
 
   @override
@@ -22,6 +23,7 @@ class TextFieldProfile extends StatelessWidget {
         obscureText: obscureText,
         keyboardType: keyboardType,
         decoration: InputDecoration(
+          suffix: suffix,
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
