@@ -57,7 +57,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: nameController,
-                          hintText: 'Nombre',
                           obscureText: false,
                         ),
                       ),                  
@@ -79,7 +78,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: fullnameController,
-                          hintText: 'Apellido',
                           obscureText: false,
                         ),
                       ),                  
@@ -101,7 +99,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: DateTextFieldProfile(
                           controller: birthdateController,
-                          hintText: 'Fecha de Nacimiento',
                           obscureText: false,
                         ),
                       ),                  
@@ -126,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
-                Padding(
+                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
@@ -139,14 +136,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: TextFieldProfile(
-                        //   controller: weightController,
-                        //   hintText: 'Peso',
-                        //   obscureText: false,
-                        // ),
-                        child: ButtonNumericProfile(
-                          // controller: numberController,
-                          // hintText: 'Numero',
+                        // child: ButtonNumericProfile(),
+                        child: TextFieldProfile(
+                          controller: weightController,
+                          keyboardType: TextInputType.number,
+                          obscureText: false,
+                          suffix: const Text('kg')
                         ),
                       ),                  
                     ],
@@ -167,8 +162,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: sizeController,
-                          hintText: 'Talla',
+                          keyboardType: TextInputType.number,
                           obscureText: false,
+                          suffix: const Text('cm')
                         ),
                       ),                  
                     ],
@@ -189,7 +185,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         child: TextFieldProfile(
                           controller: imcController,
-                          hintText: 'Indice de Masa Corporal',
                           obscureText: false,
                         ),
                       ),                  

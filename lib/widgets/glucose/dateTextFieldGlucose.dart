@@ -3,13 +3,13 @@ import 'package:intl/intl.dart';
 
 class DateTextFieldGlucose extends StatefulWidget {
   final controller;
-  final String hintText;
+  final String? hintText;
   final bool obscureText;
 
   const DateTextFieldGlucose({
     super.key,
     required this.controller,
-    required this.hintText,
+    this.hintText,
     required this.obscureText,
   });
 

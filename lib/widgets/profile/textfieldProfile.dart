@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 class TextFieldProfile extends StatelessWidget {
   final controller;
-  final String hintText;
+  final String? hintText;
   final bool obscureText;
+  final TextInputType? keyboardType;
+  final Widget? suffix;
 
   const TextFieldProfile({
     super.key,
     required this.controller,
-    required this.hintText,
+    this.hintText,
     required this.obscureText,
+    this.keyboardType,
+    this.suffix
   });
 
   @override
@@ -17,7 +21,9 @@ class TextFieldProfile extends StatelessWidget {
     return TextField(
         controller: controller,
         obscureText: obscureText,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
+          suffix: suffix,
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),

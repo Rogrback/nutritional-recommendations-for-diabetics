@@ -58,7 +58,6 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                         flex: 3,
                         child: DateTextFieldGlucose(
                           controller: dateController,
-                          hintText: 'Ingresa fecha',
                           obscureText: false
                         ),
                       ),                                 
@@ -98,8 +97,9 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                         flex: 3,
                         child: TextFieldGlucose(
                           controller: glucoseController,
-                          hintText: 'Glucosa',
                           obscureText: false,
+                          keyboardType: TextInputType.number,
+                          suffix: const Text('mg/dL'),
                         ),
                       ),                  
                     ],
