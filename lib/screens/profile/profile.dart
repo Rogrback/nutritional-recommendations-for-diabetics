@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/profile/buttonNumericProfile.dart';
+// import 'package:tesis_project_v1/widgets/profile/textFieldNumericProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/buttonProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
-import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
+import 'package:tesis_project_v1/widgets/profile/ddropDownProfile.dart';
+// import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
 import 'package:tesis_project_v1/widgets/profile/textfieldProfile.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -21,6 +22,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final weightController = TextEditingController();
   final sizeController = TextEditingController();
   final imcController = TextEditingController();
+
+  final List types = ['Tipo 1', 'Tipo 2', 'Gestacional', 'No sabe'];
+  final String firsItem = '';
 
   void saveProfile() {
 
@@ -118,7 +122,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: DropDownProfile(),
+                        child: DdropDownProfile(),
+                        // child: DropDownProfile(
+                        //   listItems: types,
+                        //   selectedValue: firsItem,
+                        //   text: const Text('Hola')
+                        // ),
                       ),                  
                     ],
                   ),
@@ -136,12 +145,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: ButtonNumericProfile(),
-                        child: TextFieldProfile(
-                          controller: weightController,
-                          keyboardType: TextInputType.number,
-                          obscureText: false,
-                          suffix: const Text('kg')
+                        // child: TextFieldProfile(
+                        //   controller: weightController,
+                        //   hintText: 'Peso',
+                        //   obscureText: false,
+                        // ),
+                        child: ButtonNumericProfile(
+                          // controller: numberController,
+                          // hintText: 'Numero',
                         ),
                       ),                  
                     ],
@@ -160,11 +171,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
+                        // child: TextFieldNumericProfile(),
                         child: TextFieldProfile(
                           controller: sizeController,
-                          keyboardType: TextInputType.number,
+                          hintText: 'Talla',
                           obscureText: false,
-                          suffix: const Text('cm')
                         ),
                       ),                  
                     ],

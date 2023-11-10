@@ -12,8 +12,8 @@ class TextFieldGlucose extends StatelessWidget {
     required this.controller,
     this.hintText,
     required this.obscureText,
-    this.keyboardType,
-    this.suffix
+    this.suffix,
+    this.keyboardType
   });
 
   @override

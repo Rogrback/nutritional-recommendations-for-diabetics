@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class recommendedExercisesScreen extends StatefulWidget {
-  const recommendedExercisesScreen({super.key});
+class RecommendedExercisesScreen extends StatefulWidget {
+  const RecommendedExercisesScreen({super.key});
 
   @override
-  State<recommendedExercisesScreen> createState() => _recommendedExercisesScreenState();
+  State<RecommendedExercisesScreen> createState() => _RecommendedExercisesScreenState();
 }
 
-class _recommendedExercisesScreenState extends State<recommendedExercisesScreen> {
+class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

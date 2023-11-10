@@ -20,7 +20,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     ProfileScreen(),
     MainGlucoseScreen(),
     RecommendedFoodsScreen(),
-    recommendedExercisesScreen()
+    RecommendedExercisesScreen()
   ];
 
   final user = FirebaseAuth.instance.currentUser!;

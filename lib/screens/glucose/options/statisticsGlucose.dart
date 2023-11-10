@@ -10,7 +10,7 @@ class StatisticsGlucoseScreen extends StatefulWidget {
 class _StatisticsGlucoseScreenState extends State<StatisticsGlucoseScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Center(
           child: Text('Estadística de Registros de Glucosa')
