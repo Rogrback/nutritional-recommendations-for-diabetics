@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/config/router/app_router.dart';
-import 'package:tesis_project_v1/screens/glucose/glucose.dart';
 // import 'package:tesis_project_v1/config/theme/app_theme.dart';
 import 'package:tesis_project_v1/screens/login/auth.dart';
 // import 'package:tesis_project_v1/screens/login/login.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Nutritional diabetes app',
       debugShowCheckedModeBanner: false,
       // home:  ProfileScreen(),
-      // home: glucoseScreen(),
+      // home: GlucoseScreen(),
       home:  AuthScreen(),
       // home: LoginScreen(),
     );
