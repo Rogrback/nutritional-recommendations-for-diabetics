@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/glucose/listGlucose/Registers.dart';
-import 'package:tesis_project_v1/widgets/glucose/listGlucose/noRegisters.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class ListGlucoseScreen extends StatefulWidget {
   const ListGlucoseScreen({super.key});

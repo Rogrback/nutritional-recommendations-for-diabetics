@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:tesis_project_v1/widgets/profile/textFieldNumericProfile.dart';
-import 'package:tesis_project_v1/widgets/profile/buttonProfile.dart';
-import 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
-import 'package:tesis_project_v1/widgets/profile/ddropDownProfile.dart';
-// import 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
-import 'package:tesis_project_v1/widgets/profile/textfieldProfile.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

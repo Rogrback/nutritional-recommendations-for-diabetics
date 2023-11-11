@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/login/mybutton.dart';
-import 'package:tesis_project_v1/widgets/login/mytextfield.dart';
-import 'package:tesis_project_v1/widgets/login/square_tile.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class LoginScreen extends StatefulWidget {
   final void Function()? onTap;
@@ -149,9 +147,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: 'lib/images/facebook.png'),
+                    SquareTileLogin(imagePath: 'lib/images/facebook.png'),
                     SizedBox(width: 10),
-                    SquareTile(imagePath: 'lib/images/google.png'),
+                    SquareTileLogin(imagePath: 'lib/images/google.png'),
                   ]
                 ),
                 const SizedBox(height: 40),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SquareTile extends StatelessWidget {
+class SquareTileLogin extends StatelessWidget {
   
   final String imagePath;
 
-  const SquareTile({
+  const SquareTileLogin({
     super.key,
     required this.imagePath,
   });

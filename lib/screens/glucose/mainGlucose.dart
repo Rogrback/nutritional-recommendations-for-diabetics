@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/screens/screens.dart';
+import 'package:tesis_project_v1/screens/main.dart';
 
 
 class MainGlucoseScreen extends StatefulWidget {
@@ -53,12 +53,7 @@ class _MainGlucoseScreenState extends State<MainGlucoseScreen> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
-      ),  
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   elevation: 2.2,
-      //   child: const Icon(Icons.add),
-      // ),
+      ),
     );
   }
 }

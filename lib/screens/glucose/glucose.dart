@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
-import 'package:tesis_project_v1/widgets/glucose/dateTextFieldGlucose.dart';
-import 'package:tesis_project_v1/widgets/glucose/dropDownGlucose.dart';
-import 'package:tesis_project_v1/widgets/glucose/textfieldGlucose.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class GlucoseScreen extends StatefulWidget {
   const GlucoseScreen({super.key});

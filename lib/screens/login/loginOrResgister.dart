@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/screens/login/login.dart';
-import 'package:tesis_project_v1/screens/register/register.dart';
+import 'package:tesis_project_v1/screens/main.dart';
 
 class LoginOrRegister extends StatefulWidget {
   const LoginOrRegister({super.key});

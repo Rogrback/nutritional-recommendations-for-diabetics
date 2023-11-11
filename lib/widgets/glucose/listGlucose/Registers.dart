@@ -36,10 +36,10 @@ class Registers extends StatelessWidget {
     // print("XXXXXXXXXXXXXXXXXX $finaldate "); // true
 
     // Obtén la fecha y hora actual
-  DateTime now = DateTime.now();
+  // DateTime now = DateTime.now();
 
-  // Define la zona horaria de Perú (en este caso, 'America/Lima')
-  String timeZone = 'America/Lima';
+  // // Define la zona horaria de Perú (en este caso, 'America/Lima')
+  // String timeZone = 'America/Lima';
 
   // Convierte la fecha y hora actual a la zona horaria de Perú
   // ZonedDateTime peruDateTime = ZonedDateTime.fromMillisecondsSinceEpoch(

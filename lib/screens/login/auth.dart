@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/screens/home/home.dart';
-import 'package:tesis_project_v1/screens/login/loginOrResgister.dart';
+import 'package:tesis_project_v1/screens/main.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});

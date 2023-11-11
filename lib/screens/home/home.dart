@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/screens/screens.dart';
-import 'package:tesis_project_v1/widgets/login/square_tile.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 
 class MyHomeScreen extends StatefulWidget {
@@ -68,7 +67,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   width: 100,
                   height: 100,
                   margin: const EdgeInsets.only(top: 50, bottom: 20),
-                  child: const SquareTile(imagePath: 'lib/images/user.png'),
+                  child: const SquareTileLogin(imagePath: 'lib/images/user.png'),
                 ),
                 Center(
                   child: Container(
