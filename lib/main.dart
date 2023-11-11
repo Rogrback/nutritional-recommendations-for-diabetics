@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:tesis_project_v1/config/router/app_router.dart';
 // import 'package:tesis_project_v1/config/theme/app_theme.dart';
 import 'package:tesis_project_v1/screens/login/auth.dart';
@@ -12,7 +13,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  // runApp(const MyApp());
+
+  initializeDateFormatting('es_PE', null).then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

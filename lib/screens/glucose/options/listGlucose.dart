@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tesis_project_v1/widgets/glucose/listGlucose/Registers.dart';
+import 'package:tesis_project_v1/widgets/glucose/listGlucose/noRegisters.dart';
 
 class ListGlucoseScreen extends StatefulWidget {
   const ListGlucoseScreen({super.key});
@@ -14,7 +16,8 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
     return Scaffold(
       body: const SafeArea(
         child: Center(
-          child: Text('Lista de Registros de Glucosa')
+          // child: NoRegisters()
+          child: Registers(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
