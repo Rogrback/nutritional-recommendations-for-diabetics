@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
@@ -9,6 +10,26 @@ class ListGlucoseScreen extends StatefulWidget {
 }
 
 class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    getGlucoses();
+  }
+
+  void getGlucoses() async {
+    CollectionReference collectionReference =
+      FirebaseFirestore.instance.collection("glucose");
+
+    QuerySnapshot glucoses = await collectionReference.get();
+
+    if(glucoses.docs != 0) {
+      for(var doc in glucoses.docs) {
+        print(doc.data()); 
+      }
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
