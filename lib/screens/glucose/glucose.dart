@@ -25,6 +25,17 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.logout),
+          )
+        ],
+        title: const Center(
+          child: Text('Glucosa'),
+        )
+      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 40),

@@ -20,10 +20,28 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          //  this._extra(context);
+          //  const GlucoseScreen();
+           Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const GlucoseScreen(),
+            )
+           );
+        },
         elevation: 2.2,
         child: const Icon(Icons.add),
       ),
-    );
+    );    
   }
+
+  _extra(context){
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: Text("Titulo"),
+          content: Text("Content"),
+          ),
+        );
+    }
 }
