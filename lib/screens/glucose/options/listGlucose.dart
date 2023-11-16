@@ -11,15 +11,18 @@ class ListGlucoseScreen extends StatefulWidget {
 
 class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
 
+
+  final db = FirebaseFirestore.instance;
+
   @override
   void initState() {
     super.initState();
     getGlucoses();
-  }
+  }  
 
   void getGlucoses() async {
     CollectionReference collectionReference =
-      FirebaseFirestore.instance.collection("glucose");
+      db.collection("glucose");
 
     QuerySnapshot glucoses = await collectionReference.get();
 
@@ -28,9 +31,19 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
         print(doc.data()); 
       }
     }
-
   }
 
+  final newGlucose = <String, dynamic>{
+    "first": "Ada",
+    "last": "Lovelace",
+    "born": 1815
+  };
+  
+  void setGlucose() {
+    FirebaseFirestore.instance.collection("glucose").add(newGlucose).then((DocumentReference doc) =>
+      print('DocumentSnapshot added with ID: ${doc.id}'));
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,27 +55,16 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //  this._extra(context);
-          //  const GlucoseScreen();
            Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => const GlucoseScreen(),
             )
            );
+          //  setGlucose();
         },
         elevation: 2.2,
         child: const Icon(Icons.add),
       ),
     );    
   }
-
-  _extra(context){
-      showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-          title: Text("Titulo"),
-          content: Text("Content"),
-          ),
-        );
-    }
 }
