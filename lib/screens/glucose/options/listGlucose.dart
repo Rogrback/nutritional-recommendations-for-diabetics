@@ -17,7 +17,7 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
   @override
   void initState() {
     super.initState();
-    getGlucoses();
+    // getGlucoses();
   }  
 
   void getGlucoses() async {

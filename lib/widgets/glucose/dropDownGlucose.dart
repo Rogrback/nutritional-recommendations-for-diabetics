@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 
 class DropDownGlucose extends StatefulWidget {
-  const DropDownGlucose({super.key});
 
+  // String? selectedValue;
+  // final List<String> items;
+  // final Widget parent;
+
+  const DropDownGlucose({
+    super.key,
+    // required selectedValue,
+    // required this.items,
+  });
+  
   @override
   State<DropDownGlucose> createState() => _DropDownGlucoseState();
 }
 
 class _DropDownGlucoseState extends State<DropDownGlucose> {
 
-  final items= [
-    'Desayuno',
-    'Almuerzo',
-    'Cena',
+  String value = "Desayuno";
+  var items = [
+    "Desayuno",
+    "Almuerzo",
+    "Cena"
   ];
-  String? value;
 
   @override
   Widget build(BuildContext context) {
@@ -29,24 +38,23 @@ class _DropDownGlucoseState extends State<DropDownGlucose> {
             width: 2
           )
         ),
-        child: DropdownButtonHideUnderline(        
-          child: DropdownButton<String>(
-            value: value,
-            icon: const Icon(
-              Icons.arrow_drop_down,
-              color: Colors.black
-            ),
-            items: items.map(buildMenuItem).toList(),
-            onChanged: (String? newValue) {
-              setState(() {
-                value= value;
-              });
-            },  
+        child: DropdownButton<String>(
+          value: value,
+          icon: const Icon(
+            Icons.arrow_drop_down,
+            color: Colors.black
           ),
+          items: items.map(buildMenuItem).toList(),
+          onChanged: (String? newValue) {
+            setState(() {
+              // value= value;
+            });
+          },  
         ),
       ),
     );       
-  }   
+  }  
+
   DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
     value: item,
     child: Text(
@@ -54,4 +62,29 @@ class _DropDownGlucoseState extends State<DropDownGlucose> {
       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
     ),
   ); 
+
+  String dropdown = "Desayuno";
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return DropdownButton(
+  //     value: widget.selectedValue,
+  //     items: widget.items.map((String items) {
+  //       return DropdownMenuItem(
+  //         value: items,
+  //         child: Text(
+  //           items,
+  //           style: const TextStyle(
+  //             fontSize: 28,
+  //             fontWeight: FontWeight.bold
+  //           ),
+  //         ),
+  //       );
+  //     }).toList(), onChanged: (String? newValue) {
+  //       setState(() {
+  //         widget.selectedValue = newValue!;
+  //       });
+  //     },
+  //   );
+  // }
 }

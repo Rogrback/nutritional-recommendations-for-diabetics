@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
+
+  
 
 class GlucoseScreen extends StatefulWidget {
   const GlucoseScreen({super.key});
@@ -10,20 +13,74 @@ class GlucoseScreen extends StatefulWidget {
 
 class _GlucoseScreenState extends State<GlucoseScreen> {
 
-  final dateController = TextEditingController();
+  final _dateController = TextEditingController();
   final momentController = TextEditingController();
-  final glucoseController = TextEditingController();
+  final _glucoseController = TextEditingController();
+  final _db = FirebaseFirestore.instance;
+  //  String dropdownValue = list.first;
+   String dropdownValue = "Desayuno";
 
-  void saveGlucose(){}
+  List<String> list = <String>[
+    "Desayuno",
+    "Almuerzo",
+    "Cena"
+  ];
 
-  @override
-  void initState() {
-    super.initState();
-    dateController.text = "";
+
+
+  void saveGlucose(){
+    final newGlucose = <String, dynamic>{
+    "date": _dateController.text,
+    "medication_moment": dropdownValue,
+    // "glucose": int.tryParse(_glucoseController.text) ?? 0
+    "glucose": int.parse(_glucoseController.text)
+  };
+    _db.collection("glucose").add(newGlucose).then((DocumentReference doc) =>
+      print('DocumentSnaps added with ID: ${doc.id}'));
+    
+    print(_dateController.text);
+    print(dropdownValue);
+    print(_glucoseController.text);
+    _dateController.clear();
+    _glucoseController.clear();
+    setState(() {
+      dropdownValue;
+    });
+  }
+
+  saveList() {
+    String momentController = "Desayuno";
+
+    var medicationMoment = [
+      "Desayuno",
+      "Almuerzo",
+      "Cena"
+    ];
+    
+    return DropdownButton(
+      value: momentController,
+      items: medicationMoment.map((String medicationMoment) {
+        return DropdownMenuItem(
+          value: medicationMoment,
+          child: Text(
+            medicationMoment,
+            style: const TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        );
+      }).toList(), onChanged: (String? newValue) {
+        setState(() {
+          momentController = newValue!;
+        });
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -65,18 +122,18 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                       Expanded(
                         flex: 3,
                         child: DateTextFieldGlucose(
-                          controller: dateController,
+                          controller: _dateController,
                           obscureText: false
                         ),
                       ),                                 
                     ],
                   ),
                 ),
-                const Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                Padding(
+                  padding:  const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
-                       Expanded(
+                       const Expanded(
                         flex: 2,
                         child: Text(
                           'Momento de medición: ',
@@ -85,7 +142,28 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: DropDownGlucose(),
+                        // child: DropDownGlucose(),
+                        // child: saveList(),
+                        child: DropdownButton(
+                          value: dropdownValue,
+                          items: list.map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          // items: [
+                          //   DropdownMenuItem(value: 'Desayuno', child: Text('Desayuno')),
+                          //   DropdownMenuItem(value: 'Almuerzo', child: Text('Almuerzo')),
+                          //   DropdownMenuItem(value: 'Cena', child: Text('Cena')),
+                          // ],
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                              print(value);
+                            });
+                          },
+                        )
                       ),                  
                     ],
                   ),
@@ -104,7 +182,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                       Expanded(
                         flex: 3,
                         child: TextFieldGlucose(
-                          controller: glucoseController,
+                          controller: _glucoseController,
                           obscureText: false,
                           keyboardType: TextInputType.number,
                           suffix: const Text('mg/dL'),
