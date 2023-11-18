@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 
 class DropDownGlucose extends StatefulWidget {
 
-  // String? selectedValue;
-  // final List<String> items;
-  // final Widget parent;
+  final String dropdownValue;
+  final List<String> list;
+  final Function(String?)? onChanged = null;
 
   const DropDownGlucose({
     super.key,
-    // required selectedValue,
-    // required this.items,
+    required this.dropdownValue,
+    required this.list,
+    required onChanged
   });
   
   @override
@@ -17,7 +18,6 @@ class DropDownGlucose extends StatefulWidget {
 }
 
 class _DropDownGlucoseState extends State<DropDownGlucose> {
-
   String value = "Desayuno";
   var items = [
     "Desayuno",
@@ -38,30 +38,38 @@ class _DropDownGlucoseState extends State<DropDownGlucose> {
             width: 2
           )
         ),
-        child: DropdownButton<String>(
-          value: value,
-          icon: const Icon(
-            Icons.arrow_drop_down,
-            color: Colors.black
-          ),
-          items: items.map(buildMenuItem).toList(),
-          onChanged: (String? newValue) {
-            setState(() {
-              // value= value;
-            });
-          },  
-        ),
+        child: DropdownButton(
+          value: widget.dropdownValue,
+          items: widget.list.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          // items: [
+          //   DropdownMenuItem(value: 'Desayuno', child: Text('Desayuno')),
+          //   DropdownMenuItem(value: 'Almuerzo', child: Text('Almuerzo')),
+          //   DropdownMenuItem(value: 'Cena', child: Text('Cena')),
+          // ],
+          // onChanged: (String? value) {
+          //   setState(() {
+          //     widget.dropdownValue = value!;
+          //     print(value);
+          //   });
+          // },
+          onChanged: widget.onChanged,          
+        )
       ),
     );       
   }  
 
-  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
-    value: item,
-    child: Text(
-      item,
-      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-    ),
-  ); 
+  // DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+  //   value: item,
+  //   child: Text(
+  //     item,
+  //     style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+  //   ),
+  // ); 
 
   String dropdown = "Desayuno";
 
