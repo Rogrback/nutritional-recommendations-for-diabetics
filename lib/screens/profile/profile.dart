@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
@@ -10,19 +11,53 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
 
-  final nameController = TextEditingController();
-  final fullnameController = TextEditingController();
-  final birthdateController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _fullnameController = TextEditingController();
+  final _birthdateController = TextEditingController();
   final typediabetesController = TextEditingController();
-  final weightController = TextEditingController();
-  final sizeController = TextEditingController();
-  final imcController = TextEditingController();
+  final _weightController = TextEditingController();
+  final _sizeController = TextEditingController();
+  final _imcController = TextEditingController();
+  final _db = FirebaseFirestore.instance;
+  String dropdownValue = "Tipo 1";
 
-  final List types = ['Tipo 1', 'Tipo 2', 'Gestacional', 'No sabe'];
-  final String firsItem = '';
+  List<String> list = <String>[
+    "Tipo 1",
+    "Tipo 2",
+    "Gestacional"
+  ];
 
-  void saveProfile() {
-
+  void saveProfile(){
+    final newProfile = <String, dynamic>{
+      "name": _nameController.text,
+      "fullname": _fullnameController.text,
+      "birthdate": _birthdateController.text,
+      "typediabetes": dropdownValue,
+      "weight": int.parse(_weightController.text),
+      "size": int.parse(_sizeController.text),
+      "imc": int.parse(_imcController.text),
+    };
+    _db.collection("profile").add(newProfile).then((DocumentReference doc) =>
+      print('DocumentSnaps added with ID: ${doc.id}'));
+    
+    print(_nameController.text);
+    print(_fullnameController.text);
+    print(_birthdateController.text);
+    print(dropdownValue);
+    print(_weightController.text);
+    print(_sizeController.text);
+    print(_imcController.text);
+    // Clean form profile
+    _nameController.clear();
+    _fullnameController.clear();
+    _birthdateController.clear();
+    _weightController.clear();
+    _sizeController.clear();
+    _imcController.clear();
+    // Restart dropdown's first value
+    setState(() {
+      dropdownValue;
+    });
   }
 
   @override
@@ -55,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Expanded(
                         flex: 3,
                         child: TextFieldProfile(
-                          controller: nameController,
+                          controller: _nameController,
                           obscureText: false,
                         ),
                       ),                  
@@ -76,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Expanded(
                         flex: 3,
                         child: TextFieldProfile(
-                          controller: fullnameController,
+                          controller: _fullnameController,
                           obscureText: false,
                         ),
                       ),                  
@@ -97,18 +132,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Expanded(
                         flex: 3,
                         child: DateTextFieldProfile(
-                          controller: birthdateController,
+                          controller: _birthdateController,
                           obscureText: false,
                         ),
                       ),                  
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
-                      Expanded(
+                      const Expanded(
                         flex: 2,
                         child: Text(
                           'Tipo de Diabetes: ',
@@ -117,12 +152,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: DdropDownProfile(),
-                        // child: DropDownProfile(
-                        //   listItems: types,
-                        //   selectedValue: firsItem,
-                        //   text: const Text('Hola')
-                        // ),
+                        child: DropdownButton(
+                          value: dropdownValue,
+                          items: list.map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                            });
+                          },
+                        )  
                       ),                  
                     ],
                   ),
@@ -142,7 +185,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         // child: ButtonNumericProfile(),
                         child: TextFieldProfile(
-                          controller: weightController,
+                          controller: _weightController,
                           obscureText: false,
                           keyboardType: TextInputType.number,
                           suffix: const Text('kg'),
@@ -166,7 +209,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         flex: 3,
                         // child: TextFieldNumericProfile(),
                         child: TextFieldProfile(
-                          controller: sizeController,
+                          controller: _sizeController,
                           obscureText: false,
                           keyboardType: TextInputType.number,
                           suffix: const Text('cm'),
@@ -189,7 +232,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Expanded(
                         flex: 3,
                         child: TextFieldProfile(
-                          controller: imcController,
+                          controller: _imcController,
                           obscureText: false,
                         ),
                       ),                  

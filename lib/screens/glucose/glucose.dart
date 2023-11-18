@@ -17,8 +17,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   final momentController = TextEditingController();
   final _glucoseController = TextEditingController();
   final _db = FirebaseFirestore.instance;
-  //  String dropdownValue = list.first;
-   String dropdownValue = "Desayuno";
+  String dropdownValue = "Desayuno";
 
   List<String> list = <String>[
     "Desayuno",
@@ -26,61 +25,29 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
     "Cena"
   ];
 
-
-
   void saveGlucose(){
     final newGlucose = <String, dynamic>{
-    "date": _dateController.text,
-    "medication_moment": dropdownValue,
-    // "glucose": int.tryParse(_glucoseController.text) ?? 0
-    "glucose": int.parse(_glucoseController.text)
-  };
+      "date": _dateController.text,
+      "medication_moment": dropdownValue,
+      "glucose": int.parse(_glucoseController.text)
+    };
     _db.collection("glucose").add(newGlucose).then((DocumentReference doc) =>
       print('DocumentSnaps added with ID: ${doc.id}'));
     
     print(_dateController.text);
     print(dropdownValue);
     print(_glucoseController.text);
+    // Clean form glucose
     _dateController.clear();
     _glucoseController.clear();
+    // Restart dropdown's first value
     setState(() {
       dropdownValue;
     });
   }
 
-  saveList() {
-    String momentController = "Desayuno";
-
-    var medicationMoment = [
-      "Desayuno",
-      "Almuerzo",
-      "Cena"
-    ];
-    
-    return DropdownButton(
-      value: momentController,
-      items: medicationMoment.map((String medicationMoment) {
-        return DropdownMenuItem(
-          value: medicationMoment,
-          child: Text(
-            medicationMoment,
-            style: const TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold
-            ),
-          ),
-        );
-      }).toList(), onChanged: (String? newValue) {
-        setState(() {
-          momentController = newValue!;
-        });
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -142,8 +109,6 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: DropDownGlucose(),
-                        // child: saveList(),
                         child: DropdownButton(
                           value: dropdownValue,
                           items: list.map<DropdownMenuItem<String>>((String value) {
@@ -152,18 +117,13 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                               child: Text(value),
                             );
                           }).toList(),
-                          // items: [
-                          //   DropdownMenuItem(value: 'Desayuno', child: Text('Desayuno')),
-                          //   DropdownMenuItem(value: 'Almuerzo', child: Text('Almuerzo')),
-                          //   DropdownMenuItem(value: 'Cena', child: Text('Cena')),
-                          // ],
                           onChanged: (String? value) {
                             setState(() {
                               dropdownValue = value!;
                               print(value);
                             });
                           },
-                        )
+                        ),
                       ),                  
                     ],
                   ),
