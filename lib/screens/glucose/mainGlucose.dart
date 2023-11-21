@@ -15,7 +15,8 @@ class _MainGlucoseScreenState extends State<MainGlucoseScreen> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     ListGlucoseScreen(),
-    StatisticsGlucoseScreen(),
+    // StatisticsGlucoseScreen(),
+    LineChartSample2(),
     CalendarGlucoseScreen()
   ];
 

@@ -1,5 +1,6 @@
 
 
+export 'package:tesis_project_v1/screens/glucose/options/fl_chartt.dart';
 export 'package:tesis_project_v1/screens/login/loginOrResgister.dart';
 export 'package:tesis_project_v1/widgets/profile/buttonNumericProfile.dart';
 export 'package:tesis_project_v1/screens/glucose/options/calendarGlucose.dart';
