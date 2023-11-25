@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
@@ -13,6 +14,7 @@ class GlucoseScreen extends StatefulWidget {
 
 class _GlucoseScreenState extends State<GlucoseScreen> {
 
+  final user = FirebaseAuth.instance.currentUser!.email;
   final _dateController = TextEditingController();
   final momentController = TextEditingController();
   final _glucoseController = TextEditingController();
@@ -28,12 +30,14 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   void saveGlucose(){
     final newGlucose = <String, dynamic>{
       "date": _dateController.text,
+       
       "medication_moment": dropdownValue,
       "glucose": int.parse(_glucoseController.text)
     };
-    _db.collection("glucose").add(newGlucose).then((DocumentReference doc) =>
-      print('DocumentSnaps added with ID: ${doc.id}'));
     
+    _db.collection("profile").doc(user).collection("glucose").add(newGlucose).then((documentSnapshot) =>
+    print("Added Data with ID: ${documentSnapshot.id}"));
+
     print(_dateController.text);
     print(dropdownValue);
     print(_glucoseController.text);

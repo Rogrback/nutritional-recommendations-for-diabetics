@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
@@ -10,7 +11,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
+  
+  final user = FirebaseAuth.instance.currentUser!.email;
   final _nameController = TextEditingController();
   final _fullnameController = TextEditingController();
   final _birthdateController = TextEditingController();
@@ -37,9 +39,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       "size": int.parse(_sizeController.text),
       "imc": int.parse(_imcController.text),
     };
-    _db.collection("profile").add(newProfile).then((DocumentReference doc) =>
-      print('DocumentSnaps added with ID: ${doc.id}'));
-    
+    // _db.doc("profile/$user").add(newProfile).then((DocumentReference doc) =>
+    // print('DocumentSnaps added with ID: ${doc.id}'));
+    _db.collection("profile").doc(user).set(newProfile).onError((e, _) => print("Error writing document: $e"));
+
     print(_nameController.text);
     print(_fullnameController.text);
     print(_birthdateController.text);

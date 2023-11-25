@@ -11,7 +11,6 @@ class ListGlucoseScreen extends StatefulWidget {
 
 class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
 
-
   final db = FirebaseFirestore.instance;
 
   @override
@@ -50,7 +49,8 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
       body: const SafeArea(
         child: Center(
           // child: NoRegisters()
-          child: Registers(),
+          // child: Registers(),
+          child: dataGlucose(),
         ),
       ),
       floatingActionButton: FloatingActionButton(

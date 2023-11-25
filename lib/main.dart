@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timezone/data/latest.dart' as tz;
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:tesis_project_v1/config/router/app_router.dart';
 // import 'package:tesis_project_v1/config/theme/app_theme.dart';
@@ -9,19 +10,20 @@ import 'package:tesis_project_v1/screens/main.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  tz.initializeTimeZones();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // runApp(const MyApp());
+  runApp(const MyApp());
 
-  initializeDateFormatting('es_PE', null).then((_) {
-    runApp(MyApp());
-  });
+  // initializeDateFormatting('es_PE', null).then((_) {
+  //   runApp(MyApp());
+  // });
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); 
 
   @override
   Widget build(BuildContext context) {
