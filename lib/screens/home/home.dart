@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
+import 'package:tesis_project_v1/screens/main.dart';
 
 
 class MyHomeScreen extends StatefulWidget {

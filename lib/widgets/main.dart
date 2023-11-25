@@ -1,5 +1,4 @@
 export 'package:tesis_project_v1/widgets/glucose/listGlucose/dataGlucose.dart';
-export 'package:tesis_project_v1/screens/main.dart';
 export 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
 export 'package:tesis_project_v1/widgets/glucose/dateTextFieldGlucose.dart';
 export 'package:tesis_project_v1/widgets/glucose/dropDownGlucose.dart';

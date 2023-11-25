@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tesis_project_v1/widgets/glucose/listGlucose/dataGlucose.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class CalendarGlucoseScreen extends StatefulWidget {
   const CalendarGlucoseScreen({super.key});
@@ -84,13 +84,12 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
       });
     }
 
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column( 
           children: [
             Row(
               children: [
-                // icon: const Icon(Icons.navigate_before),
                 IconButton(                  
                   icon: const Icon(Icons.navigate_before),
                   onPressed: () {
@@ -101,7 +100,7 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
                   child: Text(
                     monthName(month) + ' de $year',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18)                  
+                    style: const TextStyle(fontSize: 18)                  
                     )
                 ),
                 IconButton(                  
@@ -112,8 +111,9 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
                 ),
               ],
             ),
-            Text('sas'),
-            // const DataGlucose()
+            const Expanded(
+              child: DataGlucose()
+            )
           ],          
         ),
       ),
