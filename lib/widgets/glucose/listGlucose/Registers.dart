@@ -66,6 +66,15 @@ class Registers extends StatelessWidget {
       // location: getLocation(timeZone),
     // );
 
+ // Obtén la ubicación de Lima
+    var limaLocation = tz.getLocation('America/Lima');
+
+    // Obtén la fecha y hora actual en Lima
+    var nowInLima = tz.TZDateTime.now(limaLocation);
+
+    // Formatea la fecha y hora como desees
+    final formattedDate = DateFormat("dd-MM-yy").format(nowInLima);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ListTile(
@@ -74,23 +83,19 @@ class Registers extends StatelessWidget {
             const Text(
               'Nivel de Glucosa (mg/dL)',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 23)
+              style: TextStyle(fontSize: 23),
             ),
             Text(
               '$glucose',
-              style: const TextStyle(
-                // color: Colors.white,
-                // backgroundColor: Colors.tealAccent,
-                fontSize: 23
-              )
-            )
+              style: const TextStyle(fontSize: 23),
+            ),
           ],
         ),
         subtitle: Column(
           children: [
             Text('Momento de medición: $medicationMoment'),
-            Text('Fecha: $date'),
-          ]
+            Text('Fecha: $formattedDate'), // Usando la fecha formateada
+          ],
         ),
       ),
     );
