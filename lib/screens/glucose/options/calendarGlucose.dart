@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tesis_project_v1/widgets/glucose/listGlucose/dataGlucose.dart';
 
 class CalendarGlucoseScreen extends StatefulWidget {
   const CalendarGlucoseScreen({super.key});
@@ -10,40 +11,10 @@ class CalendarGlucoseScreen extends StatefulWidget {
 
 class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
 
-  int contador = 0;
-
-  void incrementarContador() {
-    setState(() {
-      contador++;
-    });
-  }
-  void decrementarContador() {
-    setState(() {
-      contador--;
-    });
-  }
-
   DateTime today = DateTime.now();
   // final year = DateTime.now().year;
   var month = DateTime.now().month;
-
-  // void showPreviousMonth() {
-  //     // var hoa = month.toInt();
-  //     setState(() {
-  //       month--;
-  //       // monthName(month);
-  //     });
-  //     print(month);
-  //   }
-
-  // void showNextMonth() {
-  //   // var hoa = month.toInt();
-  //   setState(() {
-  //     month++;
-  //     // monthName(month);
-  //   });
-  //   print(month);
-  // }
+  var year = DateTime.now().year;
 
   String monthName(int numberMonth) {
     switch (numberMonth) {
@@ -92,26 +63,30 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
     // final month = Datefor.   
 
     void showPreviousMonth() {
-      // var hoa = month.toInt();
       setState(() {
-        month--;
-        // monthName(month);
+        if(month <= 1) {
+          month=12;
+          year--;
+        }else {
+          month--;
+        }
       });
-      print(month);
     }
 
     void showNextMonth() {
-      // var hoa = month.toInt();
       setState(() {
-        month++;
-        // monthName(month);
+        if(month >= 12) {
+          month=1;
+          year++;
+        }else {
+          month++;
+        }
       });
-      print(month);
     }
 
     return  Scaffold(
       body: SafeArea(
-        child: Column(
+        child: Column( 
           children: [
             Row(
               children: [
@@ -124,15 +99,9 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
                 ),
                 Expanded(
                   child: Text(
-                    // month.toString(),
-                    monthName(month),
-                    // '$month',
-
-                    // '$contador',
-                    // contador.toString(),
-                    // todayperu,
+                    monthName(month) + ' de $year',
                     textAlign: TextAlign.center,
-                    
+                    style: TextStyle(fontSize: 18)                  
                     )
                 ),
                 IconButton(                  
@@ -142,8 +111,10 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
                   },
                 ),
               ],
-            )
-          ],
+            ),
+            Text('sas'),
+            // const DataGlucose()
+          ],          
         ),
       ),
     );

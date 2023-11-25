@@ -48,9 +48,7 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
     return Scaffold(
       body: const SafeArea(
         child: Center(
-          // child: NoRegisters()
-          // child: Registers(),
-          child: dataGlucose(),
+          child: DataGlucose(),
         ),
       ),
       floatingActionButton: FloatingActionButton(

@@ -50,14 +50,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
-class dataGlucose extends StatefulWidget {
-  const dataGlucose({super.key});
+class DataGlucose extends StatefulWidget {
+  const DataGlucose({super.key});
 
   @override
-  State<dataGlucose> createState() => _dataGlucoseState();
+  State<DataGlucose> createState() => _DataGlucoseState();
 }
 
-class _dataGlucoseState extends State<dataGlucose> {
+class _DataGlucoseState extends State<DataGlucose> {
 
   final db = FirebaseFirestore.instance;
   final user = FirebaseAuth.instance.currentUser!.email;
@@ -67,7 +67,6 @@ class _dataGlucoseState extends State<dataGlucose> {
   void initState() {
     super.initState();
     glucoseCollection = db.collection("profile").doc(user).collection("glucose");
-
   }
 
   @override
