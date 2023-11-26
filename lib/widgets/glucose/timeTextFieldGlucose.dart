@@ -38,8 +38,6 @@ class _TimeTextFieldGlucoseState extends State<TimeTextFieldGlucose> {
     );
     if(picketTime != null){
       final DateTime nowUtc = DateTime.now().toUtc();
-      int hour = picketTime.hour;        
-      int minute = picketTime.minute;     
       var limaLocation = tz.getLocation('America/Lima');
       final DateTime nowLima = tz.TZDateTime.from(nowUtc, limaLocation);
       String formattedDate= DateFormat("hh:mm a").format(nowLima);

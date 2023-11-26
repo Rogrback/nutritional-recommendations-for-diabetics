@@ -100,8 +100,8 @@ class Registers extends StatelessWidget {
         subtitle: Column(
           children: [
             Text('Momento de medición: $medicationMoment'),
-            Text('Fecha: $date'),
-            Text('Hora: $time'),
+            Text('Fecha: $date $time'),
+            // Text('Hora: $time'),
           ]
         ),
       ),

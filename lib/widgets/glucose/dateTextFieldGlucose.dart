@@ -53,7 +53,7 @@ class _DateTextFieldGlucoseState extends State<DateTextFieldGlucose> {
             lastDate: DateTime(2101),
           );
           if(pickedDate != null){
-            final DateTime nowUtc = DateTime.now().toUtc(); 
+            final DateTime nowUtc = pickedDate.toUtc(); 
             var limaLocation = tz.getLocation('America/Lima');
             final DateTime nowLima = tz.TZDateTime.from(nowUtc, limaLocation);
             String formattedDate= DateFormat("dd-MM-yy").format(nowLima);
