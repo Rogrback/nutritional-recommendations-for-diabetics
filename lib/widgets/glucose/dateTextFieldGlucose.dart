@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 class DateTextFieldGlucose extends StatefulWidget {
   final controller;
@@ -20,6 +21,11 @@ class DateTextFieldGlucose extends StatefulWidget {
 class _DateTextFieldGlucoseState extends State<DateTextFieldGlucose> {
   @override
   Widget build(BuildContext context) {
+
+    final timeZoneLima = tz.getLocation('America/Lima');
+    final DateTime nowUtc = DateTime.now().toUtc();
+    final DateTime nowInLima = tz.TZDateTime.from(nowUtc, timeZoneLima);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextField(
@@ -42,12 +48,15 @@ class _DateTextFieldGlucoseState extends State<DateTextFieldGlucose> {
         onTap: () async{
           DateTime? pickedDate = await showDatePicker(
             context: context,
-            initialDate: DateTime.now(),
+            initialDate: nowInLima,
             firstDate: DateTime(1950),
             lastDate: DateTime(2101),
           );
           if(pickedDate != null){
-            String formattedDate= DateFormat.yMd().format(pickedDate);
+            final DateTime nowUtc = DateTime.now().toUtc(); 
+            var limaLocation = tz.getLocation('America/Lima');
+            final DateTime nowLima = tz.TZDateTime.from(nowUtc, limaLocation);
+            String formattedDate= DateFormat("dd-MM-yy").format(nowLima);
             setState(() {
               widget.controller.text= formattedDate.toString();
             });

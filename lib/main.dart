@@ -10,8 +10,8 @@ import 'package:tesis_project_v1/screens/main.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  tz.initializeTimeZones();
   WidgetsFlutterBinding.ensureInitialized();
+  tz.initializeTimeZones();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

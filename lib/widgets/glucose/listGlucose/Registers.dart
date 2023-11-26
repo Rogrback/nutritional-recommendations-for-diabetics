@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-// import 'package:timezone/browser.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+
 class Registers extends StatelessWidget {
 
   final int glucose;
   final String medicationMoment;
   final String date;
+  final String time;
 
 
   const Registers({
     super.key,
     required this.glucose,
     required this.medicationMoment,
-    required this.date
+    required this.date,
+    required this.time
     });
 
   @override
@@ -21,9 +24,9 @@ class Registers extends StatelessWidget {
     final today = DateTime.now();
     final name = DateTime.now().timeZoneName;
     final offset = DateTime.now().timeZoneOffset;
-    print('today: $today');
-    print('timezonename: $name');
-    print('timezoneoffset: $offset');
+    // print('today: $today');
+    // print('timezonename: $name');
+    // print('timezoneoffset: $offset');
     // final year = DateTime.now().year;
     // final month = DateTime.now().month;
     // final day = DateTime.now().day;
@@ -55,7 +58,7 @@ class Registers extends StatelessWidget {
     // print("XXXXXXXXXXXXXXXXXX $finaldate "); // true
 
     // Obtén la fecha y hora actual
-  // DateTime now = DateTime.now();
+  DateTime now2 = DateTime.now();
 
   // // Define la zona horaria de Perú (en este caso, 'America/Lima')
     // String timeZone = 'America/Lima';
@@ -65,6 +68,16 @@ class Registers extends StatelessWidget {
       // now.millisecondsSinceEpoch,
       // location: getLocation(timeZone),
     // );
+
+    // Obtén la ubicación de Lima
+    var limaLocation = tz.getLocation('America/Lima');
+
+    // Obtén la fecha y hora actual en Lima
+    var nowInLima = tz.TZDateTime.now(limaLocation);
+
+    // Formatea la fecha y hora como desees
+    final formattedDate = DateFormat("dd-MM-yy").format(nowInLima);
+    // print('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ  $nowInLima');
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -79,8 +92,6 @@ class Registers extends StatelessWidget {
             Text(
               '$glucose',
               style: const TextStyle(
-                // color: Colors.white,
-                // backgroundColor: Colors.tealAccent,
                 fontSize: 23
               )
             )
@@ -90,6 +101,7 @@ class Registers extends StatelessWidget {
           children: [
             Text('Momento de medición: $medicationMoment'),
             Text('Fecha: $date'),
+            Text('Hora: $time'),
           ]
         ),
       ),

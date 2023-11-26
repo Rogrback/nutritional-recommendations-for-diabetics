@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
+import 'package:timezone/timezone.dart' as tz;
 
   
 
@@ -16,6 +18,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
 
   final user = FirebaseAuth.instance.currentUser!.email;
   final _dateController = TextEditingController();
+  final _timeController = TextEditingController();
   final momentController = TextEditingController();
   final _glucoseController = TextEditingController();
   final _db = FirebaseFirestore.instance;
@@ -30,7 +33,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   void saveGlucose(){
     final newGlucose = <String, dynamic>{
       "date": _dateController.text,
-       
+      "time": _timeController.text,
       "medication_moment": dropdownValue,
       "glucose": int.parse(_glucoseController.text)
     };
@@ -39,10 +42,12 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
     print("Added Data with ID: ${documentSnapshot.id}"));
 
     print(_dateController.text);
+    print(_timeController.text);
     print(dropdownValue);
     print(_glucoseController.text);
     // Clean form glucose
     _dateController.clear();
+    _timeController.clear();
     _glucoseController.clear();
     // Restart dropdown's first value
     setState(() {
@@ -52,6 +57,12 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    var limaLocation = tz.getLocation('America/Lima');
+    var nowInLima = tz.TZDateTime.now(limaLocation);
+    final formattedDate = DateFormat("dd-MM-yy hh:mm a").format(nowInLima);
+    print('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ  $formattedDate');
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -94,6 +105,27 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                         flex: 3,
                         child: DateTextFieldGlucose(
                           controller: _dateController,
+                          obscureText: false
+                        ),
+                      ),                                 
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Hora: ',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: TimeTextFieldGlucose(
+                          controller: _timeController,
                           obscureText: false
                         ),
                       ),                                 

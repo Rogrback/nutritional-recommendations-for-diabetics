@@ -1,3 +1,4 @@
+export 'package:tesis_project_v1/widgets/glucose/timeTextFieldGlucose.dart';
 export 'package:tesis_project_v1/widgets/glucose/listGlucose/dataGlucose.dart';
 export 'package:tesis_project_v1/widgets/glucose/buttonGlucose.dart';
 export 'package:tesis_project_v1/widgets/glucose/dateTextFieldGlucose.dart';
@@ -13,5 +14,3 @@ export 'package:tesis_project_v1/widgets/profile/dateTextFieldProfile.dart';
 export 'package:tesis_project_v1/widgets/profile/ddropDownProfile.dart';
 export 'package:tesis_project_v1/widgets/profile/dropDownProfile.dart';
 export 'package:tesis_project_v1/widgets/profile/textfieldProfile.dart';
-
-
