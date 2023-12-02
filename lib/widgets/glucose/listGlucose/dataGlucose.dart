@@ -17,7 +17,7 @@ class _DataGlucoseState extends State<DataGlucose> {
   late final CollectionReference<Map<String, dynamic>> glucoseCollection;
   
   @override
-  void initState() {
+  void initState() { 
     super.initState();
     glucoseCollection = db.collection("profile").doc(user).collection("glucose");
   }
