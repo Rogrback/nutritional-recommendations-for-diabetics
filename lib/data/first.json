@@ -1,0 +1,67 @@
+{
+    "__collections__": {
+      "usuarios": {
+        "comodin152@gmail.com": {
+          "nombre": "Juan",
+          "apellido": "Pérez",
+          "edad": 25,
+          "tipo_diabetes": "Tipo 1"
+        },
+        "otrocomodin@gmail.com": {
+          "nombre": "María",
+          "apellido": "López",
+          "edad": 35,
+          "tipo_diabetes": "Tipo 2"
+        },
+        "comodin123@hotmail.com": {
+          "nombre": "Carlos",
+          "apellido": "García",
+          "edad": 40,
+          "tipo_diabetes": "Tipo 2"
+        },
+        "ejemplo@gmail.com": {
+          "nombre": "Ana",
+          "apellido": "Martínez",
+          "edad": 28,
+          "tipo_diabetes": "Tipo 1"
+        },
+        "usuarioprueba@gmail.com": {
+          "nombre": "Pedro",
+          "apellido": "Rodríguez",
+          "edad": 32,
+          "tipo_diabetes": "Tipo 2"
+        },
+        "prueba1@gmail.com": {
+          "nombre": "Laura",
+          "apellido": "Gómez",
+          "edad": 30,
+          "tipo_diabetes": "Tipo 1"
+        },
+        "prueba2@gmail.com": {
+          "nombre": "Roberto",
+          "apellido": "Hernández",
+          "edad": 45,
+          "tipo_diabetes": "Tipo 2"
+        },
+        "prueba3@gmail.com": {
+          "nombre": "Silvia",
+          "apellido": "Díaz",
+          "edad": 33,
+          "tipo_diabetes": "Tipo 1"
+        },
+        "prueba4@gmail.com": {
+          "nombre": "Miguel",
+          "apellido": "Luna",
+          "edad": 38,
+          "tipo_diabetes": "Tipo 2"
+        },
+        "prueba5@gmail.com": {
+          "nombre": "Carmen",
+          "apellido": "Sánchez",
+          "edad": 31,
+          "tipo_diabetes": "Tipo 1"
+        }
+      }
+    }
+  }
+  

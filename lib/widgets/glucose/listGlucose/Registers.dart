@@ -101,7 +101,6 @@ class Registers extends StatelessWidget {
           children: [
             Text('Momento de medición: $medicationMoment'),
             Text('Fecha: $date $time'),
-            // Text('Hora: $time'),
           ]
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:intl/date_symbol_data_local.dart';
-import 'package:tesis_project_v1/config/router/app_router.dart';
+// import 'package:intl/date_symbol_data_local.dart';
+// import 'package:tesis_project_v1/config/router/app_router.dart';
 // import 'package:tesis_project_v1/config/theme/app_theme.dart';
 import 'package:tesis_project_v1/screens/login/auth.dart';
 // import 'package:tesis_project_v1/screens/login/login.dart';

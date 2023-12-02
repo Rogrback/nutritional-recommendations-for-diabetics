@@ -1,0 +1,25 @@
+{
+    "__collections__": {
+      "usuarios": {
+        "comodin152@gmail.com": {
+          "nombre": "Juan",
+          "apellido": "Pérez",
+          "edad": 25,
+          "tipo_diabetes": "Tipo 1"
+        },
+        "otrocomodin@gmail.com": {
+          "nombre": "María",
+          "apellido": "López",
+          "edad": 35,
+          "tipo_diabetes": "Tipo 2"
+        },
+        "comodin123@hotmail.com": {
+          "nombre": "Carlos",
+          "apellido": "García",
+          "edad": 40,
+          "tipo_diabetes": "Tipo 2"
+        }
+      }
+    }
+  }
+  

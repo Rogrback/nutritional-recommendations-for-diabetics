@@ -11,6 +11,12 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   saveProfile();
+  // }
   
   final user = FirebaseAuth.instance.currentUser!.email;
   final _nameController = TextEditingController();
@@ -28,40 +34,88 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "Tipo 2",
     "Gestacional"
   ];
+  
+//   @override
+//   void initState() {
+//     super.initState();
+//     user;
+//     _loadUserProfile();
+//   }
 
-  void saveProfile(){
-    final newProfile = <String, dynamic>{
-      "name": _nameController.text,
-      "fullname": _fullnameController.text,
-      "birthdate": _birthdateController.text,
-      "typediabetes": dropdownValue,
-      "weight": int.parse(_weightController.text),
-      "size": int.parse(_sizeController.text),
-      "imc": int.parse(_imcController.text),
+//   Future<void> _loadUserProfile() async {
+//     try {
+//       final profileRef = _db.collection("profile").doc(user);
+//       final profileSnapshot = await profileRef.get();
+
+//       if (profileSnapshot.exists) {
+//         final userProfile = profileSnapshot.data() as Map<String, dynamic>?;
+
+//       if (userProfile != null) {
+//         setState(() {
+//           _userProfile = userProfile;
+    
+//           // Actualizar los controladores con los datos del perfil
+//           _nameController.text = _userProfile['name'] ?? '';
+//           _fullnameController.text = _userProfile['fullname'] ?? '';
+//           _birthdateController.text = _userProfile['birthdate'] ?? '';
+//           _weightController.text = _userProfile['weight']?.toString() ?? '';
+//           _sizeController.text = _userProfile['size']?.toString() ?? '';
+//           _imcController.text = _userProfile['imc']?.toString() ?? '';
+//         });
+//       }
+//     }
+//  else {
+//         print("El perfil no existe en Firestore.");
+//       }
+//     } catch (e) {
+//       print("Error al cargar el perfil: $e");
+//     }
+//   }
+
+  void saveProfile() async {
+  try {
+    final newProfile = {
+      if (_nameController.text.isNotEmpty) "name": _nameController.text,
+      if (_fullnameController.text.isNotEmpty) "fullname": _fullnameController.text,
+      if (_birthdateController.text.isNotEmpty) "birthdate": _birthdateController.text,
+      if (dropdownValue.isNotEmpty) "typediabetes": dropdownValue,
+      if (_weightController.text.isNotEmpty) "weight": int.parse(_weightController.text),
+      if (_sizeController.text.isNotEmpty) "size": int.parse(_sizeController.text),
+      if (_imcController.text.isNotEmpty) "imc": int.parse(_imcController.text),
     };
-    // _db.doc("profile/$user").add(newProfile).then((DocumentReference doc) =>
-    // print('DocumentSnaps added with ID: ${doc.id}'));
-    _db.collection("profile").doc(user).set(newProfile).onError((e, _) => print("Error writing document: $e"));
 
-    print(_nameController.text);
-    print(_fullnameController.text);
-    print(_birthdateController.text);
-    print(dropdownValue);
-    print(_weightController.text);
-    print(_sizeController.text);
-    print(_imcController.text);
-    // Clean form profile
-    _nameController.clear();
-    _fullnameController.clear();
-    _birthdateController.clear();
-    _weightController.clear();
-    _sizeController.clear();
-    _imcController.clear();
-    // Restart dropdown's first value
-    setState(() {
-      dropdownValue;
-    });
+    final profileRef = _db.collection("profile").doc(user);
+
+    // Obtener el perfil existente
+    final profileSnapshot = await profileRef.get();
+
+    if (profileSnapshot.exists) {
+      // Perfil existente, verificar campos cambiados
+      final Map<String, dynamic> existingProfile = profileSnapshot.data() as Map<String, dynamic>;
+
+      final Map<String, dynamic> updatedFields = {};
+
+      newProfile.forEach((key, value) {
+        if (existingProfile.containsKey(key) && existingProfile[key] != value) {
+          // El campo ha cambiado, incluirlo en la actualización
+          updatedFields[key] = value;
+        }
+      });
+
+      if (updatedFields.isNotEmpty) {
+        // Actualizar solo los campos que han cambiado
+        profileRef.update(updatedFields).then((_) => print("Perfil actualizado con éxito"));
+      } else {
+        print("No hay cambios para actualizar.");
+      }
+    } else {
+      // Crear un nuevo perfil
+      profileRef.set(newProfile).then((_) => print("Perfil creado con éxito"));
+    }
+  } catch (e) {
+    print("Error al procesar los datos: $e");
   }
+}
 
   @override
   Widget build(BuildContext context) {
