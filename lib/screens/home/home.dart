@@ -50,17 +50,15 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             icon: const Icon(Icons.logout),
           )
         ],
-        title: const Center(
-          child: Text('Menú Principal'),
-        )
+        // title: const Center(
+        //   child: Text('Menú Principal'),
+        // )
       ),
       
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
       drawer: NavigationDrawer(
-          // backgroundColor: Colors.black,
-          // padding: EdgeInsets.zero,
           children: [            
             Column(                           
               children:[
