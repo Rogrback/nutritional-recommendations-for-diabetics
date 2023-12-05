@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:http_parser/http_parser.dart' as http;
 import 'package:tesis_project_v1/config/constants.dart';
 import 'package:tesis_project_v1/infrastructure/models/foods.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class RecommendedFoodsScreen extends StatefulWidget {
   const RecommendedFoodsScreen({super.key});
@@ -28,17 +28,6 @@ class _RecommendedFoodsScreenState extends State<RecommendedFoodsScreen> {
 
 Future<void> fetchData() async {
     try {
-      // final response = await dio.get(
-      //   apiConfig.apiUrl,
-      //   queryParameters: {'name': apiConfig.queryName, 'lang': apiConfig.queryLang},
-      //   options: Options(
-      //     headers: {
-      //       apiConfig.apiHost: apiConfig.host,
-      //       apiConfig.apiKey: apiConfig.apiKey,
-      //     },
-      //   ),
-      // );
-
       final response = await dio.get(
         apiConfig.apiUrl,
         queryParameters: {'name': apiConfig.queryName, 'lang': apiConfig.queryLang},
@@ -73,44 +62,12 @@ Future<void> fetchData() async {
               itemBuilder: (context, index) {
                 final currentDish = dishes[index];                
 
-                return Card(
-                  elevation: 4,
-                  margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: ListTile(
-                  title: Text(
-                    currentDish.name.toUpperCase(),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.black87,
-                    ),
-                    ),
-                  onTap: () {},
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          'Calorías: ${currentDish.caloric}',
-                          style: const TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                        Text(
-                          'Grasa: ${currentDish.fat}',
-                          style: const TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                        Text(
-                          'Carbohidratos: ${currentDish.carbon}',
-                          style: const TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                        Text(
-                          'Proteínas: ${currentDish.protein}',
-                          style: const TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                    ],
-                  ),
-                  ),
+                return ListCard(
+                  title: currentDish.name,
+                  caloric: currentDish.caloric,
+                  fat: currentDish.fat,
+                  carbon: currentDish.carbon,
+                  protein: currentDish.protein
                 );
               },
             );
