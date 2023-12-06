@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/widgets/glucose/recommendedFoods/subtitleTextCard.dart';
-import 'package:tesis_project_v1/widgets/glucose/recommendedFoods/titleTextCard.dart';
+import 'package:tesis_project_v1/widgets/main.dart';
 
 class ListCard extends StatelessWidget {
 
@@ -33,10 +32,10 @@ class ListCard extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-              SubtitleTextCards(propertyEs: "Calorías", propertyEn: caloric, unit: "kcal."),
-              SubtitleTextCards(propertyEs: "Grasas", propertyEn: fat, unit: "gr."),
-              SubtitleTextCards(propertyEs: "Carbohidratos", propertyEn: carbon, unit: "gr."),
-              SubtitleTextCards(propertyEs: "Proteínas", propertyEn: protein, unit: "gr.")
+            SubtitleTextCards(propertyEs: "Calorías", propertyEn: caloric, unit: "kcal."),
+            SubtitleTextCards(propertyEs: "Grasas", propertyEn: fat, unit: "gr."),
+            SubtitleTextCards(propertyEs: "Carbohidratos", propertyEn: carbon, unit: "gr."),
+            SubtitleTextCards(propertyEs: "Proteínas", propertyEn: protein, unit: "gr.")
           ],
         ),
       ),

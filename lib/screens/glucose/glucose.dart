@@ -1,11 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:tesis_project_v1/widgets/main.dart';
-import 'package:timezone/timezone.dart' as tz;
-
-  
+import 'package:tesis_project_v1/widgets/main.dart';  
 
 class GlucoseScreen extends StatefulWidget {
   const GlucoseScreen({super.key});
@@ -57,14 +53,9 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-    var limaLocation = tz.getLocation('America/Lima');
-    var nowInLima = tz.TZDateTime.now(limaLocation);
-    final formattedDate = DateFormat("dd-MM-yy hh:mm a").format(nowInLima);
-    print('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ  $formattedDate');
-
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 37, 170, 113),
         actions: [
           IconButton(
             onPressed: () {},

@@ -21,7 +21,7 @@ class ButtonGlucose extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         margin: const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-          color: Colors.blueAccent,
+          color: const Color.fromARGB(255, 37, 196, 71),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Center(

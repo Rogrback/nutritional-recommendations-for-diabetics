@@ -11,12 +11,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   saveProfile();
-  // }
   
   final user = FirebaseAuth.instance.currentUser!.email;
   final _nameController = TextEditingController();
@@ -34,43 +28,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "Tipo 2",
     "Gestacional"
   ];
-  
-//   @override
-//   void initState() {
-//     super.initState();
-//     user;
-//     _loadUserProfile();
-//   }
-
-//   Future<void> _loadUserProfile() async {
-//     try {
-//       final profileRef = _db.collection("profile").doc(user);
-//       final profileSnapshot = await profileRef.get();
-
-//       if (profileSnapshot.exists) {
-//         final userProfile = profileSnapshot.data() as Map<String, dynamic>?;
-
-//       if (userProfile != null) {
-//         setState(() {
-//           _userProfile = userProfile;
-    
-//           // Actualizar los controladores con los datos del perfil
-//           _nameController.text = _userProfile['name'] ?? '';
-//           _fullnameController.text = _userProfile['fullname'] ?? '';
-//           _birthdateController.text = _userProfile['birthdate'] ?? '';
-//           _weightController.text = _userProfile['weight']?.toString() ?? '';
-//           _sizeController.text = _userProfile['size']?.toString() ?? '';
-//           _imcController.text = _userProfile['imc']?.toString() ?? '';
-//         });
-//       }
-//     }
-//  else {
-//         print("El perfil no existe en Firestore.");
-//       }
-//     } catch (e) {
-//       print("Error al cargar el perfil: $e");
-//     }
-//   }
 
   void saveProfile() async {
   try {
@@ -89,7 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // Obtener el perfil existente
     final profileSnapshot = await profileRef.get();
 
-    if (profileSnapshot.exists) {
+    if(profileSnapshot.exists) {
       // Perfil existente, verificar campos cambiados
       final Map<String, dynamic> existingProfile = profileSnapshot.data() as Map<String, dynamic>;
 
@@ -97,25 +54,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
       newProfile.forEach((key, value) {
         if (existingProfile.containsKey(key) && existingProfile[key] != value) {
-          // El campo ha cambiado, incluirlo en la actualización
           updatedFields[key] = value;
         }
       });
 
       if (updatedFields.isNotEmpty) {
-        // Actualizar solo los campos que han cambiado
         profileRef.update(updatedFields).then((_) => print("Perfil actualizado con éxito"));
       } else {
         print("No hay cambios para actualizar.");
       }
-    } else {
-      // Crear un nuevo perfil
-      profileRef.set(newProfile).then((_) => print("Perfil creado con éxito"));
+      }else {
+        profileRef.set(newProfile).then((_) => print("Perfil creado con éxito"));
+      }
+    } catch (e) {
+      print("Error al procesar los datos: $e");
     }
-  } catch (e) {
-    print("Error al procesar los datos: $e");
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -240,7 +194,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: ButtonNumericProfile(),
                         child: TextFieldProfile(
                           controller: _weightController,
                           obscureText: false,
@@ -264,7 +217,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        // child: TextFieldNumericProfile(),
                         child: TextFieldProfile(
                           controller: _sizeController,
                           obscureText: false,

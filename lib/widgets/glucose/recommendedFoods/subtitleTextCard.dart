@@ -14,8 +14,9 @@ class SubtitleTextCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('$propertyEs: $propertyEn $unit',
-                  style: const TextStyle(fontSize: 16, color: Colors.grey),
-                );
+    return Text(
+      '$propertyEs: $propertyEn $unit',
+      style: const TextStyle(fontSize: 16, color: Colors.grey),
+    );
   }
 }

@@ -23,10 +23,9 @@ class _RecommendedFoodsScreenState extends State<RecommendedFoodsScreen> {
   Dio dio = Dio();
   List<String> dishes = [];
   final StreamController<List<Dish>> _streamController = StreamController<List<Dish>>();
-
   final ApiConfig apiConfig = ApiConfig();
 
-Future<void> fetchData() async {
+  Future<void> fetchData() async {
     try {
       final response = await dio.get(
         apiConfig.apiUrl,

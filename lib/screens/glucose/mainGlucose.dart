@@ -17,7 +17,8 @@ class _MainGlucoseScreenState extends State<MainGlucoseScreen> {
     ListGlucoseScreen(),
     // StatisticsGlucoseScreen(),
     LineChartSample2(),
-    CalendarGlucoseScreen()
+    CalendarGlucoseScreen(),
+    ExportGlucose()
   ];
 
   void _onItemTapped(int index) {
@@ -35,8 +36,7 @@ class _MainGlucoseScreenState extends State<MainGlucoseScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        // shape: const CircularNotchedRectangle(),
-        // child: Container(height: 50.0),
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.water_drop),
@@ -44,15 +44,19 @@ class _MainGlucoseScreenState extends State<MainGlucoseScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.show_chart),
-            label: 'Estadísticas',
+            label: 'Estadística',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month),
             label: 'Calendario',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.save_alt),
+            label: 'Exportar',
+          ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: const Color.fromARGB(255, 49, 177, 87),
         onTap: _onItemTapped,
       ),
     );

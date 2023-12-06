@@ -72,108 +72,117 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(
-                  Icons.lock,
-                  size: 100,
-                ),
-                const SizedBox(height: 25),
-                Text(
-                  'Bienvenido de nuevo!',
-                  style: TextStyle(color: Colors.grey[700], fontSize: 18),
-                ),
-                const SizedBox(height: 25),
-                TextFieldLogin(
-                  controller: emailController,
-                  hintText: 'Correo',
-                  obscureText: false,
-                ),
-                const SizedBox(height: 10),
-                TextFieldLogin(
-                  controller: passwordController,
-                  hintText: 'Contraseña',
-                  obscureText: true,
-                ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF43e5a0),
+                Color(0xFFb8fadd),
+              ],
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+            ),
+          ),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SquareLogoLogin(imagePath: 'lib/images/logo.png'),
+                  const SizedBox(height: 25),
+                  Text(
+                    'Bienvenido de nuevo!',
+                    style: TextStyle(color: Colors.grey[700], fontSize: 18),
+                  ),
+                  const SizedBox(height: 25),
+                  TextFieldLogin(
+                    controller: emailController,
+                    hintText: 'Correo',
+                    obscureText: false,
+                  ),
+                  const SizedBox(height: 10),
+                  TextFieldLogin(
+                    controller: passwordController,
+                    hintText: 'Contraseña',
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          '¿Olvidaste tu contraseña?',
+                          style: TextStyle(color: Colors.grey[600]),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  ButtonLogin(
+                    text: 'Inicia sesión',
+                    onTap: signUserIn,
+                  ),
+                  const SizedBox(height: 50),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            thickness: 0.6,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Text(
+                            'O continua con',
+                            style: TextStyle(color: Colors.grey[700])
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            thickness: 0.6,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SquareTileLogin(imagePath: 'lib/images/facebook.png'),
+                      SizedBox(width: 10),
+                      SquareTileLogin(imagePath: 'lib/images/google.png'),
+                    ]
+                  ),
+                  const SizedBox(height: 40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '¿Olvidaste tu contraseña?',
-                        style: TextStyle(color: Colors.grey[600]),
+                        '¿No estás registrado?',
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
+                      const SizedBox(width: 5),
+                      GestureDetector(
+                        onTap: widget.onTap,
+                        child: const Text(
+                          'Registrate ahora',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       )
                     ],
-                  ),
-                ),
-                const SizedBox(height: 25),
-                ButtonLogin(
-                  text: 'Inicia sesión',
-                  onTap: signUserIn,
-                ),
-                const SizedBox(height: 50),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.6,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          'O continua con',
-                          style: TextStyle(color: Colors.grey[700])
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.6,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 40),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SquareTileLogin(imagePath: 'lib/images/facebook.png'),
-                    SizedBox(width: 10),
-                    SquareTileLogin(imagePath: 'lib/images/google.png'),
-                  ]
-                ),
-                const SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '¿No estás registrado?',
-                      style: TextStyle(color: Colors.grey[700]),
-                    ),
-                    const SizedBox(width: 5),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text(
-                        'Registrate ahora',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    )
-                  ],
-                )          
-              ],
+                  )          
+                ],
+              ),
             ),
           ),
         )

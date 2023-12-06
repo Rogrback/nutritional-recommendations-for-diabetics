@@ -53,13 +53,13 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 37, 196, 71),
         onPressed: () {
            Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => const GlucoseScreen(),
             )
            );
-          //  setGlucose();
         },
         elevation: 2.2,
         child: const Icon(Icons.add),

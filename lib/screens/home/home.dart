@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
@@ -13,17 +14,18 @@ class MyHomeScreen extends StatefulWidget {
 }
 
 class _MyHomeScreenState extends State<MyHomeScreen> {
+
+  final db = FirebaseFirestore.instance;
+  final user = FirebaseAuth.instance.currentUser!.email;
+  late final CollectionReference<Map<String, dynamic>> profileCollection;
   int _selectedIndex = 0;
-      // static const TextStyle optionStyle =
-      // TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  
   static const List<Widget> _widgetOptions = <Widget>[
     ProfileScreen(),
     MainGlucoseScreen(),
     RecommendedFoodsScreen(),
     RecommendedExercisesScreen()
   ];
-
-  final user = FirebaseAuth.instance.currentUser!;
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -38,27 +40,23 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      // backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        // leading: const Icon(
-        //   Icons.dehaze_outlined,
-        //   size: 30,
-        // ),
+        backgroundColor: const Color.fromARGB(255, 37, 170, 113),
         actions: [
           IconButton(
             onPressed: signUserOut,
             icon: const Icon(Icons.logout),
           )
         ],
-        // title: const Center(
-        //   child: Text('Menú Principal'),
-        // )
       ),
       
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
       drawer: NavigationDrawer(
+        indicatorColor: Colors.red,
+        // backgroundColor: const Color.fromARGB(255, 37, 170, 113),
           children: [            
             Column(                           
               children:[
@@ -68,14 +66,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   margin: const EdgeInsets.only(top: 50, bottom: 20),
                   child: const SquareTileLogin(imagePath: 'lib/images/user.png'),
                 ),
-                Center(
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "${user.email}",
-                      style: const TextStyle(fontSize:25)
-                    ),
-                  ),
+                const Center(
+                  child: DataProfile(),
                 ),
               ] 
             ),

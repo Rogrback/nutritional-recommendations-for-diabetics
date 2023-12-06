@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tesis_project_v1/widgets/glucose/calendarGlucose/dataConditionalGlucose.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class CalendarGlucoseScreen extends StatefulWidget {
@@ -50,18 +51,6 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
   @override
   Widget build(BuildContext context) {
 
-    final DateTime today = DateTime.now();
-    // final year = DateTime.now().year;
-    // var month = DateTime.now().month;
-    // final day = DateTime.now().day;
-    // final hour = DateTime.now().hour;
-    // final minute = DateTime.now().minute;
-    // final second = DateTime.now().second;
-    // final fullTime = "$day-$month-$year $hour:$minute:$second";
-    // final ttoday = DateFormat("dd-MM-yy").format(today);
-    final todayperu = DateFormat.yMMMMd().format(today);
-    // final month = Datefor.   
-
     void showPreviousMonth() {
       setState(() {
         if(month <= 1) {
@@ -88,35 +77,39 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
       body: SafeArea(
         child: Column( 
           children: [
+            const SizedBox(height: 8),
             Row(
               children: [
                 IconButton(                  
                   icon: const Icon(Icons.navigate_before),
                   onPressed: () {
                     showPreviousMonth();
+                    print('Desde calendarGlucose mes y año $month $year');
                   },
                 ),
                 Expanded(
                   child: Text(
-                    monthName(month) + ' de $year',
+                    '${monthName(month)} de $year',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 18)                  
+                    style: const TextStyle(fontSize: 23)                  
                     )
                 ),
                 IconButton(                  
                   icon: const Icon(Icons.navigate_next),
                   onPressed: () {
                     showNextMonth();
+                    print('Desde calendarGlucose mes y año $month $year');
                   },
                 ),
               ],
             ),
-            const Expanded(
-              child: DataGlucose()
+            const Divider(height: 1, color: Colors.grey), 
+            Expanded(
+              child: DataConditionalGlucose(month: month, year: year)
             )
-          ],          
-        ),
-      ),
-    );
-  }
+          ],           
+        ), 
+      ), 
+    ); 
+  } 
 }

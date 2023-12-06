@@ -3,14 +3,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
-class DataGlucose extends StatefulWidget {
-  const DataGlucose({super.key});
+class DataConditionalGlucose extends StatefulWidget {
+
+  final int month;
+  final int year;
+
+  const DataConditionalGlucose({
+    super.key,
+    required this.month,
+    required this.year
+  });
 
   @override
-  State<DataGlucose> createState() => _DataGlucoseState();
+  State<DataConditionalGlucose> createState() => _DataConditionalGlucoseState();
 }
 
-class _DataGlucoseState extends State<DataGlucose> {
+class _DataConditionalGlucoseState extends State<DataConditionalGlucose> {
 
   final db = FirebaseFirestore.instance;
   final user = FirebaseAuth.instance.currentUser!.email;
@@ -24,6 +32,11 @@ class _DataGlucoseState extends State<DataGlucose> {
 
   @override
   Widget build(BuildContext context) {
+
+    int? recordMonth;
+    int? recordYear;
+    int shortYear;
+
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       stream: glucoseCollection.snapshots(),
       builder: (context, snapshot) {
@@ -33,11 +46,7 @@ class _DataGlucoseState extends State<DataGlucose> {
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         }
-        // Verifica si hay datos en la subcolección "glucose"
-        if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-          return const NoRegisters();
-        }
-        // Mapea los documentos de la subcolección a un ListView
+
         var glucoseDocs = snapshot.data!.docs;
         var glucoseList = glucoseDocs.map((doc) {
           var glucoseData = doc.data() as Map<String, dynamic>;
@@ -46,16 +55,35 @@ class _DataGlucoseState extends State<DataGlucose> {
           var medicationMoment = glucoseData['medication_moment'];
           var time = glucoseData['time'];
 
+          recordMonth = int.parse(date.substring(3, 5));
+          shortYear = int.parse(date.substring(6, 8));
+          recordYear = 2000 + shortYear;
+
+          print('Data desde DataGlucose $recordMonth $recordYear');
+          print('Data desde DataGlucose $date');
+          // print('-----------------------------------------------');
+          // print('Mes y año de la vista {$widget.month} {$widget.year}');
+
           return Registers(
             glucose: glucose,
             medicationMoment: medicationMoment,
             date: date,
-            time: time
+            time: time,
           );
         }).toList();
 
+        // Filtramos los registros según el mes y año seleccionados
+        var filteredGlucoseList = glucoseList.where((record) {
+          return recordMonth == widget.month && recordYear == widget.year;
+        }).toList();
+
+        if (filteredGlucoseList.isEmpty) {
+          // Mostramos un mensaje si no hay datos disponibles
+          return const Center(child: Text('No hay datos disponibles en este mes.'));
+        }
+
         return ListView(
-          children: glucoseList,
+          children: filteredGlucoseList,
         );
       },
     );
