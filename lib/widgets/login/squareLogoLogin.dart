@@ -19,7 +19,7 @@ class SquareLogoLogin extends StatelessWidget {
       ),
       child: Image.asset(
         imagePath,
-        height: 160,
+        height: 180,
       ),
     );
   }

@@ -125,42 +125,42 @@ class _LoginScreenState extends State<LoginScreen> {
                     onTap: signUserIn,
                   ),
                   const SizedBox(height: 50),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            thickness: 0.6,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text(
-                            'O continua con',
-                            style: TextStyle(color: Colors.grey[700])
-                          ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            thickness: 0.6,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SquareTileLogin(imagePath: 'lib/images/facebook.png'),
-                      SizedBox(width: 10),
-                      SquareTileLogin(imagePath: 'lib/images/google.png'),
-                    ]
-                  ),
-                  const SizedBox(height: 40),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  //   child: Row(
+                  //     children: [
+                  //       Expanded(
+                  //         child: Divider(
+                  //           thickness: 0.6,
+                  //           color: Colors.grey[700],
+                  //         ),
+                  //       ),
+                  //       Padding(
+                  //         padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  //         child: Text(
+                  //           'O continua con',
+                  //           style: TextStyle(color: Colors.grey[700])
+                  //         ),
+                  //       ),
+                  //       Expanded(
+                  //         child: Divider(
+                  //           thickness: 0.6,
+                  //           color: Colors.grey[700],
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 40),
+                  // const Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     SquareTileLogin(imagePath: 'lib/images/facebook.png'),
+                  //     SizedBox(width: 10),
+                  //     SquareTileLogin(imagePath: 'lib/images/google.png'),
+                  //   ]
+                  // ),
+                  // const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
