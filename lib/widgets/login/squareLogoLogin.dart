@@ -12,7 +12,6 @@ class SquareLogoLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(16),
@@ -20,7 +19,7 @@ class SquareLogoLogin extends StatelessWidget {
       ),
       child: Image.asset(
         imagePath,
-        height: 250,
+        height: 160,
       ),
     );
   }

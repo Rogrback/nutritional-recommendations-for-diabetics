@@ -35,7 +35,6 @@ class _DataProfileState extends State<DataProfile> {
           return const Text('No hay registros');
         }
 
-        // Solo hay una colección, así que obtenemos el primer documento directamente
         var profileDoc = snapshot.data!.docs.first;
         var profileData = profileDoc.data();
         var name = profileData['name'];
