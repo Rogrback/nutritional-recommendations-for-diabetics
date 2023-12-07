@@ -146,7 +146,7 @@ class _ExportGlucoseState extends State<ExportGlucose> {
             ),
           ),
           onPressed: createExcel,
-          child: const Text('Exportar Data')),
+          child: const Text('Exportar Registros')),
       );
   }
 }

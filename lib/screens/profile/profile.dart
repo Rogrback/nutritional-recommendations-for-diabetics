@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "Gestacional"
   ];
 
-  void saveProfile() async {
+  void _saveProfile() async {
   try {
     final newProfile = {
       if (_nameController.text.isNotEmpty) "name": _nameController.text,
@@ -59,16 +60,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
       });
 
       if (updatedFields.isNotEmpty) {
-        profileRef.update(updatedFields).then((_) => print("Perfil actualizado con éxito"));
+        profileRef.update(updatedFields).then((_) => Navigator.pop(context));
       } else {
         print("No hay cambios para actualizar.");
+        Navigator.pop(context);
       }
       }else {
-        profileRef.set(newProfile).then((_) => print("Perfil creado con éxito"));
+        profileRef.set(newProfile).then(
+          (_) => Navigator.pop(context)
+        );
       }
     } catch (e) {
       print("Error al procesar los datos: $e");
     }
+  }
+
+  void alertd () {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Actualizar datos'),
+          content: const Text('¿Esta seguro de actualizar?'),
+          actions: [
+            MiniButton(
+              text: 'Si',
+              onPressed: _saveProfile, 
+              // Navigator.pop(context)   
+            ), 
+            MiniButton(
+              text: 'No',
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ), 
+          ],
+          elevation: 24,
+        );
+      } 
+    );
   }
 
   @override
@@ -251,7 +281,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 40),      
                 ButtonProfile(
                   text: 'Guardar',
-                  onTap: saveProfile,
+                  // onTap: saveProfile,
+                  onTap: alertd,
+                  // onTap: showDialog(),
                 ),     
               ],
             ),
