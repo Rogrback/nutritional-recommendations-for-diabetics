@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SquareLogoLogin(imagePath: 'lib/images/logo.png'),
                   const SizedBox(height: 25),
                   Text(
-                    'Bienvenido de nuevo!',
+                    '¡Bienvenido de nuevo!',
                     style: TextStyle(color: Colors.grey[700], fontSize: 18),
                   ),
                   const SizedBox(height: 25),

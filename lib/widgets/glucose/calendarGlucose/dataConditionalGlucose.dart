@@ -59,10 +59,8 @@ class _DataConditionalGlucoseState extends State<DataConditionalGlucose> {
           shortYear = int.parse(date.substring(6, 8));
           recordYear = 2000 + shortYear;
 
-          print('Data desde DataGlucose $recordMonth $recordYear');
-          print('Data desde DataGlucose $date');
-          // print('-----------------------------------------------');
-          // print('Mes y año de la vista {$widget.month} {$widget.year}');
+          // print('Data desde DataGlucose $recordMonth $recordYear');
+          // print('Data desde DataGlucose $date');
 
           return Registers(
             glucose: glucose,
