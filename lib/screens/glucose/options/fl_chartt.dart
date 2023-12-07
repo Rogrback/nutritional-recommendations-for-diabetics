@@ -64,14 +64,23 @@ class _LineChartSample2State extends State<LineChartSample2> {
     );
     Widget text;
     switch (value.toInt()) {
-      case 2:
-        text = const Text('MAR', style: style);
+      case 0:
+        text = const Text('15/11', style: style);
         break;
-      case 5:
-        text = const Text('JUN', style: style);
+      case 2:
+        text = const Text('26/11', style: style);
+        break;    
+      case 4:
+        text = const Text('28/11', style: style);
+        break;
+      case 6:
+        text = const Text('30/11', style: style);
         break;
       case 8:
-        text = const Text('SEP', style: style);
+        text = const Text('03/12', style: style);
+        break;
+      case 10:
+        text = const Text('05/12', style: style);
         break;
       default:
         text = const Text('', style: style);
@@ -92,13 +101,19 @@ class _LineChartSample2State extends State<LineChartSample2> {
     String text;
     switch (value.toInt()) {
       case 1:
-        text = '10K';
+        text = '60';
+        break;
+      case 2:
+        text = '80';
         break;
       case 3:
-        text = '30k';
+        text = '100';
         break;
+      case 4:
+        text = '120';
+        break;  
       case 5:
-        text = '50k';
+        text = '140';
         break;
       default:
         return Container();
@@ -163,12 +178,12 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: const [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
+            FlSpot(0, 3.9),
+            FlSpot(2, 3.2),
+            FlSpot(4, 5),
+            FlSpot(6, 2.1),
+            FlSpot(8, 3.3),
+            FlSpot(10, 3),
             FlSpot(11, 4),
           ],
           isCurved: true,
@@ -250,13 +265,13 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: const [
-            FlSpot(0, 3.44),
-            FlSpot(2.6, 3.44),
-            FlSpot(4.9, 3.44),
-            FlSpot(6.8, 3.44),
-            FlSpot(8, 3.44),
-            FlSpot(9.5, 3.44),
-            FlSpot(11, 3.44),
+            FlSpot(0, 3.9),
+            FlSpot(2, 2),
+            FlSpot(4, 5),
+            FlSpot(6, 3.1),
+            FlSpot(8, 4),
+            FlSpot(10, 3),
+            FlSpot(11, 4),
           ],
           isCurved: true,
           gradient: LinearGradient(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tesis_project_v1/screens/glucose/options/LineChartSample2.dart';
 import 'package:tesis_project_v1/screens/main.dart';
 
 class MainGlucoseScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _MainGlucoseScreenState extends State<MainGlucoseScreen> {
     ListGlucoseScreen(),
     // StatisticsGlucoseScreen(),
     LineChartSample2(),
+    // LineChartSample22(),
     CalendarGlucoseScreen(),
     ExportGlucose()
   ];
