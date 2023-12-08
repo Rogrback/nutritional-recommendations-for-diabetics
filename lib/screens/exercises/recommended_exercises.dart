@@ -16,7 +16,7 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(height: 50),
-          CategoryCard(nameCategory: "Ejercicios básicos"),
+          CategoryCard(nameCategory: "Ejercicios básico"),
           SizedBox(height: 50),
           CategoryCard(nameCategory: "Ejercicios intermedios"),
           SizedBox(height: 50),
