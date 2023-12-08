@@ -81,10 +81,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
-                    Icons.lock,
-                    size: 100,
-                  ),
                   const SizedBox(height: 25),
                   Text(
                     '¡Crearemos una cuenta para ti!',
