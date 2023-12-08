@@ -91,9 +91,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const SquareLogoLogin(imagePath: 'lib/images/logo.png'),
                   const SizedBox(height: 25),
-                  Text(
-                    '¡Bienvenido de nuevo!',
-                    style: TextStyle(color: Colors.grey[700], fontSize: 18),
+                  const Text(
+                    '¡BIENVENIDO A DIESVICO!',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 8, 112, 67),
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                   const SizedBox(height: 25),
                   TextFieldLogin(
@@ -108,21 +112,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: true,
                   ),
                   const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           '¿Olvidaste tu contraseña?',
-                          style: TextStyle(color: Colors.grey[600]),
+                          style: TextStyle(color: Color.fromARGB(255, 8, 112, 67)),
                         )
                       ],
                     ),
                   ),
                   const SizedBox(height: 25),
                   ButtonLogin(
-                    text: 'Inicia sesión',
+                    text: 'Iniciar sesión',
                     onTap: signUserIn,
                   ),
                   const SizedBox(height: 50),
@@ -137,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       GestureDetector(
                         onTap: widget.onTap,
                         child: const Text(
-                          'Registrate ahora',
+                          'Registrarse ahora',
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,

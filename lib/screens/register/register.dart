@@ -81,12 +81,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 25),
-                  Text(
-                    '¡Crearemos una cuenta para ti!',
-                    style: TextStyle(color: Colors.grey[700], fontSize: 18),
+                  const Text(
+                    '¡CREAREMOS UNA CUENTA PARA TI!',
+                    style: TextStyle(color: Color.fromARGB(255, 8, 112, 67), fontSize: 18),
                   ),
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 20),
                   TextFieldLogin(
                     controller: emailController,
                     hintText: 'Correo',
@@ -106,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   const SizedBox(height: 30),
                   ButtonLogin(
-                    text: 'Registrate',
+                    text: 'Registrarse',
                     onTap: signUserUp,
                   ),
                   const SizedBox(height: 20),
@@ -121,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       GestureDetector(
                         onTap: widget.onTap,
                         child: const Text(
-                          'Ingresa ahora',
+                          'Ingresar ahora',
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,
