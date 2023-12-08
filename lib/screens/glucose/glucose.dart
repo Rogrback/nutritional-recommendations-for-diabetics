@@ -36,11 +36,6 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
     
     _db.collection("profile").doc(user).collection("glucose").add(newGlucose).then((documentSnapshot) =>
     print("Added Data with ID: ${documentSnapshot.id}"));
-
-    print(_dateController.text);
-    print(_timeController.text);
-    print(dropdownValue);
-    print(_glucoseController.text);
     // Clean form glucose
     _dateController.clear();
     _timeController.clear();
@@ -56,149 +51,141 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.logout),
-          )
+        actions: const [
+          SizedBox(width: 45)
         ],
         title: const Center(
-          child: Text('Glucosa'),
+          child: Text('Registro de Glucosa'),
         )
       ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
-        child: SafeArea(
-          child: Center(
-            child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'G L U C O S A',
-                  style: TextStyle(
-                    fontSize: 36 
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        flex: 2,
-                        child: Text(
-                          'Fecha: ',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
+        child: SingleChildScrollView(
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(height: 160),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: Row(
+                  children: [
+                    const Expanded(
+                      flex: 2,
+                      child: Text(
+                        'Fecha: ',
+                        style: TextStyle(fontSize: 22),
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: DateTextFieldGlucose(
-                          controller: _dateController,
-                          obscureText: false
-                        ),
-                      ),                                 
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        flex: 2,
-                        child: Text(
-                          'Hora: ',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: DateTextFieldGlucose(
+                        controller: _dateController,
+                        obscureText: false
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: TimeTextFieldGlucose(
-                          controller: _timeController,
-                          obscureText: false
-                        ),
-                      ),                                 
-                    ],
-                  ),
+                    ),                                 
+                  ],
                 ),
-                Padding(
-                  padding:  const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Row(
-                    children: [
-                       const Expanded(
-                        flex: 2,
-                        child: Text(
-                          'Momento de medición: ',
-                          style: TextStyle(fontSize: 18.0),
-                        ),
+              ),
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: Row(
+                  children: [
+                    const Expanded(
+                      flex: 2,
+                      child: Text(
+                        'Hora: ',
+                        style: TextStyle(fontSize: 22),
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: Colors.grey.shade200,
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: TimeTextFieldGlucose(
+                        controller: _timeController,
+                        obscureText: false
+                      ),
+                    ),                                 
+                  ],
+                ),
+              ),
+              const SizedBox(height: 40),
+              Padding(
+                padding:  const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: Row(
+                  children: [
+                     const Expanded(
+                      flex: 2,
+                      child: Text(
+                        'Momento de medición: ',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.grey.shade200
+                        ),
+                        child: DropdownButton(
+                          dropdownColor: Colors.grey.shade200,
+                          isExpanded: true,
+                          alignment: Alignment.center,
+                          borderRadius: BorderRadius.circular(10),
+                          elevation: 16,
+                          underline: Container(
+                            height: 0,
                           ),
-                          child: DropdownButton(
-                            dropdownColor: Colors.grey.shade200,
-                            isExpanded: true,
-                            alignment: Alignment.center,
-                            borderRadius: BorderRadius.circular(10),
-                            elevation: 16,
-                            underline: Container(
-                              height: 0,
-                            ),
-                            value: dropdownValue,
-                            items: list.map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                alignment: Alignment.center,
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            onChanged: (String? value) {
-                              setState(() {
-                                dropdownValue = value!;
-                              });
-                            },
-                          ),
-                        ),
-                      ),                  
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        flex: 2,
-                        child: Text(
-                          'Glucosa: ',
-                          style: TextStyle(fontSize: 18.0),
+                          value: dropdownValue,
+                          items: list.map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              alignment: Alignment.center,
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                            });
+                          },
                         ),
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: TextFieldGlucose(
-                          controller: _glucoseController,
-                          obscureText: false,
-                          keyboardType: TextInputType.number,
-                          suffix: const Text('mg/dL'),
-                        ),
-                      ),                  
-                    ],
-                  ),
+                    ),                  
+                  ],
                 ),
-                const SizedBox(height: 30),
-                ButtonGlucose(
-                  text: 'Guardar',
-                  onTap: saveGlucose
+              ),
+              const SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                child: Row(
+                  children: [
+                    const Expanded(
+                      flex: 2,
+                      child: Text(
+                        'Glucosa: ',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: TextFieldGlucose(
+                        controller: _glucoseController,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                        suffix: const Text('mg/dL'),
+                      ),
+                    ),                  
+                  ],
                 ),
-              ],              
-            ),
+              ),
+              const SizedBox(height: 200),
+              ButtonGlucose(
+                text: 'Guardar',
+                onTap: saveGlucose
+              ),
+            ],              
           ),
         ),
       ),

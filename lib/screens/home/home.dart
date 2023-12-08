@@ -37,20 +37,53 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     });
   }
 
+  void alertLogout () {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text(
+            'Cerrar sesión',
+            style: TextStyle(fontSize: 22),
+          ),
+          content: const Text(
+            '¿Esta seguro de cerrar sesión?',
+            style: TextStyle(fontSize: 18),          
+          ),
+          alignment: Alignment.center,
+          elevation: 24,
+          actions: [
+            Row(
+              children: [
+                const SizedBox(width: 15),
+                MiniButton(
+                  text: 'Si',
+                  onPressed: () {
+                    signUserOut();
+                    Navigator.pop(context);
+                  }
+                ), 
+                const SizedBox(width: 65),
+                MiniButton(
+                  text: 'No',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ), 
+              ],
+            )
+          ],
+        );
+      } 
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[300],
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
-        actions: [
-          IconButton(
-            onPressed: signUserOut,
-            icon: const Icon(Icons.logout),
-          )
-        ],
       ),
-      
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
@@ -71,7 +104,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               ] 
             ),
             const SizedBox(height: 20),
-            const Divider(height: 10, color: Colors.grey),      
+            Divider(height: 10, color: Colors.green[800]),      
             ListTile(
               title: const Text(
                 'Perfil',
@@ -84,13 +117,14 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 color: Colors.green[800],
                 size: 30,
               ),
+              selectedColor: const Color.fromARGB(255, 37, 170, 113),
               selected: _selectedIndex == 0,
               onTap: () {
                 _onItemTapped(0);
                 Navigator.pop(context);
               },
             ),
-            const Divider(height: 10, color: Colors.grey),      
+            Divider(height: 10, color: Colors.green[800]),      
             ListTile(
               title: const Text(
                 'Glucosa',
@@ -103,13 +137,14 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 color: Colors.green[800],
                 size: 28,
               ),
+              selectedColor: const Color.fromARGB(255, 37, 170, 113),
               selected: _selectedIndex == 1,
               onTap: () {
                 _onItemTapped(1);
                 Navigator.pop(context);
               },
             ),      
-            const Divider(height: 10, color: Colors.grey),      
+            Divider(height: 10, color: Colors.green[800]),      
             ListTile(
               leading: Icon(
                 Icons.restaurant,
@@ -122,12 +157,14 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   fontSize: 18,
                 ),
               ),
+              selectedColor: const Color.fromARGB(255, 37, 170, 113),
+              selected: _selectedIndex == 2,
               onTap: () {
                 _onItemTapped(2);
                 Navigator.pop(context);
               },
             ),
-            const Divider(height: 10, color: Colors.grey),      
+             Divider(height: 10, color: Colors.green[800]),      
             ListTile(
               leading: Icon(
                 Icons.directions_bike,
@@ -140,12 +177,29 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   fontSize: 18,
                 ),
               ),
+              selectedColor: const Color.fromARGB(255, 37, 170, 113),
+              selected: _selectedIndex == 3,
               onTap: () {
                 _onItemTapped(3);
                 Navigator.pop(context);
               },
             ),
-            const Divider(height: 10, color: Colors.grey),      
+            Divider(height: 10, color: Colors.green[800]),      
+            ListTile(
+              leading: const Icon(
+                Icons.exit_to_app,
+                color: Color.fromARGB(255, 37, 170, 113),
+                size: 35,
+              ),
+              title: const Text(
+                'Cerrar sesión',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              onTap: alertLogout
+            ),
+            Divider(height: 10, color: Colors.green[800]),      
           ],
       ),
     );

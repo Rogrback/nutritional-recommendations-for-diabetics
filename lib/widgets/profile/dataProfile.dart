@@ -41,10 +41,10 @@ class _DataProfileState extends State<DataProfile> {
 
         return Text(
           '$name',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 116, 209, 11)
+            color: Colors.green[800]
           ),
         );
       },

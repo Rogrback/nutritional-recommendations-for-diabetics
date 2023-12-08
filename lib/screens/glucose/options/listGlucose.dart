@@ -53,7 +53,7 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 37, 196, 71),
+        backgroundColor: const Color.fromARGB(255, 37, 170, 113),
         onPressed: () {
            Navigator.of(context).push(
             MaterialPageRoute(

@@ -30,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "Gestacional"
   ];
 
-  void _saveProfile() async {
+  void saveProfile() async {
   try {
     final newProfile = {
       if (_nameController.text.isNotEmpty) "name": _nameController.text,
@@ -73,24 +73,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  void alert () {
+  void alertSaveProfile () {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Actualizar datos'),
-          content: const Text('¿Esta seguro de actualizar?'),
+          title: const Text(
+            'Actualizar datos',
+            style: TextStyle(fontSize: 22),
+          ),
+          content: const Text(
+            '¿Esta seguro de actualizar?',
+            style: TextStyle(fontSize: 18),
+          ),
+          alignment: Alignment.center,
           actions: [
-            MiniButton(
-              text: 'Si',
-              onPressed: _saveProfile, 
-            ), 
-            MiniButton(
-              text: 'No',
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ), 
+            Row(
+              children: [
+                const SizedBox(width: 15),
+                  MiniButton(
+                  text: 'Si',
+                  onPressed: saveProfile, 
+                ), 
+                const SizedBox(width: 40),
+                MiniButton(
+                  text: 'No',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ), 
+              ],
+            )
           ],
           elevation: 24,
         );
@@ -272,7 +285,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 40),      
                 ButtonProfile(
                   text: 'Guardar',
-                  onTap: alert,
+                  onTap: alertSaveProfile,
                 ),     
               ],
             ),
