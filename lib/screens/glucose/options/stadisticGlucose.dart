@@ -2,14 +2,14 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class LineChartSample2 extends StatefulWidget {
-  const LineChartSample2({super.key});
+class StadisticGlucose extends StatefulWidget {
+  const StadisticGlucose({super.key});
 
   @override
-  State<LineChartSample2> createState() => _LineChartSample2State();
+  State<StadisticGlucose> createState() => _StadisticGlucoseState();
 }
 
-class _LineChartSample2State extends State<LineChartSample2> {
+class _StadisticGlucoseState extends State<StadisticGlucose> {
   List<Color> gradientColors = [
     Colors.blue,
     Colors.green,

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:excel/excel.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
-import 'package:tesis_project_v1/widgets/glucose/exportGlucose/dataExcel.dart';
 
 class ExportGlucose extends StatefulWidget {
   const ExportGlucose({super.key});
@@ -145,7 +144,7 @@ class _ExportGlucoseState extends State<ExportGlucose> {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: createExcel,
+          onPressed: () {},
           child: const Text('Exportar Registros')),
       );
   }

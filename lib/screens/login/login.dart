@@ -35,36 +35,37 @@ class _LoginScreenState extends State<LoginScreen> {
         showDialog(
           context: context,
           builder: (context) {
-            return const AlertDialog(
-              backgroundColor: Colors.deepPurple,
-              title: Center(
-                child: Text(
-                   'Credenciales incorrectos',
-                  style: TextStyle(color: Colors.white),
-                ),            
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                  color: Colors.green.shade800,
+                  width: 5
+                ),
               ),
+              backgroundColor: Colors.green,
+              title: const Center(
+                child: Text(
+                  'El usuario ingresado no es válido.',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Aceptar',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
             );
           }
         );
       }
     }
-  }
-
-  void showErrorMessage(String message) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: Colors.deepPurple,
-          title: Center(
-            child: Text(
-              message,
-              style: const TextStyle(color: Colors.white),
-            ),            
-          ),
-        );
-      }
-    );
   }
 
   @override

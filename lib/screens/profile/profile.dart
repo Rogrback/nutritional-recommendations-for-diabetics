@@ -30,53 +30,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     "Gestacional"
   ];
 
-  // void _calculateImc() async {
-  // try {
-  //   final newProfile = {
-  //     if (_weightController.text.isNotEmpty) "weight": double.parse(_weightController.text),
-  //     if (_sizeController.text.isNotEmpty) "size": double.parse(_sizeController.text),
-  //   };
-
-  //   // Calcular el IMC
-  //   if (newProfile.containsKey("weight") && newProfile.containsKey("size")) {
-  //     double weight = newProfile["weight"] ?? 0.0;
-  //     double size = newProfile["size"] ?? 0.0;
-  //     double imc = weight / (size * size);
-  //     newProfile["imc"] = imc;
-  //     _imcController.text = imc.toStringAsFixed(2); 
-  //   }
-
-  //   final profileRef = _db.collection("profile").doc(user);
-
-  //   final profileSnapshot = await profileRef.get();
-
-  //   if (profileSnapshot.exists) {
-  //     final Map<String, dynamic> existingProfile = profileSnapshot.data() as Map<String, dynamic>;
-
-  //     final Map<String, dynamic> updatedFields = {};
-
-  //     newProfile.forEach((key, value) {
-  //       if (existingProfile.containsKey(key) && existingProfile[key] != value) {
-  //         updatedFields[key] = value;
-  //       }
-  //     });
-
-  //     if (updatedFields.isNotEmpty) {
-  //       profileRef.update(updatedFields).then((_) => print("Imc actualizado"));
-  //     } else {
-  //       print("No hay cambios para actualizar.");
-  //     }
-  //   } else {
-  //     profileRef.set(newProfile).then(
-  //           (_) => Navigator.pop(context),
-  //     );
-  //   }
-  //   } catch (e) {
-  //     print("Error al procesar los datos: $e");
-  //   }
-  // }
-
-
   void _saveProfile() async {
   try {
     final newProfile = {
@@ -301,28 +254,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                //   child: Row(
-                //     children: [
-                //       const Expanded(
-                //         flex: 2,
-                //         child: Text(
-                //           'Indice de Masa Corporal: ',
-                //           style: TextStyle(fontSize: 18.0),
-                //         ),
-                //       ),
-                //       Expanded(
-                //         flex: 3,
-                //         child: TextFieldProfile(
-                //           controller: _imcController,
-                //           obscureText: false,
-                //           enabled: false,
-                //         ),
-                //       ),                  
-                //     ],
-                //   ),
-                // ),     
                 const SizedBox(height: 40),      
                 ButtonProfile(
                   text: 'Guardar',
