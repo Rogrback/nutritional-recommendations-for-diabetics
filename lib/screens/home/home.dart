@@ -56,7 +56,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       ),
       drawer: NavigationDrawer(
         indicatorColor: Colors.red,
-        // backgroundColor: const Color.fromARGB(255, 37, 170, 113),
           children: [            
             Column(                           
               children:[
@@ -71,40 +70,82 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 ),
               ] 
             ),
+            const SizedBox(height: 20),
+            const Divider(height: 10, color: Colors.grey),      
             ListTile(
-              title: const Text('Perfil'),
-              leading: const Icon(Icons.home),
+              title: const Text(
+                'Perfil',
+                style: TextStyle(
+                  fontSize: 18,
+                ),  
+              ),
+              leading: Icon(
+                Icons.home,
+                color: Colors.green[800],
+                size: 30,
+              ),
               selected: _selectedIndex == 0,
               onTap: () {
                 _onItemTapped(0);
                 Navigator.pop(context);
               },
             ),
+            const Divider(height: 10, color: Colors.grey),      
             ListTile(
-              title: const Text('Glucosa'),
-              leading: const Icon(Icons.water_drop),
+              title: const Text(
+                'Glucosa',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              leading: Icon(
+                Icons.water_drop,
+                color: Colors.green[800],
+                size: 28,
+              ),
               selected: _selectedIndex == 1,
               onTap: () {
                 _onItemTapped(1);
                 Navigator.pop(context);
               },
-            ),            
+            ),      
+            const Divider(height: 10, color: Colors.grey),      
             ListTile(
-              leading: const Icon(Icons.restaurant),
-              title: const Text('Alimentos recomendados'),
+              leading: Icon(
+                Icons.restaurant,
+                color: Colors.green[800],
+                size: 30,
+              ),
+              title: const Text(
+                'Alimentos recomendados',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
               onTap: () {
                 _onItemTapped(2);
                 Navigator.pop(context);
               },
             ),
+            const Divider(height: 10, color: Colors.grey),      
             ListTile(
-              leading: const Icon(Icons.directions_bike),
-              title: const Text('Ejercicios recomendados'),
+              leading: Icon(
+                Icons.directions_bike,
+                color: Colors.green[800],
+                size: 30,
+              ),
+              title: const Text(
+                'Ejercicios recomendados',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
               onTap: () {
                 _onItemTapped(3);
                 Navigator.pop(context);
               },
             ),
+            const Divider(height: 10, color: Colors.grey),      
           ],
       ),
     );

@@ -14,8 +14,8 @@ class SquareTileLogin extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.white),
-        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.black),
+        borderRadius: BorderRadius.circular(50),
         color: Colors.grey[200],
       ),
       child: Image.asset(

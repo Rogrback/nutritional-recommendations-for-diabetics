@@ -67,7 +67,7 @@ class Registers extends StatelessWidget {
               ),
             ],
           ),
-          const Divider(height: 20, color: Colors.grey), // Línea separadora
+          const Divider(height: 20, color: Colors.grey) 
         ],
       ),
     );

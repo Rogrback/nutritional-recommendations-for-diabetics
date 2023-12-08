@@ -6,6 +6,7 @@ class TextFieldProfile extends StatelessWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   final Widget? suffix;
+  final bool? enabled;
 
   const TextFieldProfile({
     super.key,
@@ -13,12 +14,14 @@ class TextFieldProfile extends StatelessWidget {
     this.hintText,
     required this.obscureText,
     this.suffix,
-    this.keyboardType
+    this.keyboardType,
+    this.enabled
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+        enabled: enabled,
         controller: controller,
         obscureText: obscureText,
         keyboardType: keyboardType,
