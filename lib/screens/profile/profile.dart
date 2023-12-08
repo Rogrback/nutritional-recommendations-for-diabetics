@@ -190,20 +190,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: DropdownButton(
-                          value: dropdownValue,
-                          items: list.map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          onChanged: (String? value) {
-                            setState(() {
-                              dropdownValue = value!;
-                            });
-                          },
-                        )  
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: Colors.grey.shade200,
+                          ),
+                          child: DropdownButton(
+                            dropdownColor: Colors.grey.shade200,
+                            isExpanded: true,
+                            alignment: Alignment.center,
+                            borderRadius: BorderRadius.circular(10),
+                            elevation: 16,
+                            underline: Container(
+                              height: 0,
+                            ),
+                            value: dropdownValue,
+                            items: list.map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                alignment: Alignment.center,
+                                value: value,
+                                child: Text(value),                              
+                              );
+                            }).toList(),
+                            onChanged: (String? value) {
+                              setState(() {
+                                dropdownValue = value!;
+                              });
+                            },                          
+                          ),
+                        ),
                       ),                  
                     ],
                   ),
