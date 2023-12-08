@@ -186,9 +186,9 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             ),
             Divider(height: 10, color: Colors.green[800]),      
             ListTile(
-              leading: const Icon(
+              leading: Icon(
                 Icons.exit_to_app,
-                color: Color.fromARGB(255, 37, 170, 113),
+                color: Colors.green[800],
                 size: 35,
               ),
               title: const Text(
