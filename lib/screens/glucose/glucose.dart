@@ -65,7 +65,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 160),
+              const SizedBox(height: 60),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
@@ -180,7 +180,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 200),
+              const SizedBox(height: 100),
               ButtonGlucose(
                 text: 'Guardar',
                 onTap: saveGlucose
