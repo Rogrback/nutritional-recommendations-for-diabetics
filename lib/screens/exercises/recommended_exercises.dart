@@ -13,20 +13,8 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
   Widget build(BuildContext context) {
     return const Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // ListView.builder(
-          //   itemCount: 1000,
-          //   // shrinkWrap: true,
-          //   itemBuilder: (context, index){
-          //     return Container(
-          //       height: 150,
-          //       color: Colors.primaries[index % Colors.primaries.length],
-          //       child: FittedBox(
-          //         child: Text('Ejercicio $index'),
-          //       ),
-          //     );
-          //   },          
-          // ),
           SizedBox(height: 50),
           CategoryCard(nameCategory: "Ejercicios básicos"),
           SizedBox(height: 50),
