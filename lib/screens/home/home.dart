@@ -21,8 +21,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   int _selectedIndex = 0;
   
   static const List<Widget> _widgetOptions = <Widget>[
-    ProfileScreen(),
     MainGlucoseScreen(),
+    ProfileScreen(),
     RecommendedFoodsScreen(),
     RecommendedExercisesScreen()
   ];
@@ -107,33 +107,13 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             Divider(height: 10, color: Colors.green[800]),      
             ListTile(
               title: const Text(
-                'Perfil',
-                style: TextStyle(
-                  fontSize: 18,
-                ),  
-              ),
-              leading: Icon(
-                Icons.home,
-                color: Colors.green[800],
-                size: 30,
-              ),
-              selectedColor: const Color.fromARGB(255, 37, 170, 113),
-              selected: _selectedIndex == 0,
-              onTap: () {
-                _onItemTapped(0);
-                Navigator.pop(context);
-              },
-            ),
-            Divider(height: 10, color: Colors.green[800]),      
-            ListTile(
-              title: const Text(
-                'Glucosa',
+                'Mi Perfil',
                 style: TextStyle(
                   fontSize: 18,
                 ),
               ),
               leading: Icon(
-                Icons.water_drop,
+                Icons.home,
                 color: Colors.green[800],
                 size: 28,
               ),
@@ -143,7 +123,27 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                 _onItemTapped(1);
                 Navigator.pop(context);
               },
-            ),      
+            ), 
+            Divider(height: 10, color: Colors.green[800]),      
+            ListTile(
+              title: const Text(
+                'Glucosa',
+                style: TextStyle(
+                  fontSize: 18,
+                ),  
+              ),
+              leading: Icon(
+                Icons.water_drop,
+                color: Colors.green[800],
+                size: 30,
+              ),
+              selectedColor: const Color.fromARGB(255, 37, 170, 113),
+              selected: _selectedIndex == 0,
+              onTap: () {
+                _onItemTapped(0);
+                Navigator.pop(context);
+              },
+            ),                 
             Divider(height: 10, color: Colors.green[800]),      
             ListTile(
               leading: Icon(
