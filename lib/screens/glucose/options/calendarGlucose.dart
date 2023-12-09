@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class CalendarGlucoseScreen extends StatefulWidget {
