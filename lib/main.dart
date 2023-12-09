@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       // routerConfig: appRouter,
-      title: 'Nutritional diabetes app',
+      title: 'Diesvico',
       debugShowCheckedModeBanner: false,
       // home:  ProfileScreen(),
       // home: GlucoseScreen(),
