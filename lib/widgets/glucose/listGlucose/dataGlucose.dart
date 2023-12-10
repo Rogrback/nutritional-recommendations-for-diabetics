@@ -40,7 +40,7 @@ class _DataGlucoseState extends State<DataGlucose> {
         // Mapea los documentos de la subcolección a un ListView
         var glucoseDocs = snapshot.data!.docs;
         var glucoseList = glucoseDocs.map((doc) {
-          var glucoseData = doc.data() as Map<String, dynamic>;
+          var glucoseData = doc.data();
           var glucose = glucoseData['glucose'];
           var date = glucoseData['date'];
           var medicationMoment = glucoseData['medication_moment'];
