@@ -12,7 +12,6 @@ class GlucoseScreen extends StatefulWidget {
 
 class _GlucoseScreenState extends State<GlucoseScreen> {
 
-  final user = FirebaseAuth.instance.currentUser!.email;
   final _dateController = TextEditingController();
   final _timeController = TextEditingController();
   final momentController = TextEditingController();
@@ -27,6 +26,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   ];
 
   void saveGlucose(){
+    final user = FirebaseAuth.instance.currentUser!.email;
     final newGlucose = <String, dynamic>{
       "date": _dateController.text,
       "time": _timeController.text,
