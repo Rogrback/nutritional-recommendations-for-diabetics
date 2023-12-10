@@ -13,36 +13,6 @@ class ListGlucoseScreen extends StatefulWidget {
 class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
 
   final db = FirebaseFirestore.instance;
-
-  @override
-  void initState() {
-    super.initState();
-    // getGlucoses();
-  }  
-
-  void getGlucoses() async {
-    CollectionReference collectionReference =
-      db.collection("glucose");
-
-    QuerySnapshot glucoses = await collectionReference.get();
-
-    if(glucoses.docs != 0) {
-      for(var doc in glucoses.docs) {
-        print(doc.data()); 
-      }
-    }
-  }
-
-  final newGlucose = <String, dynamic>{
-    "first": "Ada",
-    "last": "Lovelace",
-    "born": 1815
-  };
-  
-  void setGlucose() {
-    FirebaseFirestore.instance.collection("glucose").add(newGlucose).then((DocumentReference doc) =>
-      print('DocumentSnapshot added with ID: ${doc.id}'));
-  }
   
   @override
   Widget build(BuildContext context) {
