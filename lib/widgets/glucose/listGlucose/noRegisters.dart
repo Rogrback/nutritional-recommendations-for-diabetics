@@ -5,20 +5,20 @@ class NoRegisters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Sin Registros',
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.blue.shade600)
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 49, 177, 87))
               ),
-              const SizedBox(height: 22),
-              const Text(
+              SizedBox(height: 22),
+              Text(
                 'Para agregar registros de control de glucosa',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 22)
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
