@@ -12,7 +12,7 @@ class AuthScreen extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if(snapshot.hasData){
-            return MyHomeScreen();
+            return const MyHomeScreen();
           }else {
             return const LoginOrRegister();
           }

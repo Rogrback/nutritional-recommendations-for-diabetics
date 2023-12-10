@@ -116,24 +116,6 @@ class _ExportGlucoseState extends State<ExportGlucose> {
   }
 
   @override
-  // Widget build(BuildContext context) {
-  //   return Center(
-  //       child:Column(
-  //         children: <Widget>[
-  //           ElevatedButton(
-  //             onPressed: _requestAppDocumentsDirectory,
-  //             child: const Text('Exportar Data'),
-              
-  //           ),
-  //           FutureBuilder<Directory?>(
-  //             future: _appDocumentsDirectory,
-  //             builder: _buildDirectory,
-  //           ),
-  //         ],
-  //       )
-  //     );
-  // }
-
   Widget build(BuildContext context) {
     return Center(
         child: ElevatedButton(
