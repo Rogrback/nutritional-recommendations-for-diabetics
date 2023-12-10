@@ -11,7 +11,6 @@ class CalendarGlucoseScreen extends StatefulWidget {
 class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
 
   DateTime today = DateTime.now();
-  // final year = DateTime.now().year;
   var month = DateTime.now().month;
   var year = DateTime.now().year;
 
@@ -82,7 +81,6 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
                   icon: const Icon(Icons.navigate_before),
                   onPressed: () {
                     showPreviousMonth();
-                    print('Desde calendarGlucose mes y año $month $year');
                   },
                 ),
                 Expanded(
@@ -96,7 +94,6 @@ class _CalendarGlucoseScreenState extends State<CalendarGlucoseScreen> {
                   icon: const Icon(Icons.navigate_next),
                   onPressed: () {
                     showNextMonth();
-                    print('Desde calendarGlucose mes y año $month $year');
                   },
                 ),
               ],
