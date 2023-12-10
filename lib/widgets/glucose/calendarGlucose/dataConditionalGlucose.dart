@@ -72,7 +72,11 @@ class _DataConditionalGlucoseState extends State<DataConditionalGlucose> {
         }).toList();
 
         if (filteredGlucoseList.isEmpty) {
-          return const Center(child: Text('No hay datos disponibles en este mes.'));
+          return const Center(
+            child: Text(
+              'No hay datos disponibles en este mes.',
+              style: TextStyle(fontSize: 22)
+            ));
         }
 
         return ListView(
