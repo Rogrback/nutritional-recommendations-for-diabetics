@@ -13,7 +13,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   
-  final user = FirebaseAuth.instance.currentUser!.email;
   final _nameController = TextEditingController();
   final _fullnameController = TextEditingController();
   final _birthdateController = TextEditingController();
@@ -31,38 +30,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ];
 
   void saveProfile() async {
-  try {
-    final newProfile = {
-      if (_nameController.text.isNotEmpty) "name": _nameController.text,
-      if (_fullnameController.text.isNotEmpty) "fullname": _fullnameController.text,
-      if (_birthdateController.text.isNotEmpty) "birthdate": _birthdateController.text,
-      if (dropdownValue.isNotEmpty) "typediabetes": dropdownValue,
-      if (_weightController.text.isNotEmpty) "weight": int.parse(_weightController.text),
-      if (_sizeController.text.isNotEmpty) "size": int.parse(_sizeController.text),
-      if (_imcController.text.isNotEmpty) "imc": int.parse(_imcController.text),
-    };
 
-    final profileRef = _db.collection("profile").doc(user);
+  final user = FirebaseAuth.instance.currentUser!.email;
+  
+    try {
+      final newProfile = {
+        if (_nameController.text.isNotEmpty) "name": _nameController.text,
+        if (_fullnameController.text.isNotEmpty) "fullname": _fullnameController.text,
+        if (_birthdateController.text.isNotEmpty) "birthdate": _birthdateController.text,
+        if (dropdownValue.isNotEmpty) "typediabetes": dropdownValue,
+        if (_weightController.text.isNotEmpty) "weight": int.parse(_weightController.text),
+        if (_sizeController.text.isNotEmpty) "size": int.parse(_sizeController.text),
+        if (_imcController.text.isNotEmpty) "imc": int.parse(_imcController.text),
+      };
 
-    final profileSnapshot = await profileRef.get();
+      final profileRef = _db.collection("profile").doc(user);
 
-    if(profileSnapshot.exists) {
-      final Map<String, dynamic> existingProfile = profileSnapshot.data() as Map<String, dynamic>;
+      final profileSnapshot = await profileRef.get();
 
-      final Map<String, dynamic> updatedFields = {};
+      if(profileSnapshot.exists) {
+        final Map<String, dynamic> existingProfile = profileSnapshot.data() as Map<String, dynamic>;
 
-      newProfile.forEach((key, value) {
-        if (existingProfile.containsKey(key) && existingProfile[key] != value) {
-          updatedFields[key] = value;
+        final Map<String, dynamic> updatedFields = {};
+
+        newProfile.forEach((key, value) {
+          if (existingProfile.containsKey(key) && existingProfile[key] != value) {
+            updatedFields[key] = value;
+          }
+        });
+
+        if (updatedFields.isNotEmpty) {
+          profileRef.update(updatedFields).then((_) => Navigator.pop(context));
+        } else {
+          print("No hay cambios para actualizar.");
+          Navigator.pop(context);
         }
-      });
-
-      if (updatedFields.isNotEmpty) {
-        profileRef.update(updatedFields).then((_) => Navigator.pop(context));
-      } else {
-        print("No hay cambios para actualizar.");
-        Navigator.pop(context);
-      }
       }else {
         profileRef.set(newProfile).then(
           (_) => Navigator.pop(context)
