@@ -1,12 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tesis_project_v1/screens/main.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class LoginScreen extends StatefulWidget {
   final void Function()? onTap;
-  const LoginScreen({super.key, this.onTap});
+  const LoginScreen({super.key, required this.onTap});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -26,7 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     );
     try {
-      await Firebase.initializeApp();
       await FirebaseAuth.instance.signInWithEmailAndPassword( 
         email: emailController.text,
         password: passwordController.text,
@@ -72,14 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
         print('Correo en uso');
       }
     }
-  }
-
-  void registerScreen() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => const RegisterScreen(),
-      )
-    );
   }
 
   @override
@@ -153,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(width: 5),
                       GestureDetector(
-                        onTap: registerScreen,
+                        onTap: widget.onTap,
                         child: const Text(
                           'Registrarse ahora',
                           style: TextStyle(

@@ -14,7 +14,8 @@ class AuthScreen extends StatelessWidget {
           if(snapshot.hasData){
             return const MyHomeScreen();
           }else {
-            return const LoginOrRegister();
+            // return const LoginOrRegister();
+            return const LoginScreen();
           }
         },
       ),

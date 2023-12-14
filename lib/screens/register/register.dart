@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tesis_project_v1/screens/login/login.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class RegisterScreen extends StatefulWidget {
-  final void Function()? onTap;
-  const RegisterScreen({super.key, required this.onTap});
+  // final void Function()? onTap;
+  const RegisterScreen({super.key});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -14,33 +16,80 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final _db = FirebaseFirestore.instance;
   
   void signUserUp() async {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-    );
     try {
-      if (passwordController == confirmPasswordController) {
+
+      final user = emailController.text;
+
+      final newProfile = {
+        "name": "",
+        "fullname": "",
+        "birthdate": "",
+        "typediabetes": "",
+        "weight": null,
+        "size": null,
+      };
+
+      if (passwordController.text == confirmPasswordController.text) {
           await FirebaseAuth.instance.createUserWithEmailAndPassword( 
           email: emailController.text,
-          password: passwordController.text,
+          password: passwordController.text,          
         );
-      }      
-      else {
-        showErrorMessage('Ambas Contraseñas no coindicen');
-      }
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
-      if(e.code == 'INVALID_LOGIN_CREDENTIALS') {
-        showErrorMessage(e.code);
-      }
+        _db.collection("profile").doc(user).set(newProfile).onError((e, _) => e);
+        print("Cuenta creada");
+        showSuccessfulRegistration();
+      } else {
+        showFailedRegistration();
+      }  
+    } catch (e) {
+      print("Error al procesar datos: $e");
     }
+  }
+
+  void showSuccessfulRegistration() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Registro Exitoso'),
+          content: const Text('¡Tu registro ha sido exitoso!'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                emailController.clear();
+                passwordController.clear();
+                confirmPasswordController.clear();
+                Navigator.of(context).pop();
+              },
+              child: const Text('Aceptar'),
+            ),
+          ],
+        );
+        
+      },
+    );
+  }
+
+  void showFailedRegistration() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Registro Fallido'),
+          content: const Text('Revisa que las contraseñas creadas coincidan'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Aceptar'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void showErrorMessage(String message) {
@@ -57,6 +106,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         );
       }
+    );
+  }
+
+  void loginScreen() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => const LoginScreen(),
+      )
     );
   }
 
@@ -118,7 +175,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       const SizedBox(width: 5),
                       GestureDetector(
-                        onTap: widget.onTap,
+                        onTap: loginScreen,
                         child: const Text(
                           'Ingresar ahora',
                           style: TextStyle(

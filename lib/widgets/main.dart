@@ -1,8 +1,8 @@
+export 'package:tesis_project_v1/widgets/profile/nameProfile.dart';
 export 'package:tesis_project_v1/widgets/profile/miniButton.dart';
 export 'package:tesis_project_v1/widgets/alertdialog/alertdialogQuestion.dart';
 export 'package:tesis_project_v1/widgets/recommendedExercises/categoryCard.dart';
 export 'package:tesis_project_v1/widgets/glucose/calendarGlucose/dataConditionalGlucose.dart';
-export 'package:tesis_project_v1/widgets/profile/dataProfile.dart';
 export 'package:tesis_project_v1/widgets/login/squareLogoLogin.dart';
 export 'package:tesis_project_v1/widgets/recommendedFoods/listCard.dart';
 export 'package:tesis_project_v1/widgets/recommendedFoods/subtitleTextCard.dart';

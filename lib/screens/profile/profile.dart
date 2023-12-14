@@ -19,7 +19,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final typediabetesController = TextEditingController();
   final _weightController = TextEditingController();
   final _sizeController = TextEditingController();
-  final _imcController = TextEditingController();
   final _db = FirebaseFirestore.instance;
   String dropdownValue = "Tipo 1";
 
@@ -34,14 +33,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final user = FirebaseAuth.instance.currentUser!.email;
   
     try {
+      // final newProfile = {
+      //   if (_nameController.text.isNotEmpty) "name": _nameController.text,
+      //   if (_fullnameController.text.isNotEmpty) "fullname": _fullnameController.text,
+      //   if (_birthdateController.text.isNotEmpty) "birthdate": _birthdateController.text,
+      //   if (dropdownValue.isNotEmpty) "typediabetes": dropdownValue,
+      //   if (_weightController.text.isNotEmpty) "weight": int.parse(_weightController.text),
+      //   if (_sizeController.text.isNotEmpty) "size": int.parse(_sizeController.text),
+      // };
+
       final newProfile = {
-        if (_nameController.text.isNotEmpty) "name": _nameController.text,
-        if (_fullnameController.text.isNotEmpty) "fullname": _fullnameController.text,
-        if (_birthdateController.text.isNotEmpty) "birthdate": _birthdateController.text,
-        if (dropdownValue.isNotEmpty) "typediabetes": dropdownValue,
-        if (_weightController.text.isNotEmpty) "weight": int.parse(_weightController.text),
-        if (_sizeController.text.isNotEmpty) "size": int.parse(_sizeController.text),
-        if (_imcController.text.isNotEmpty) "imc": int.parse(_imcController.text),
+        "name": _nameController.text,
+        "fullname": _fullnameController.text,
+        "birthdate": _birthdateController.text,
+        "typediabetes": dropdownValue,
+        "weight": _weightController.text.isNotEmpty ? int.parse(_weightController.text) : null,
+        "size": _sizeController.text.isNotEmpty ? int.parse(_sizeController.text) : null,
       };
 
       final profileRef = _db.collection("profile").doc(user);
@@ -65,11 +72,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           print("No hay cambios para actualizar.");
           Navigator.pop(context);
         }
-      }else {
+      } else {
         profileRef.set(newProfile).then(
           (_) => Navigator.pop(context)
         );
       }
+      // profileRef.set(newProfile).then(
+      //     (_) => Navigator.pop(context)
+      //   );
     } catch (e) {
       print("Error al procesar los datos: $e");
     }

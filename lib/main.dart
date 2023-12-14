@@ -4,6 +4,7 @@ import 'package:timezone/data/latest.dart' as tz;
 // import 'package:tesis_project_v1/config/router/app_router.dart';
 // import 'package:tesis_project_v1/config/theme/app_theme.dart';
 import 'package:tesis_project_v1/screens/login/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:tesis_project_v1/screens/login/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tesis_project_v1/screens/main.dart';
