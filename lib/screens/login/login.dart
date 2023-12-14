@@ -74,13 +74,13 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void registerScreen() {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => const RegisterScreen(),
-      )
-    );
-  }
+  // void registerScreen() {
+  //   Navigator.of(context).push(
+  //     MaterialPageRoute(
+  //       builder: (_) => const RegisterScreen(),
+  //     )
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(width: 5),
                       GestureDetector(
-                        onTap: registerScreen,
+                        onTap: widget.onTap,
                         child: const Text(
                           'Registrarse ahora',
                           style: TextStyle(

@@ -1,34 +1,35 @@
-// import 'package:flutter/material.dart';
-// import 'package:tesis_project_v1/screens/main.dart';
+import 'package:flutter/material.dart';
+import 'package:tesis_project_v1/screens/login/login2.dart';
+import 'package:tesis_project_v1/screens/main.dart';
 
-// class LoginOrRegister extends StatefulWidget {
-//   const LoginOrRegister({super.key});
+class LoginOrRegister extends StatefulWidget {
+  const LoginOrRegister({super.key});
 
-//   @override
-//   State<LoginOrRegister> createState() => _LoginOrRegisterState();
-// }
+  @override
+  State<LoginOrRegister> createState() => _LoginOrRegisterState();
+}
 
-// class _LoginOrRegisterState extends State<LoginOrRegister> {
+class _LoginOrRegisterState extends State<LoginOrRegister> {
 
-//   bool showLoginScreen = true;
+  bool showLoginScreen = true;
 
-//   void toggleScreen() {
-//     setState(() {
-//       showLoginScreen = !showLoginScreen;
-//     });
-//   }
+  void toggleScreen() {
+    setState(() {
+      showLoginScreen = !showLoginScreen;
+    });
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     if (showLoginScreen) {
-//       return LoginScreen(
-//         onTap: toggleScreen,
-//       );
-//     }
-//     else {
-//       return RegisterScreen(
-//         onTap: toggleScreen,
-//       );
-//     }
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    if (showLoginScreen) {
+      return LoginScreen2(
+        onTap: toggleScreen,
+      );
+    }
+    else {
+      return RegisterScreen(
+        onTap: toggleScreen,
+      );
+    }
+  }
+}

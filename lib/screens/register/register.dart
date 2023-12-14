@@ -5,8 +5,8 @@ import 'package:tesis_project_v1/screens/login/login.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class RegisterScreen extends StatefulWidget {
-  // final void Function()? onTap;
-  const RegisterScreen({super.key});
+  final void Function()? onTap;
+  const RegisterScreen({super.key, required this.onTap});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -175,7 +175,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       const SizedBox(width: 5),
                       GestureDetector(
-                        onTap: loginScreen,
+                        onTap: widget.onTap,
                         child: const Text(
                           'Ingresar ahora',
                           style: TextStyle(

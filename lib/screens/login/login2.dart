@@ -2,15 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen2 extends StatefulWidget {
   final void Function()? onTap;
-  const LoginScreen({super.key, required this.onTap});
+  const LoginScreen2({super.key, required this.onTap});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreen2> createState() => _LoginScreen2State();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreen2State extends State<LoginScreen2> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   

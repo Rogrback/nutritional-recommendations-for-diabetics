@@ -1,3 +1,4 @@
+export 'package:tesis_project_v1/screens/login/login2.dart';
 export 'package:tesis_project_v1/widgets/profile/nameProfile.dart';
 export 'package:tesis_project_v1/widgets/profile/miniButton.dart';
 export 'package:tesis_project_v1/widgets/alertdialog/alertdialogQuestion.dart';
