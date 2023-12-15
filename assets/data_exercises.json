@@ -1,0 +1,47 @@
+[
+  {
+    "routineName": "RUTINA LIGERA DE EJERCICIO",
+    "routineSteps": [
+      {
+        "stepNumber": 1,
+        "stepDescription": "Realiza calentamiento durante 5 minutos.",
+        "stepImage": "url_imagen_1"
+      },
+      {
+        "stepNumber": 2,
+        "stepDescription": "Caminata rápida durante 15 minutos.",
+        "stepImage": "url_imagen_2"
+      }
+    ]
+  },
+  {
+    "routineName": "RUTINA DE INTENSIDAD MODERADA",
+    "routineSteps": [
+      {
+        "stepNumber": 1,
+        "stepDescription": "Calentamiento: Saltar la cuerda durante 10 minutos.",
+        "stepImage": "url_imagen_3"
+      },
+      {
+        "stepNumber": 2,
+        "stepDescription": "Entrenamiento de fuerza: Flexiones de brazos durante 15 minutos.",
+        "stepImage": "url_imagen_4"
+      }
+    ]
+  },
+  {
+    "routineName": "RUTINA DE INTENSIDAD VIGOROSA",
+    "routineSteps": [
+      {
+        "stepNumber": 1,
+        "stepDescription": "Calentamiento: Correr en el lugar durante 10 minutos.",
+        "stepImage": "url_imagen_5"
+      },
+      {
+        "stepNumber": 2,
+        "stepDescription": "Entrenamiento cardiovascular: Sprints de 30 segundos, seguido de 30 segundos de descanso, repite 10 veces.",
+        "stepImage": "url_imagen_6"
+      }
+    ]
+  }
+]
