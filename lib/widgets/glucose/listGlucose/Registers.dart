@@ -5,7 +5,7 @@ class Registers extends StatelessWidget {
   final int glucose;
   final String medicationMoment;
   final String date;
-  final String time;
+  final String? time;
 
 
   const Registers({
@@ -13,7 +13,7 @@ class Registers extends StatelessWidget {
     required this.glucose,
     required this.medicationMoment,
     required this.date,
-    required this.time
+    this.time
     });
 
   @override

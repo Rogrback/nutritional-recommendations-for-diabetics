@@ -22,21 +22,24 @@ class ListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 34),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        title: TitleTextCard(title: title),
-        onTap: () {},
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SubtitleTextCards(propertyEs: "Calorías", propertyEn: caloric, unit: "kcal."),
-            SubtitleTextCards(propertyEs: "Grasas", propertyEn: fat, unit: "gr."),
-            SubtitleTextCards(propertyEs: "Carbohidratos", propertyEn: carbon, unit: "gr."),
-            SubtitleTextCards(propertyEs: "Proteínas", propertyEn: protein, unit: "gr.")
-          ],
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: ListTile(
+          title: TitleTextCard(title: title),
+          onTap: () {},
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SubtitleTextCards(propertyEs: "Calorías", propertyEn: caloric, unit: "kcal."),
+              SubtitleTextCards(propertyEs: "Grasas", propertyEn: fat, unit: "gr."),
+              SubtitleTextCards(propertyEs: "Carbohidratos", propertyEn: carbon, unit: "gr."),
+              SubtitleTextCards(propertyEs: "Proteínas", propertyEn: protein, unit: "gr.")
+            ],
+          ),
         ),
       ),
     );

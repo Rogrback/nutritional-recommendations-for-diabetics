@@ -53,10 +53,17 @@ class _DateTextFieldGlucoseState extends State<DateTextFieldGlucose> {
             lastDate: DateTime(2101),
           );
           if(pickedDate != null){
-            final DateTime nowUtc = pickedDate.toUtc(); 
+            final DateTime nowUtc = pickedDate.toUtc();
             var limaLocation = tz.getLocation('America/Lima');
             final DateTime nowLima = tz.TZDateTime.from(nowUtc, limaLocation);
+            // String formattedDate= DateFormat("dd-MM-yy").format(nowLima);
             String formattedDate= DateFormat("dd-MM-yy").format(nowLima);
+            print('pickedDate: $pickedDate');
+            print('nowUtc: $nowUtc');
+            print('limaLocation: $limaLocation');  
+            print('pickedDate: $pickedDate');  
+            print('formattedDate: $formattedDate');  
+            print('nowLima: $nowLima');  
             setState(() {
               widget.controller.text= formattedDate.toString();
             });

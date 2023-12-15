@@ -1,3 +1,7 @@
+export 'package:tesis_project_v1/widgets/recommendedFoods/noDataFood.dart';
+export 'package:tesis_project_v1/widgets/recommendedFoods/searchButton.dart';
+export 'package:tesis_project_v1/widgets/recommendedFoods/searchTextField.dart';
+export 'package:tesis_project_v1/widgets/recommendedFoods/listDataFood.dart';
 export 'package:tesis_project_v1/screens/login/login2.dart';
 export 'package:tesis_project_v1/widgets/profile/nameProfile.dart';
 export 'package:tesis_project_v1/widgets/profile/miniButton.dart';

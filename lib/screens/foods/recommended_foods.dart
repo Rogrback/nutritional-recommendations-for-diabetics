@@ -14,10 +14,11 @@ class RecommendedFoodsScreen extends StatefulWidget {
 
 class _RecommendedFoodsScreenState extends State<RecommendedFoodsScreen> {
 
+  final _foodController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
-    fetchData();
   }
 
   Dio dio = Dio();
@@ -25,11 +26,11 @@ class _RecommendedFoodsScreenState extends State<RecommendedFoodsScreen> {
   final StreamController<List<Dish>> _streamController = StreamController<List<Dish>>();
   final ApiConfig apiConfig = ApiConfig();
 
-  Future<void> fetchData() async {
+  Future<void> fetchData(String food) async {
     try {
       final response = await dio.get(
         apiConfig.apiUrl,
-        queryParameters: {'name': apiConfig.queryName, 'lang': apiConfig.queryLang},
+        queryParameters: {'name': food, 'lang': apiConfig.queryLang},
         options: Options(
           headers: {
             apiConfig.apiHost: apiConfig.host,
@@ -38,41 +39,54 @@ class _RecommendedFoodsScreenState extends State<RecommendedFoodsScreen> {
         ),
       );
 
-      final Food food = Food.fromJson(response.data);
-      _streamController.add(food.dishes);
+      final Food foodData = Food.fromJson(response.data);
+      _streamController.add(foodData.dishes);
     } catch (e) {
       print('Error al hacer la solicitud: $e');
     }
   }
 
+  void searchFood() {
+    String searchText = _foodController.text;
+    fetchData(searchText);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<List<Dish>>(
-        stream: _streamController.stream,
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            final dishes = snapshot.data!;
-
-            return ListView.builder(
-              itemCount: dishes.length,
-              itemBuilder: (context, index) {
-                final currentDish = dishes[index];                
-
-                return ListCard(
-                  title: currentDish.name,
-                  caloric: currentDish.caloric,
-                  fat: currentDish.fat,
-                  carbon: currentDish.carbon,
-                  protein: currentDish.protein
-                );
-              },
-            );
-          }
-        },
-      ),
+      body: Column(
+        children: [
+          const SizedBox(height: 10),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 17),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: SearchTextField(
+                    controller: _foodController,
+                    obscureText: false,
+                  ),              
+                ),
+                const SizedBox(width: 5),
+                Expanded(
+                  flex: 1,
+                  child: SearchButton(
+                    onPressed: searchFood,
+                    text: 'Buscar'
+                  )
+                ),
+                const SizedBox(width: 15),
+              ],
+            ),
+          ),
+          // const SizedBox(height: 30),
+          Divider(height: 10, color: Colors.green[800]),
+          Expanded(
+            child: ListDataFood(streamController: _streamController)
+          )
+        ],
+      )
     );
   }
 
@@ -83,3 +97,4 @@ class _RecommendedFoodsScreenState extends State<RecommendedFoodsScreen> {
   }
 
 }
+
