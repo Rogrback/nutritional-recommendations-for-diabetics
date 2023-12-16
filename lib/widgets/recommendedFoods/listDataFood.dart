@@ -17,7 +17,6 @@ class ListDataFood extends StatelessWidget {
       stream: _streamController.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          // return const Center(child: CircularProgressIndicator());
           return const NoDataFood();
         } else {
           final dishes = snapshot.data!;

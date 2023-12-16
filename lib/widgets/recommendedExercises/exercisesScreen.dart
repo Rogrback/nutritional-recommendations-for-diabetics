@@ -17,12 +17,28 @@ class ExercisesScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final routine = exerciseRoutines[index];
           return ListTile(
-            title: Text(routine.routineName),
+            title: Container(
+              decoration: const BoxDecoration(
+                color: Colors.green
+              ),
+              child: Text(
+                routine.routineName,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: routine.routineSteps
                   .map((step) => ListTile(
-                        title: Text('Paso ${step.stepNumber}'),
+                        title: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.amber
+                          ),
+                          child: Text('Paso ${step.stepNumber}')
+                        ),
                         subtitle: Text(step.stepDescription),
                         // leading: Image.network(step.stepImage), // Mostrar la imagen desde la URL
                         leading: Text(step.stepImage), 
