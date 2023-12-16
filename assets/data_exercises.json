@@ -1,47 +1,497 @@
 [
   {
-    "routineName": "RUTINA LIGERA DE EJERCICIO",
-    "routineSteps": [
-      {
-        "stepNumber": 1,
-        "stepDescription": "Realiza calentamiento durante 5 minutos.",
-        "stepImage": "url_imagen_1"
-      },
-      {
-        "stepNumber": 2,
-        "stepDescription": "Caminata rápida durante 15 minutos.",
-        "stepImage": "url_imagen_2"
-      }
-    ]
-  },
-  {
-    "routineName": "RUTINA DE INTENSIDAD MODERADA",
-    "routineSteps": [
-      {
-        "stepNumber": 1,
-        "stepDescription": "Calentamiento: Saltar la cuerda durante 10 minutos.",
-        "stepImage": "url_imagen_3"
-      },
-      {
-        "stepNumber": 2,
-        "stepDescription": "Entrenamiento de fuerza: Flexiones de brazos durante 15 minutos.",
-        "stepImage": "url_imagen_4"
-      }
-    ]
-  },
-  {
-    "routineName": "RUTINA DE INTENSIDAD VIGOROSA",
-    "routineSteps": [
-      {
-        "stepNumber": 1,
-        "stepDescription": "Calentamiento: Correr en el lugar durante 10 minutos.",
-        "stepImage": "url_imagen_5"
-      },
-      {
-        "stepNumber": 2,
-        "stepDescription": "Entrenamiento cardiovascular: Sprints de 30 segundos, seguido de 30 segundos de descanso, repite 10 veces.",
-        "stepImage": "url_imagen_6"
-      }
-    ]
-  }
+      "routineName": "RUTINA LIGERA DE EJERCICIO",
+      "routineSteps": [
+        {
+          "stepNumber": 1,
+          "stepDescription": "Extensión de la columna cervical (estiramiento del cuello metiendo barbilla adentro y arriba).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 2,
+          "stepDescription": "Rotación de la cabeza a ambos lados, despacio y sin dolor.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 3,
+          "stepDescription": "Respiraciones diafragmáticas profundas y lentas (hinchar/deshinchar la barriga). Manos sobre el ombligo.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 4,
+          "stepDescription": "Estiramiento de espalda y brazos. Llevar las manos al hombro y después estirar los brazos llevando las manos lo más alto posible sin despegar los pies del suelo. Primero con un solo brazo y luego con los dos simultáneamente.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 5,
+          "stepDescription": "Estiramiento de espalda y brazos. Llevar las manos al hombro y después estirar los brazos llevando las manos lo más alto posible sin despegar los pies del suelo. Primero con un solo brazo y luego con los dos simultáneamente.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 6,
+          "stepDescription": "Rotación interna y externa de hombros.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 7,
+          "stepDescription": "Flexo-extensión de brazos elevando alternativamente una de las piernas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 8,
+          "stepDescription": "Rotaciones de cintura con las manos colocadas sobre la cintura.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 9,
+          "stepDescription": "Flexión plantar y dorsal de pies (punta-talón) y, simultáneamente, prono-supinación de manos (palma de la mano arriba y abajo).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 10,
+          "stepDescription": "Círculos con ambos tobillos y con las muñecas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 11,
+          "stepDescription": "Letra “O” con los dedos y simultáneamente, realizamos punta talón con los pies.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 12,
+          "stepDescription": "Estiramiento de la musculatura posterior de pierna, muslo y cadera, llevando la punta de la pierna hacia arriba y con la rodilla en extensión. Acompañamos estos movimientos con una ligera flexión adelante.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 13,
+          "stepDescription": "Sentados, extensión de rodillas y, lentamente, hacemos círculos con los dedos durante 2-5 segundos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 14,
+          "stepDescription": "Inspiramos profunda y lentamente al tiempo que elevamos los brazos hasta la horizontal. A continuación expiramos lentamente descendiendo los brazos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 15,
+          "stepDescription": "Estiramiento de la musculatura posterior de la pierna (tríceps sural). Mantenemos el talón de la pierna más atrasada pegado al suelo durante al menos 30s.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 16,
+          "stepDescription": "Activación-fortalecimiento de tobillos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 17,
+          "stepDescription": "A) Flexiones de cadera con la pierna en extensión (llevar la pierna adelante), lentamente y sin dolor. B) Extensión de la cadera con la pierna en extensión (llevar la pierna atrás) lentamente y sin molestias.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 18,
+          "stepDescription": "Bailar como si estuviéramos moviendo unas maracas, moviendo los brazos a ambos lados y acompañando con movimientos coordinados de pies.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 19,
+          "stepDescription": "Bailar moviendo las caderas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 20,
+          "stepDescription": "Bailar tocando instrumentos imaginarios, moviendo manos,brazos y piernas (con música).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 21,
+          "stepDescription": "Caminar pero sin desplazarse y coordinando brazos y piernas (con música).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 22,
+          "stepDescription": "Imaginar que estamos dirigiendo una orquesta. Realizar diversidad de movimientos de forma libre (apoyo musical).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 23,
+          "stepDescription": "Realizar circunferencias con las manos, adelante y atrás; empezando por una amplitud reducida e ir aumentándola progresivamente.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 24,
+          "stepDescription": "Rotaciones de cintura-cadera.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 25,
+          "stepDescription": "Retroversión y anteversión de la pelvis apoyándose en una silla.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 26,
+          "stepDescription": "Ejercicios de pies y dedos: coger y soltar una pelota pequeña; hacer rodar un cilindro con la planta del pie, encoger/extender un paño/hoja.",
+          "stepImage": "url_imagen_2"
+        }
+      ]
+    },
+    {
+      "routineName": "RUTINA DE INTENSIDAD MODERADA",
+      "routineSteps": [
+        {
+          "stepNumber": 1,
+          "stepDescription": "Extensión de la columna cervical (estiramiento del cuello metiendo barbilla adentro y arriba).",
+          "stepImage": "url_imagen_1"
+        },
+        {
+          "stepNumber": 2,
+          "stepDescription": "Rotación de la cabeza a ambos lados, despacio y sin dolor.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 3,
+          "stepDescription": "Elevar y descender hombros, acompañando los movimientos con inspiraciones y expiraciones lentas y profundas.",
+          "stepImage": "url_imagen_1"
+        },
+        {
+          "stepNumber": 4,
+          "stepDescription": "Hombros adelante y atrás.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 5,
+          "stepDescription": "Respiraciones diafragmáticas profundas y lentas (hinchar/deshinchar la barriga). Manos sobre el ombligo.",
+          "stepImage": "url_imagen_1"
+        },
+        {
+          "stepNumber": 6,
+          "stepDescription": "Elevación de brazos: primero a la horizontal, luego arriba y volvemos a empezar.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 7,
+          "stepDescription": "Rotaciones externas de hombro con los brazos en abducción y flexionados; como si tocara los platillos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 8,
+          "stepDescription": "Realizar circunferencias con las manos, adelante y atrás; empezando por una amplitud reducida e ir aumentándola progresivamente.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 9,
+          "stepDescription": "Girando desde la cintura con una banda imaginaria.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 10,
+          "stepDescription": "Llevar una cinta imaginaria arriba, atrás y mano adelante y volver a empezar.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 11,
+          "stepDescription": "Flexo-extensión de brazos elevando alternativamente una de las piernas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 12,
+          "stepDescription": "Extensión de rodilla manteniendo 5-6 segundos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 13,
+          "stepDescription": "Coger una pierna por la parte posterior del muslo y llevarla hacia el tronco llevando la punta del pie hacia la rodilla.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 14,
+          "stepDescription": "Fortalecimiento de cuádriceps: poner un pie detrás del otro y ejercer fuerza en sentido contrario hasta extender las rodillas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 15,
+          "stepDescription": "Marcar el ritmo de la música con los pies, abriendo y cerrando puños.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 16,
+          "stepDescription": "Letra “O” con los dedos y simultáneamente, realizamos punta talón con los pies.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 17,
+          "stepDescription": "Transfiera el peso del cuerpo de un glúteo, levantando la rodilla",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 18,
+          "stepDescription": "Transfiera el peso a un glúteo y flexione la rodilla y la cadera hacia el tronco primero, y extendiendo la rodilla, después.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 19,
+          "stepDescription": "Sentado, extensión de la rodilla y realizar al menos 3 círculos con el pie.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 20,
+          "stepDescription": "Caminar pero sin desplazarse y coordinando brazos y piernas (con música).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 21,
+          "stepDescription": "Levantar los talones atrás flexionado la rodilla. Alternar con ambas piernas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 22,
+          "stepDescription": "Inspiramos profunda y lentamente al tiempo que elevamos los brazos hasta la horizontal. A continuación expiramos lentamente descendiendo los brazos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 23,
+          "stepDescription": "Dar tres pasos, flexionando ligeramente las rodillas y dar un aplauso.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 24,
+          "stepDescription": "Bailar al Twist.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 25,
+          "stepDescription": "Flexionar las caderas levantando las rodillas y tocarlas con las manos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 26,
+          "stepDescription": "Imaginar que estamos dirigiendo una orquesta. Realizar diversidad de movimientos de forma libre (apoyo musical).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 27,
+          "stepDescription": "Realizar movimientos imaginando que tocamos un piano.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 28,
+          "stepDescription": "Tocar, alternativamente, con el codo en la rodilla opuesta.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 29,
+          "stepDescription": "Dar tres pasos laterales cruzando una pierna frente a la otra y aplaudir en el cuarto paso.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 30,
+          "stepDescription": "Anteversión y retroversión de la pelvis (báscula pélvica).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 31,
+          "stepDescription": "Estiramiento de la de la zona lumbar y parte posterior del muslo.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 32,
+          "stepDescription": "Mover las piernas de un lado al otro.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 33,
+          "stepDescription": "Acostado: girando desde la cintura con los brazos extendidos horizontalmente (estiramiento de glúteos y cintura).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 34,
+          "stepDescription": "Flexibilización de la espalda.",
+          "stepImage": "url_imagen_2"
+        }
+      ]
+    },
+    {
+      "routineName": "RUTINA DE INTENSIDAD VIGOROSA",
+      "routineSteps": [
+        {
+          "stepNumber": 1,
+          "stepDescription": "Rotación de la cabeza a ambos lados, despacio y sin dolor.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 2,
+          "stepDescription": "Flexión lateral de cuello: llevar una oreja hacia el hombro del mismo lado. Despacio, progresivamente y sin dolor. Mantener la flexión durante 30s.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 3,
+          "stepDescription": "Elevar y descender hombros, acompañando los movimientos con inspiraciones y expiraciones lentas y profundas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 4,
+          "stepDescription": "Realizar círculos con los hombros.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 5,
+          "stepDescription": "Respiraciones diafragmáticas profundas y lentas (hinchar/deshinchar la barriga). Manos sobre el ombligo.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 6,
+          "stepDescription": "Elevación de brazos: primero a la horizontal, luego arriba y volvemos a empezar.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 7,
+          "stepDescription": "Fortalecimiento de brazos. Realizar flexo-extensiones de brazos con un peso ligero.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 8,
+          "stepDescription": "Coordinar la flexo-extensión de brazos con la flexión de cadera, llevando las rodillas hacia el tronco.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 9,
+          "stepDescription": "Rotación interna y externa de hombros.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 10,
+          "stepDescription": "Extensión de los brazos con una banda elástica imaginaria a los lados y arriba.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 11,
+          "stepDescription": "Girando desde la cintura.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 12,
+          "stepDescription": "Transfiera el peso del cuerpo de un glúteo, levantando la rodilla.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 13,
+          "stepDescription": "Transfiera el peso a un glúteo y flexione la rodilla y la cadera hacia el tronco primero, y extendiendo la rodilla, después.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 14,
+          "stepDescription": "Bailar tocando instrumentos imaginarios, moviendo manos, brazos y piernas (con música).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 15,
+          "stepDescription": "Sentado, extensión de la rodilla y realizar al menos 3 círculos con el pie.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 16,
+          "stepDescription": "Extensión de rodilla manteniendo 15-20 segundos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 17,
+          "stepDescription": "Fortalecimiento. Elevar los tobillos y bajar lentamente hasta contactar con los talones hasta el suelo.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 18,
+          "stepDescription": "Estiramiento de la musculatura posterior de la pierna (tríceps sural). Mantenemos el talón de la pierna más atrasada pegado al suelo durante al menos 30s.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 19,
+          "stepDescription": "Bailar al Twist.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 20,
+          "stepDescription": "Bailar como si estuviéramos moviendo unas maracas, moviendo los brazos a ambos lados y acompañando con movimientos coordinados de pies.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 21,
+          "stepDescription": "Caminar pero sin desplazarse y coordinando brazos y piernas (con música).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 22,
+          "stepDescription": "Caminar 3 pasos adelante y aplaudir en el cuarto paso finalizando a pies juntos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 23,
+          "stepDescription": "Levantar los talones atrás flexionado la rodilla. Alternar con ambas piernas.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 24,
+          "stepDescription": "Bailar al Twist.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 25,
+          "stepDescription": "Caminar 3 pasos adelante y aplaudir en el cuarto paso, finalizando a pies juntos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 26,
+          "stepDescription": " Tocar, alternativamente, con el codo en la rodilla opuesta.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 27,
+          "stepDescription": "Imaginar que estamos dirigiendo una orquesta. Realizar diversidad de movimientos de forma libre (apoyo musical).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 28,
+          "stepDescription": "Bailar tocando instrumentos imaginarios, moviendo manos, brazos y piernas (con música).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 29,
+          "stepDescription": "Inspiramos profunda y lentamente al tiempo que elevamos los brazos hasta la horizontal. A continuación expiramos lentamente descendiendo los brazos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 30,
+          "stepDescription": "Caminar pero sin desplazarse, coordinando brazos y piernas y reduciendo progresivamente el ritmo hasta pararse.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 31,
+          "stepDescription": "Caminar 3 pasos adelante y aplaudir en el cuarto paso, finalizando a pies juntos.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 32,
+          "stepDescription": "Estiramiento de la musculatura posterior de la pierna (tríceps sural). Mantenemos el talón de la pierna más atrasada pegado al suelo durante al menos 30s",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 33,
+          "stepDescription": "Anteversión y retroversión de la pelvis (báscula pélvica).",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 34,
+          "stepDescription": "Estiramiento de la de la zona lumbar y parte posterior del muslo.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 35,
+          "stepDescription": "Mover las piernas de un lado al otro.",
+          "stepImage": "url_imagen_2"
+        },
+        {
+          "stepNumber": 36,
+          "stepDescription": "Flexibilización de la espalda.",
+          "stepImage": "url_imagen_2"
+        }
+      ]
+    }
 ]

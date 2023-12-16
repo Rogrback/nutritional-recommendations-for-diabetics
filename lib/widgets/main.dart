@@ -1,3 +1,4 @@
+export 'package:tesis_project_v1/widgets/recommendedExercises/categoryButton.dart';
 export 'package:tesis_project_v1/widgets/recommendedExercises/exercisesScreen.dart';
 export 'package:tesis_project_v1/widgets/recommendedFoods/noDataFood.dart';
 export 'package:tesis_project_v1/widgets/recommendedFoods/searchButton.dart';
