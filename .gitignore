@@ -45,3 +45,4 @@ app.*.map.json
 
 # SECRET API KEY
 constants.dart
+/assets/
