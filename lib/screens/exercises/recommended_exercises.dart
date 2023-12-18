@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:tesis_project_v1/infrastructure/models/exerciseRoutine.dart'; // Asegúrate de importar el archivo correcto
-import 'package:tesis_project_v1/screens/main.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class RecommendedExercisesScreen extends StatefulWidget {
@@ -14,18 +12,36 @@ class RecommendedExercisesScreen extends StatefulWidget {
 
 class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen> {
 
-  late List<ExerciseRoutine> exerciseRoutines = [];
+  // late List<ExerciseRoutine> exerciseRoutines = [];
+  List<ExerciseRoutine> lightRoutines = [];
+  List<ExerciseRoutine> moderateRoutines = [];
+  List<ExerciseRoutine> vigorousRoutines = [];
 
   @override
   void initState() {
     super.initState();
-    _loadExercises();
+    // _loadExercises();
+    _loadLightExercises();
+    _loadModerateExercises();
+    _loadVigorousExercises();
   }
 
-  Future<void> _loadExercises() async {
+  // Future<void> _loadExercises() async {
+  //   try {
+  //     String jsonString = await rootBundle.loadString('assets/data_exercises.json');
+  //     exerciseRoutines = exerciseRoutineFromJson(jsonString);
+  //     if (mounted) {
+  //       setState(() {});
+  //     }
+  //   } catch (e) {
+  //     print('Error cargando y decodificando el JSON: $e');
+  //   }
+  // }
+
+  Future<void> _loadLightExercises() async {
     try {
-      String jsonString = await rootBundle.loadString('assets/data_exercises.json');
-      exerciseRoutines = exerciseRoutineFromJson(jsonString);
+      String jsonString = await rootBundle.loadString('assets/data_exercises1.json');
+      lightRoutines = exerciseRoutineFromJson(jsonString);
       if (mounted) {
         setState(() {});
       }
@@ -34,19 +50,62 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
     }
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return ExercisesScreen(exerciseRoutines: exerciseRoutines);
-  // }
-
-  void enterRoutine () {
-    print('Probando rutina');
+  Future<void> _loadModerateExercises() async {
+    try {
+      String jsonString = await rootBundle.loadString('assets/data_exercises2.json');
+      moderateRoutines = exerciseRoutineFromJson(jsonString);
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (e) {
+      print('Error cargando y decodificando el JSON: $e');
+    }
   }
 
-  void enterRoutinee () {
+  Future<void> _loadVigorousExercises() async {
+    try {
+      String jsonString = await rootBundle.loadString('assets/data_exercises3.json');
+      vigorousRoutines = exerciseRoutineFromJson(jsonString);
+      if (mounted) {
+        setState(() {});
+      }
+    } catch (e) {
+      print('Error cargando y decodificando el JSON: $e');
+    }
+  }
+
+  // void enterRoutine () {
+  //   print('Probando rutina');
+  // }
+
+  // void enterRoutinee () {
+  //   Navigator.of(context).push(
+  //    MaterialPageRoute(
+  //      builder: (_) => ExercisesScreen(exerciseRoutines: exerciseRoutines),
+  //    )
+  //   );
+  // }
+
+  void lightRoutine () {
     Navigator.of(context).push(
      MaterialPageRoute(
-       builder: (_) => ExercisesScreen(exerciseRoutines: exerciseRoutines),
+       builder: (_) => ExercisesScreenn(exerciseRoutines: lightRoutines),
+     )
+    );
+  }
+
+  void moderateRoutine () {
+    Navigator.of(context).push(
+     MaterialPageRoute(
+       builder: (_) => ExercisesScreenn(exerciseRoutines: moderateRoutines),
+     )
+    );
+  }
+
+  void vigorousRoutine () {
+    Navigator.of(context).push(
+     MaterialPageRoute(
+       builder: (_) => ExercisesScreenn(exerciseRoutines: vigorousRoutines),
      )
     );
   }
@@ -59,15 +118,18 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
         children: [
           CategoryButton(
             categoryName: 'RUTINA LIGERA DE EJERCICIO',
-            onTap: enterRoutinee,
+            // onTap: enterRoutinee,
+            onTap: lightRoutine,
           ),
           CategoryButton(
             categoryName: 'RUTINA DE INTENSIDAD MODERADA',
-            onTap: () {}
+            // onTap: enterRoutinee,
+            onTap: moderateRoutine,
           ),
           CategoryButton(
             categoryName: 'RUTINA DE INTENSIDAD VIGOROSA',
-            onTap: () {},
+            // onTap: enterRoutinee,
+            onTap: vigorousRoutine,
           ),
         ],
       ),

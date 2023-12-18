@@ -39,9 +39,15 @@ class ExercisesScreen extends StatelessWidget {
                           ),
                           child: Text('Paso ${step.stepNumber}')
                         ),
-                        subtitle: Text(step.stepDescription),
-                        // leading: Image.network(step.stepImage), // Mostrar la imagen desde la URL
-                        leading: Text(step.stepImage), 
+                        subtitle: Text(
+                          step.stepDescription
+                        ),
+                        leading: Image.network(
+                          step.stepImage,
+                          width: 100,
+                          height: 150,
+                          // fit: BoxFit.cover,
+                        )
                       ))
                   .toList(),
             ),
