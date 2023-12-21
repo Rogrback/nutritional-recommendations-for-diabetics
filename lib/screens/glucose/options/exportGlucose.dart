@@ -1,8 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:excel/excel.dart';
+// import 'package:excel/excel.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart';
+// import 'package:syncfusion_flutter_xlsio/xlsio.dart' as xcel;
+import 'package:syncfusion_flutter_xlsio/xlsio.dart';
+// import 'package:path/path.dart';
+import 'dart:convert';
+import 'package:permission_handler/permission_handler.dart';
+
 
 class ExportGlucose extends StatefulWidget {
   const ExportGlucose({super.key});
@@ -20,100 +25,98 @@ class _ExportGlucoseState extends State<ExportGlucose> {
     {'fecha': '2023-01-02', 'hora': '03:15 PM', 'momentoMedicion': 'Antes de la cena', 'nivelGlucosa': 130},
   ];
 
+  void showDownloadSuccessAlert(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Descarga Exitosa"),
+        content: const Text("El archivo se ha descargado correctamente."),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Aceptar"),
+          ),
+        ],
+      );
+    },
+  );
+}
 
-  // void exportToExcel(List<Map<String, dynamic>> glucoseRecords) async {
-  //   try {
-  //     var excel = Excel.createExcel();
-  //     var sheet = excel['Sheet1'];
+  Future<void> requestPermissionsAndGenerateExcel() async {
+    var status = await Permission.storage.request();
+    if (status.isGranted) {
+      print("Registro autorizado");
+      generateExcel();
+      showDownloadSuccessAlert(context);
+    } else if (status.isDenied) {
+      print("El usuario denegó el permiso");
+    } else if (status.isPermanentlyDenied) {
+      print("El usuario denegó permanentemente el permiso");
+      openAppSettings();
+    } else {
+      print("Registro no autorizado");
+    }
+  }
 
-  //     // Agregar encabezados usando tu método preferido
-  //     sheet.cell(CellIndex.indexByString('A1')).value = const TextCellValue('Fecha');
-  //     sheet.cell(CellIndex.indexByString('B1')).value = const TextCellValue('Hora');
-  //     sheet.cell(CellIndex.indexByString('C1')).value = const TextCellValue('Momento de Medición');
-  //     sheet.cell(CellIndex.indexByString('D1')).value = const TextCellValue('Nivel de Glucosa');
-
-  //     // Agregar registros
-  //     for (int i = 0; i < glucoseRecords.length; i++) {
-  //       var record = glucoseRecords[i];
-  //       sheet.appendRow([
-  //         TextCellValue(record['fecha'] as String),
-  //         TextCellValue(record['hora'] as String),
-  //         TextCellValue(record['momentoMedicion'] as String),
-  //         TextCellValue(record['nivelGlucosa'].toString()),
-  //       ]);
-  //     }
-
-  //   var fileBytes = excel.save();
-  //   var directory = await getApplicationDocumentsDirectory();
-  //   var file = 'glucose_records.xlsx';
-
-  //   File(join('$directory/$file'))
-  //   ..createSync(recursive: true)
-  //   ..writeAsBytesSync(fileBytes!);
-
-  //     print('Archivo Excel guardado con éxito en: $file');
-  //   } catch (e) {
-  //     print('Error al guardar el archivo Excel: $e');
+  // Future permissionExternalStorage() async {
+  //   final isEnable = await Permission.manageExternalStorage.isGranted;
+  //   final isEnableStorage = await Permission.storage.isGranted;
+  //   if(!isEnable){
+  //     await Permission.manageExternalStorage.request();
+  //   }
+  //   if(!isEnableStorage){
+  //     await Permission.storage.request();
   //   }
   // }
 
-  Widget _buildDirectory(
-      BuildContext context, AsyncSnapshot<Directory?> snapshot) {
-    Text text = const Text('');
-    if (snapshot.connectionState == ConnectionState.done) {
-      if (snapshot.hasError) {
-        text = Text('Error: ${snapshot.error}');
-      } else if (snapshot.hasData) {
-        text = Text('path: ${snapshot.data!.path}');
-      } else {
-        text = const Text('path unavailable');
-      }
-    }
-    return Padding(padding: const EdgeInsets.all(16.0), child: text);
+  // Future<String?> _getSavedDir() async {
+  //   String? externalStorageDirPath;
+  //   if(Platform.isAndroid){
+  //     try {
+  //       // externalStorageDirPath = await AndroidPathProvider.do
+  //     } catch (err) {
+        
+  //     }
+  //   }
+  // }
+
+
+
+  Future<void> generateExcel() async {
+    final Workbook workbook = new Workbook();
+    final Worksheet sheet = workbook.worksheets[0];
+    Style globalStyle = workbook.styles.add('style');
+    globalStyle.backColor = '#37D8E9';
+    globalStyle.fontName = 'Times New Roman';
+    globalStyle.fontSize = 20;
+    globalStyle.fontColor = '#C67878';
+    globalStyle.italic = true;
+    globalStyle.bold = true;
+    globalStyle.underline = true;
+    globalStyle.wrapText = true;
+    globalStyle.indent = 1;
+    globalStyle.hAlign = HAlignType.left;
+    globalStyle.vAlign = VAlignType.bottom;
+    globalStyle.rotation = 90;
+    globalStyle.borders.all.lineStyle = LineStyle.thick;
+    globalStyle.borders.all.color = '#9954CC';
+    globalStyle.numberFormat = '_(\$* #,##0_)';
+    sheet.getRangeByName('A1').cellStyle = globalStyle;
+    globalStyle = workbook.styles.add('style1');
+    globalStyle.backColorRgb = const Color.fromARGB(245, 22, 44, 144);
+    globalStyle.fontColorRgb = const Color.fromARGB(255, 244, 22, 44);
+    globalStyle.borders.all.lineStyle = LineStyle.double;
+    globalStyle.borders.all.colorRgb = const Color.fromARGB(255, 44, 200, 44);
+    sheet.getRangeByName('A4').cellStyle = globalStyle;
+    final List<int> bytes = workbook.saveAsStream();
+    File('ApplyGlobalStyle.xlsx').writeAsBytes(bytes);
+    workbook.dispose();
   }
 
-  Future<Directory?>? _appDocumentsDirectory;
 
-  void _requestAppDocumentsDirectory() {
-    try {
-
-      var excel = Excel.createExcel();
-      var sheet = excel['Sheet1'];
-
-      // Agregar encabezados usando tu método preferido
-      sheet.cell(CellIndex.indexByString('A1')).value = const TextCellValue('Fecha');
-      sheet.cell(CellIndex.indexByString('B1')).value = const TextCellValue('Hora');
-      sheet.cell(CellIndex.indexByString('C1')).value = const TextCellValue('Momento de Medición');
-      sheet.cell(CellIndex.indexByString('D1')).value = const TextCellValue('Nivel de Glucosa');
-
-      // Agregar registros
-      for (int i = 0; i < glucoseRecords.length; i++) {
-        var record = glucoseRecords[i];
-        sheet.appendRow([
-          TextCellValue(record['fecha'] as String),
-          TextCellValue(record['hora'] as String),
-          TextCellValue(record['momentoMedicion'] as String),
-          TextCellValue(record['nivelGlucosa'].toString()),
-        ]);
-      }
-
-    var fileBytes = excel.save();
-    var directory = getApplicationDocumentsDirectory();
-    var file = 'glucose_records.xlsx';
-
-    File(join('$directory/$file'))
-    ..createSync(recursive: true)
-    ..writeAsBytesSync(fileBytes!);
-
-    setState(() {
-      _appDocumentsDirectory = getApplicationCacheDirectory();
-    });
-
-    print('Archivo Excel guardado con éxito en: $file');
-    } catch (e) {
-      print('Error al guardar el archivo Excel: $e');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,8 +129,12 @@ class _ExportGlucoseState extends State<ExportGlucose> {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: () {},
-          child: const Text('Exportar Registros')
+          onPressed: () async {
+            await requestPermissionsAndGenerateExcel();
+          },
+          // onPressed: createExcel,
+          // onPressed: () {},
+          child: const Text('Exportar Registros', style: TextStyle(color: Colors.white))
         ),
       );
   }

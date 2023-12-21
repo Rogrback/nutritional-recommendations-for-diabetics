@@ -32,7 +32,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^5.4.0
   echart_flutter: ^0.1.0+2
-  excel: ^4.0.0
   firebase_auth: ^4.15.3
   firebase_core: ^2.24.2
   firebase_storage: ^11.5.6
@@ -43,8 +42,10 @@ dependencies:
   intl: ^0.18.1
   open_file: ^3.3.2
   path_provider: ^2.1.1
-  syncfusion_flutter_xlsio: ^23.2.6
+  permission_handler: ^11.1.0
+  syncfusion_flutter_xlsio: ^24.1.41
   timezone: ^0.9.2
+  universal_html: ^2.2.4
 
 dev_dependencies:
   flutter_lints: ^2.0.0

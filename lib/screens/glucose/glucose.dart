@@ -17,9 +17,10 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   final momentController = TextEditingController();
   final _glucoseController = TextEditingController();
   final _db = FirebaseFirestore.instance;
-  String dropdownValue = "Desayuno";
+  String dropdownValue = "Ayuno";
 
   List<String> list = <String>[
+    "Ayuno",
     "Desayuno",
     "Almuerzo",
     "Cena"

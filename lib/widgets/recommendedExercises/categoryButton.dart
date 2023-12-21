@@ -22,7 +22,10 @@ class _CategoryButtonState extends State<CategoryButton> {
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
       decoration: BoxDecoration(
-        border: Border.all(),
+        color: const Color.fromARGB(255, 37, 170, 113),
+        border: Border.all(
+          color: const Color.fromARGB(255, 37, 170, 113)
+        ),
         borderRadius: BorderRadius.circular(22),
       ),
       child: ListTile(
@@ -30,11 +33,12 @@ class _CategoryButtonState extends State<CategoryButton> {
           widget.categoryName,
           style: const TextStyle(
             fontSize: 22,
+            color: Colors.white
           ),
         ),
         trailing: const Icon(
           Icons.arrow_forward_ios,
-          color: Colors.green,
+          color: Colors.white,
         ),
         onTap: widget.onTap,
       ),
