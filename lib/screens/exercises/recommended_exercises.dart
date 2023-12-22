@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:tesis_project_v1/infrastructure/models/exerciseRoutine.dart'; // Asegúrate de importar el archivo correcto
+import 'package:tesis_project_v1/screens/main.dart';
 import 'package:tesis_project_v1/widgets/main.dart';
 
 class RecommendedExercisesScreen extends StatefulWidget {
@@ -74,17 +75,13 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
     }
   }
 
-  // void enterRoutine () {
-  //   print('Probando rutina');
-  // }
-
-  // void enterRoutinee () {
-  //   Navigator.of(context).push(
-  //    MaterialPageRoute(
-  //      builder: (_) => ExercisesScreen(exerciseRoutines: exerciseRoutines),
-  //    )
-  //   );
-  // }
+  void cardioScreen () {
+    Navigator.of(context).push(
+     MaterialPageRoute(
+       builder: (_) => const ExerciseCardio(),
+     )
+    );
+  }
 
   void lightRoutine () {
     Navigator.of(context).push(
@@ -117,18 +114,19 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CategoryButton(
+            categoryName: 'EJERCICIOS DE CARDIO',
+            onTap: cardioScreen,
+          ),
+          CategoryButton(
             categoryName: 'RUTINA LIGERA DE EJERCICIO',
-            // onTap: enterRoutinee,
             onTap: lightRoutine,
           ),
           CategoryButton(
             categoryName: 'RUTINA DE INTENSIDAD MODERADA',
-            // onTap: enterRoutinee,
             onTap: moderateRoutine,
           ),
           CategoryButton(
             categoryName: 'RUTINA DE INTENSIDAD VIGOROSA',
-            // onTap: enterRoutinee,
             onTap: vigorousRoutine,
           ),
         ],

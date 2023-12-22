@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final exerciseRoutine = exerciseRoutineFromJson(jsonString);
-
 import 'dart:convert';
 
 List<ExerciseRoutine> exerciseRoutineFromJson(String str) => List<ExerciseRoutine>.from(json.decode(str).map((x) => ExerciseRoutine.fromJson(x)));

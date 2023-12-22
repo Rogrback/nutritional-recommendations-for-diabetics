@@ -1,4 +1,5 @@
 
+export 'package:tesis_project_v1/screens/exercises/cardio/exercise_cardio.dart';
 export 'package:tesis_project_v1/screens/glucose/options/exportGlucose.dart';
 export 'package:tesis_project_v1/screens/exercises/recommended_exercises.dart';
 export 'package:tesis_project_v1/screens/foods/recommended_foods.dart';
