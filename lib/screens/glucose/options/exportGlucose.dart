@@ -63,61 +63,6 @@ class _ExportGlucoseState extends State<ExportGlucose> {
     }
   }
 
-  // Future permissionExternalStorage() async {
-  //   final isEnable = await Permission.manageExternalStorage.isGranted;
-  //   final isEnableStorage = await Permission.storage.isGranted;
-  //   if(!isEnable){
-  //     await Permission.manageExternalStorage.request();
-  //   }
-  //   if(!isEnableStorage){
-  //     await Permission.storage.request();
-  //   }
-  // }
-
-  // Future<String?> _getSavedDir() async {
-  //   String? externalStorageDirPath;
-  //   if(Platform.isAndroid){
-  //     try {
-  //       // externalStorageDirPath = await AndroidPathProvider.do
-  //     } catch (err) {
-        
-  //     }
-  //   }
-  // }
-
-
-
-  // Future<void> generateExcel() async {
-  //   final Workbook workbook = new Workbook();
-  //   final Worksheet sheet = workbook.worksheets[0];
-  //   Style globalStyle = workbook.styles.add('style');
-  //   globalStyle.backColor = '#37D8E9';
-  //   globalStyle.fontName = 'Times New Roman';
-  //   globalStyle.fontSize = 20;
-  //   globalStyle.fontColor = '#C67878';
-  //   globalStyle.italic = true;
-  //   globalStyle.bold = true;
-  //   globalStyle.underline = true;
-  //   globalStyle.wrapText = true;
-  //   globalStyle.indent = 1;
-  //   globalStyle.hAlign = HAlignType.left;
-  //   globalStyle.vAlign = VAlignType.bottom;
-  //   globalStyle.rotation = 90;
-  //   globalStyle.borders.all.lineStyle = LineStyle.thick;
-  //   globalStyle.borders.all.color = '#9954CC';
-  //   globalStyle.numberFormat = '_(\$* #,##0_)';
-  //   sheet.getRangeByName('A1').cellStyle = globalStyle;
-  //   globalStyle = workbook.styles.add('style1');
-  //   globalStyle.backColorRgb = const Color.fromARGB(245, 22, 44, 144);
-  //   globalStyle.fontColorRgb = const Color.fromARGB(255, 244, 22, 44);
-  //   globalStyle.borders.all.lineStyle = LineStyle.double;
-  //   globalStyle.borders.all.colorRgb = const Color.fromARGB(255, 44, 200, 44);
-  //   sheet.getRangeByName('A4').cellStyle = globalStyle;
-  //   final List<int> bytes = workbook.saveAsStream();
-  //   File('ApplyGlobalStyle.xlsx').writeAsBytes(bytes);
-  //   workbook.dispose();
-  // }
-
   Future<void> generateAndSaveExcel() async {
     final xcel.Workbook workbook = xcel.Workbook(); // create a new excel workbook
     final xcel.Worksheet sheet = workbook.worksheets[0]; // the sheet we will be populating (only the first sheet)
@@ -164,9 +109,7 @@ class _ExportGlucoseState extends State<ExportGlucose> {
           ),
           onPressed: () async {
             await requestPermissionsAndGenerateExcel();
-          },
-          // onPressed: createExcel,
-          // onPressed: () {},
+          },    
           child: const Text('Exportar Registros', style: TextStyle(color: Colors.white))
         ),
       );

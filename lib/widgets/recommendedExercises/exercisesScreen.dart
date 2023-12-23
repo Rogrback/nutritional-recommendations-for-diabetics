@@ -11,46 +11,64 @@ class ExercisesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Rutinas de Ejercicio'),
+        backgroundColor: const Color.fromARGB(255, 37, 170, 113),
       ),
       body: ListView.builder(
         itemCount: exerciseRoutines.length,
         itemBuilder: (context, index) {
           final routine = exerciseRoutines[index];
-          return ListTile(
-            title: Container(
-              decoration: const BoxDecoration(
-                color: Colors.green
-              ),
-              child: Text(
-                routine.routineName,
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 25),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  routine.routineName,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: routine.routineSteps
-                  .map((step) => ListTile(
-                        title: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.amber
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: routine.routineSteps
+                    .map((step) => Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Paso ${step.stepNumber}',
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                  fontSize: 30
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                              Image.network(
+                                step.stepImage,
+                                width: 450,
+                                height: 160,
+                                fit: BoxFit.cover,
+                              ),
+                              const SizedBox(height: 20),
+                              Text(
+                                step.stepDescription,
+                                style: const TextStyle(
+                                  fontSize: 25
+                                ),
+                                textAlign: TextAlign.justify,
+                              ),
+                            ],
                           ),
-                          child: Text('Paso ${step.stepNumber}')
-                        ),
-                        subtitle: Text(
-                          step.stepDescription
-                        ),
-                        leading: Image.network(
-                          step.stepImage,
-                          width: 100,
-                          height: 150,
-                          // fit: BoxFit.cover,
-                        )
-                      ))
-                  .toList(),
-            ),
+                        ))
+                    .toList(),
+              ),
+              const Divider(), // Añadir un divisor entre las rutinas
+            ],
           );
         },
       ),

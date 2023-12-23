@@ -78,7 +78,7 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
   void cardioScreen () {
     Navigator.of(context).push(
      MaterialPageRoute(
-       builder: (_) => const ExerciseCardio(),
+       builder: (_) => const Cardio(),
      )
     );
   }
@@ -86,7 +86,7 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
   void lightRoutine () {
     Navigator.of(context).push(
      MaterialPageRoute(
-       builder: (_) => ExercisesScreenn(exerciseRoutines: lightRoutines),
+       builder: (_) => ExercisesScreen(exerciseRoutines: lightRoutines),
      )
     );
   }
@@ -94,7 +94,7 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
   void moderateRoutine () {
     Navigator.of(context).push(
      MaterialPageRoute(
-       builder: (_) => ExercisesScreenn(exerciseRoutines: moderateRoutines),
+       builder: (_) => ExercisesScreen(exerciseRoutines: moderateRoutines),
      )
     );
   }
@@ -102,7 +102,7 @@ class _RecommendedExercisesScreenState extends State<RecommendedExercisesScreen>
   void vigorousRoutine () {
     Navigator.of(context).push(
      MaterialPageRoute(
-       builder: (_) => ExercisesScreenn(exerciseRoutines: vigorousRoutines),
+       builder: (_) => ExercisesScreen(exerciseRoutines: vigorousRoutines),
      )
     );
   }
