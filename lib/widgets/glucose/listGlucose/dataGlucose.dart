@@ -45,12 +45,14 @@ class _DataGlucoseState extends State<DataGlucose> {
           var date = glucoseData['date'];
           var medicationMoment = glucoseData['medication_moment'];
           var time = glucoseData['time'];
+          var documentId = doc.id;
 
           return Registers(
             glucose: glucose,
             medicationMoment: medicationMoment,
             date: date,
-            time: time
+            time: time,
+            documentId: documentId,
           );
         }).toList();
 

@@ -11,8 +11,6 @@ class ListGlucoseScreen extends StatefulWidget {
 }
 
 class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
-
-  final db = FirebaseFirestore.instance;
   
   @override
   Widget build(BuildContext context) {

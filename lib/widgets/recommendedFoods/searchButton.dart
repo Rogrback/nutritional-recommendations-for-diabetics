@@ -27,7 +27,12 @@ class _SearchButtonState extends State<SearchButton> {
           borderRadius: BorderRadius.circular(8),
         ),
       ),
-      child: Text(widget.text)
+      child: Text(
+        widget.text,
+        style: const TextStyle(
+          color: Colors.white
+        ),
+      )
     );
   }
 }

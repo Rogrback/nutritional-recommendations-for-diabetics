@@ -174,7 +174,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
                             );
                           }).toList(),
                           onChanged: (String? value) {
-                            setState(() {
+                            setState(() { 
                               dropdownValue = value!;
                             });
                           },
