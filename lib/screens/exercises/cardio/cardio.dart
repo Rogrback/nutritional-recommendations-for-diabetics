@@ -21,7 +21,7 @@ class _CardioState extends State<Cardio> {
        builder: (_) => CardioScreen(
         exerciseCardio: exerciseCardio,
         imageWidth: 320.0,
-        imageHeight: 280.0
+        imageHeight: 300.0
       ),
      )
     );
@@ -35,7 +35,7 @@ class _CardioState extends State<Cardio> {
        builder: (_) => CardioScreen(
         exerciseCardio: exerciseCardio,
         imageWidth: 320.0,
-        imageHeight: 220.0
+        imageHeight: 250.0
       ),
      )
     );
@@ -59,7 +59,13 @@ class _CardioState extends State<Cardio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CardioScreen'),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Ejercicios de cardio',
+          style: TextStyle(
+            color: Colors.white
+          ),
+        ),
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
       ),
       body: Center(

@@ -82,6 +82,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: _widgetOptions[_selectedIndex],

@@ -32,7 +32,10 @@ class _ListGlucoseScreenState extends State<ListGlucoseScreen> {
            );
         },
         elevation: 2.2,
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
     );    
   }

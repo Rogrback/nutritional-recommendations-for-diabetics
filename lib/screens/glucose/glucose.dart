@@ -51,12 +51,18 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
         actions: const [
           SizedBox(width: 45)
         ],
         title: const Center(
-          child: Text('Registro de Glucosa'),
+          child: Text(
+            'Registro de Glucosa',
+            style: TextStyle(
+              color: Colors.white
+            ),
+          ),
         )
       ),
       backgroundColor: Colors.white,

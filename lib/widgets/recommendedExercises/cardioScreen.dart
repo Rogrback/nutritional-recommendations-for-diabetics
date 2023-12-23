@@ -17,7 +17,13 @@ class CardioScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(exerciseCardio.cardioName),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text(
+          exerciseCardio.cardioName,
+          style: const TextStyle(
+            color: Colors.white
+          ),
+        ),
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
       ),
       body: ListView.builder(

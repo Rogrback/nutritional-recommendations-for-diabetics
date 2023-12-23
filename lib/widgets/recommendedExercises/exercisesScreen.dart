@@ -10,7 +10,13 @@ class ExercisesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Rutinas de Ejercicio'),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Rutinas de ejercicio',
+          style: TextStyle(
+            color: Colors.white
+          ),
+        ),
         backgroundColor: const Color.fromARGB(255, 37, 170, 113),
       ),
       body: ListView.builder(
@@ -50,8 +56,8 @@ class ExercisesScreen extends StatelessWidget {
                               const SizedBox(height: 20),
                               Image.network(
                                 step.stepImage,
-                                width: 450,
-                                height: 160,
+                                width: 520,
+                                height: 130,
                                 fit: BoxFit.cover,
                               ),
                               const SizedBox(height: 20),
