@@ -1,13 +1,9 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-// import 'package:excel/excel.dart';
-import 'package:path_provider/path_provider.dart';
-// import 'package:syncfusion_flutter_xlsio/xlsio.dart' as xcel;
+import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart' as xcel;
-// import 'package:path/path.dart';
-import 'dart:convert';
 import 'package:permission_handler/permission_handler.dart';
-// import 'package:syncfusion_flutter_datagrid_export/export.dart';
 
 
 class ExportGlucose extends StatefulWidget {
@@ -26,7 +22,7 @@ class _ExportGlucoseState extends State<ExportGlucose> {
     {'fecha': '2023-01-02', 'hora': '03:15 PM', 'momentoMedicion': 'Antes de la cena', 'nivelGlucosa': 130},
   ];
 
-  void showDownloadSuccessAlert(BuildContext context) {
+  void showDownloadSuccessAlert() {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -50,51 +46,78 @@ class _ExportGlucoseState extends State<ExportGlucose> {
     var status = await Permission.storage.request();
     if (status.isGranted) {
       generateAndSaveExcel();
-      print("Registro autorizado");
-
-      showDownloadSuccessAlert(context);
+      showDownloadSuccessAlert();
     } else if (status.isDenied) {
-      print("El usuario denegó el permiso");
+      throw Exception("El usuario denegó el permiso");
     } else if (status.isPermanentlyDenied) {
-      print("El usuario denegó permanentemente el permiso");
-      openAppSettings();
+      throw Exception("El usuario denegó permanentemente el permiso");
     } else {
-      print("Registro no autorizado");
+      throw Exception("Registro no autorizado");
     }
   }
 
+
+  // Future<void> generateAndSaveExcel() async {
+  //   final xcel.Workbook workbook = xcel.Workbook();
+  //   final xcel.Worksheet sheet = workbook.worksheets[0];
+  //   const String excelFile = 'test_registers';
+    
+  //   sheet.getRangeByIndex(1, 1).setText('Fecha');
+  //   sheet.getRangeByIndex(1, 2).setText('Hora');
+  //   sheet.getRangeByIndex(1, 3).setText('Momento de medición');
+  //   sheet.getRangeByIndex(1, 4).setText('Nivel de glucosa (mg/dL)');
+
+
+  //   // save the document in the downloads file
+  //   final List<int> bytes = workbook.saveAsStream();
+  //   // print('bytes: $bytes');
+  //   File('/storage/emulated/0/Download/$excelFile.xlsx').writeAsBytes(bytes);
+  //   // print('success file');
+  //   workbook.dispose();
+  // }
+
   Future<void> generateAndSaveExcel() async {
-    final xcel.Workbook workbook = xcel.Workbook(); // create a new excel workbook
-    final xcel.Worksheet sheet = workbook.worksheets[0]; // the sheet we will be populating (only the first sheet)
-    const String excelFile = 'test_download'; // the name of the excel
+    final db = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser!.email;
+    final xcel.Workbook workbook = xcel.Workbook();
+    final xcel.Worksheet sheet = workbook.worksheets[0];
+    const String excelFile = 'test_registerss';
 
-    /// design how the data in the excel sheet will be presented
-    /// you can get the cell to populate by index e.g., (1, 1) or by name e.g., (A1)
-    sheet.getRangeByIndex(1, 1).setText('All Students');
-    sheet.getRangeByIndex(2, 1).setText('Form 4 West'); // example class
-    sheet.getRangeByIndex(4, 1).setText('Student Name');
+    sheet.getRangeByIndex(1, 1).setText('Fecha');
+    sheet.getRangeByIndex(1, 2).setText('Hora');
+    sheet.getRangeByIndex(1, 3).setText('Momento de medición');
+    sheet.getRangeByIndex(1, 4).setText('Nivel de glucosa (mg/dL)');
 
-    // set the titles for the subject results we want to fetch
-    sheet.getRangeByIndex(4, 2).setText('Maths');
-    sheet.getRangeByIndex(4, 3).setText('English');
-    sheet.getRangeByIndex(4, 4).setText('Kiswahili');
-    sheet.getRangeByIndex(4, 5).setText('Physics');
-    sheet.getRangeByIndex(4, 6).setText('Biology');
-    sheet.getRangeByIndex(4, 7).setText('Chemistry');
-    sheet.getRangeByIndex(4, 8).setText('Geography');
-    sheet.getRangeByIndex(4, 9).setText('Spanish');
-    sheet.getRangeByIndex(4, 10).setText('Total');
+    // Obtener la colección de registros de glucosa desde Firestore
+    final QuerySnapshot<Map<String, dynamic>> glucoseSnapshot =
+        await db.collection("profile").doc(user).collection("glucose").get();
+
+    // Iterar sobre los documentos y agregarlos al archivo Excel
+    int rowIndex = 2; // Comenzamos en la segunda fila para datos
+    for (final QueryDocumentSnapshot<Map<String, dynamic>> doc
+        in glucoseSnapshot.docs) {
+      final glucoseData = doc.data();
+      final date = glucoseData['date'];
+      final time = glucoseData['time'];
+      final medicationMoment = glucoseData['medication_moment'];
+      final glucose = glucoseData['glucose'].toDouble();
+
+      sheet.getRangeByIndex(rowIndex, 1).setText(date);
+      sheet.getRangeByIndex(rowIndex, 2).setText(time);
+      sheet.getRangeByIndex(rowIndex, 3).setText(medicationMoment);
+      sheet.getRangeByIndex(rowIndex, 4).setNumber(glucose);
+
+      rowIndex++;
+    }
 
     // save the document in the downloads file
     final List<int> bytes = workbook.saveAsStream();
     print('bytes: $bytes');
     File('/storage/emulated/0/Download/$excelFile.xlsx').writeAsBytes(bytes);
-
     print('success file');
-
-    //dispose the workbook
     workbook.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
