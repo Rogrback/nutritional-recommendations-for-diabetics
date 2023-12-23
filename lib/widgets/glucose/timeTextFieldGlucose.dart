@@ -21,34 +21,43 @@ class TimeTextFieldGlucose extends StatefulWidget {
 
 class _TimeTextFieldGlucoseState extends State<TimeTextFieldGlucose> {
 
-  
-
   @override
   Widget build(BuildContext context) {
 
-    var timeZoneLima = tz.getLocation('America/Lima');
+  var timeZoneLima = tz.getLocation('America/Lima');
   DateTime nowUtc = DateTime.now().toUtc();
   DateTime nowInLima = tz.TZDateTime.from(nowUtc, timeZoneLima);
 
-  void _showTimePicker() async{    
-    TimeOfDay timeInLima= TimeOfDay(hour: nowInLima.hour, minute: nowInLima.minute);
-    TimeOfDay? picketTime = await showTimePicker(
-      context: context,
-      initialTime: timeInLima
+  String formatTime(TimeOfDay time) {
+    DateTime nowUtc = DateTime.now().toUtc();
+    var limaLocation = tz.getLocation('America/Lima');
+    DateTime nowLima = tz.TZDateTime.from(nowUtc, limaLocation);
+  
+    DateTime selectedDateTime = DateTime(
+      nowLima.year,
+      nowLima.month,
+      nowLima.day,
+      time.hour,
+      time.minute,
     );
-    if(picketTime != null){
-      final DateTime nowUtc = DateTime.now().toUtc();
-      var limaLocation = tz.getLocation('America/Lima');
-      final DateTime nowLima = tz.TZDateTime.from(nowUtc, limaLocation);
-      String formattedDate= DateFormat("hh:mm a").format(nowLima);
-      setState(() {
-        widget.controller.text= formattedDate.toString();
-      });
-      }else{
-        print("Not selected");
-      }
+  
+    return DateFormat("hh:mm a").format(selectedDateTime);
+  }
 
+  void showTime() async {
+    TimeOfDay timeInLima = TimeOfDay(hour: nowInLima.hour, minute: nowInLima.minute);
+    TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: timeInLima,
+    );
+
+    if (pickedTime != null) {
+      String formattedTime = formatTime(pickedTime);
+      setState(() {
+        widget.controller.text = formattedTime;
+      });
     }
+  }
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -70,8 +79,7 @@ class _TimeTextFieldGlucoseState extends State<TimeTextFieldGlucose> {
           hintStyle: TextStyle(color: Colors.grey[500])
         ),
         onTap: () {
-          _showTimePicker();
-          print('hika');
+          showTime();
         },
       ),
     );
