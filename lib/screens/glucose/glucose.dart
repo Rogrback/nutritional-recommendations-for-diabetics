@@ -34,7 +34,7 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
       "medication_moment": dropdownValue,
       "glucose": int.parse(_glucoseController.text)
     };
-    
+    _successfulRegister;
     _db.collection("profile").doc(user).collection("glucose").add(newGlucose).then((documentSnapshot) =>
     print("Added Data with ID: ${documentSnapshot.id}"));
     // Clean form glucose
@@ -46,6 +46,27 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
       dropdownValue;
     });
   }
+
+  void _successfulRegister(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Registro exitoso'),
+        content: const Text('¡El registro se ha completado exitosamente!'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Aceptar'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +211,10 @@ class _GlucoseScreenState extends State<GlucoseScreen> {
               const SizedBox(height: 100),
               ButtonGlucose(
                 text: 'Guardar',
-                onTap: saveGlucose
+                onTap: () {
+                  saveGlucose();
+                  _successfulRegister(context);
+                }
               ),
             ],              
           ),
